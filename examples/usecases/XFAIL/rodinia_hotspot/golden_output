@@ -1,0 +1,22 @@
+hotspot_openmp.cpp: In function ‘void read_input(double*, int, int, char*)’:
+hotspot_openmp.cpp:175:48: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+   fatal ("file could not be opened for reading");
+                                                ^
+hotspot_openmp.cpp:180:36: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    fatal("not enough lines in file");
+                                    ^
+hotspot_openmp.cpp:182:31: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    fatal("invalid file format");
+                               ^
+hotspot_openmp.cpp: In function ‘int main(int, char**)’:
+hotspot_openmp.cpp:222:36: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+   fatal("unable to allocate memory");
+                                    ^
+hotspot_openmp.cpp: In function ‘<built-in>’:
+hotspot_openmp.cpp:24:8: warning: referring to global symbol ‘amb_temp’ by name from HSA code won't work
+ double amb_temp = 80.0;
+        ^
+hotspot_openmp.cpp:41:13: sorry, unimplemented: Support for HSA does not handle PHI nodes with more than 5 operands
+     #pragma omp parallel for shared(power, temp,result) private(r, c, delta) firstprivate(row, col) schedule(static)
+             ^
+hotspot_openmp.cpp:41:13: sorry, unimplemented: Support for HSA does not handle PHI nodes with more than 5 operands

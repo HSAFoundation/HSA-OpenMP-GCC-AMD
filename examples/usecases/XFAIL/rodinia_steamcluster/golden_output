@@ -1,0 +1,13 @@
+streamcluster_omp.cpp: In function ‘<built-in>’:
+streamcluster_omp.cpp:67:14: warning: referring to global symbol ‘switch_membership’ by name from HSA code won't work
+ static bool *switch_membership; //whether to switch membership in pgain
+              ^
+streamcluster_omp.cpp:69:13: warning: referring to global symbol ‘center_table’ by name from HSA code won't work
+ static int* center_table; //index table of centers
+             ^
+streamcluster_omp.cpp:67:14: warning: referring to global symbol ‘switch_membership’ by name from HSA code won't work
+ static bool *switch_membership; //whether to switch membership in pgain
+              ^
+streamcluster_omp.cpp:69:13: warning: referring to global symbol ‘center_table’ by name from HSA code won't work
+ static int* center_table; //index table of centers
+             ^

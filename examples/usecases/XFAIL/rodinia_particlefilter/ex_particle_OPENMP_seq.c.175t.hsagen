@@ -1,0 +1,5145 @@
+
+;; Function particleFilter._omp_fn.9 (particleFilter._omp_fn.9, funcdef_no=49, decl_uid=4832, cgraph_uid=47, symbol_order=50)
+
+------- Generated SSA form -------
+
+HSAIL IL for particleFilter__omp_fn_9
+BB 0:
+  ld_kernarg_u64 $_0, [%.omp_data_i]
+  Fall-through to BB 1
+
+BB 1:
+  workitemabsid_u32 $_2, 0 (u32)
+  mov_s32 $_1, $_2
+  cvt_u64 $_3, $_1
+  mul_u64 $_4, $_3, 8 (u64)
+  ld_u64 $_5, [$_0 + 16]
+  add_u64 $_6, $_5, $_4
+  ld_f64 $_7, [$_6]
+  ld_s32 $_8, [$_0 + 48]
+  ld_u64 $_9, [$_0 + 40]
+  cmp_gt_b1_s32 $_10, $_8, 0 (s32)
+  cbr $_10, BB 2
+  Fall-through to BB 7
+
+BB 2:
+  ld_f64 $_11, [$_9]
+  cmp_le_b1_f64 $_12, $_7, $_11
+  cbr $_12, BB 6
+  Fall-through to BB 4
+
+BB 3:
+  add_u64 $_13, $_14, 8 (u64)
+  mov_u64 $_16, $_13
+  add_u64 $_16, $_9, $_16
+  ld_f64 $_15, [$_16 + -8]
+  cmp_le_b1_f64 $_17, $_7, $_15
+  cbr $_17, BB 6
+  Fall-through to BB 5
+
+BB 4:
+  mov_u32 $_18, $_8
+  add_u32 $_19, $_18, 4294967295 (u32)
+  cvt_u64 $_20, $_19
+  add_u64 $_21, $_20, 1 (u64)
+  mul_u64 $_22, $_21, 8 (u64)
+  Fall-through to BB 5
+
+BB 5:
+  $_14 (u64) = PHI <8 (u64), $_13 (u64)>
+  cmp_ne_b1_u64 $_23, $_14, $_22
+  cbr $_23, BB 3
+  Fall-through to BB 7
+
+BB 6:
+  $_28 (u64) = PHI <$_14 (u64), 0 (u64), $_37 (u64)>
+  ld_u64 $_24, [$_0 + 32]
+  add_u64 $_25, $_24, $_4
+  ld_u64 $_26, [$_0 + 8]
+  add_u64 $_27, $_26, $_28
+  ld_f64 $_29, [$_27]
+  st_f64 $_29, [$_25]
+  ld_u64 $_30, [$_0 + 24]
+  add_u64 $_31, $_30, $_4
+  ld_u64 $_32, [$_0]
+  add_u64 $_33, $_32, $_28
+  ld_f64 $_34, [$_33]
+  st_f64 $_34, [$_31]
+  ret_none 
+
+BB 7:
+  add_s32 $_35, $_8, -1 (s32)
+  cvt_u64 $_36, $_35
+  mul_u64 $_37, $_36, 8 (u64)
+  Fall-through to BB 6
+
+------- After out-of-SSA: -------
+
+HSAIL IL for particleFilter__omp_fn_9
+BB 0:
+  ld_kernarg_u64 $_0, [%.omp_data_i]
+  Fall-through to BB 1
+
+BB 1:
+  workitemabsid_u32 $_2, 0 (u32)
+  mov_s32 $_1, $_2
+  cvt_u64 $_3, $_1
+  mul_u64 $_4, $_3, 8 (u64)
+  ld_u64 $_5, [$_0 + 16]
+  add_u64 $_6, $_5, $_4
+  ld_f64 $_7, [$_6]
+  ld_s32 $_8, [$_0 + 48]
+  ld_u64 $_9, [$_0 + 40]
+  cmp_gt_b1_s32 $_10, $_8, 0 (s32)
+  cbr $_10, BB 2
+  Fall-through to BB 7
+
+BB 2:
+  ld_f64 $_11, [$_9]
+  cmp_le_b1_f64 $_12, $_7, $_11
+  cbr $_12, BB 10
+  Fall-through to BB 4
+
+BB 10:
+  mov_u64 $_28, 0 (u64)
+  Fall-through to BB 6
+
+BB 3:
+  add_u64 $_13, $_14, 8 (u64)
+  mov_u64 $_16, $_13
+  add_u64 $_16, $_9, $_16
+  ld_f64 $_15, [$_16 + -8]
+  cmp_le_b1_f64 $_17, $_7, $_15
+  cbr $_17, BB 9
+  Fall-through to BB 8
+
+BB 8:
+  mov_u64 $_14, $_13
+  Fall-through to BB 5
+
+BB 4:
+  mov_u32 $_18, $_8
+  add_u32 $_19, $_18, 4294967295 (u32)
+  cvt_u64 $_20, $_19
+  add_u64 $_21, $_20, 1 (u64)
+  mul_u64 $_22, $_21, 8 (u64)
+  mov_u64 $_14, 8 (u64)
+  Fall-through to BB 5
+
+BB 5:
+  cmp_ne_b1_u64 $_23, $_14, $_22
+  cbr $_23, BB 3
+  Fall-through to BB 7
+
+BB 9:
+  mov_u64 $_28, $_14
+  Fall-through to BB 6
+
+BB 6:
+  ld_u64 $_24, [$_0 + 32]
+  add_u64 $_25, $_24, $_4
+  ld_u64 $_26, [$_0 + 8]
+  add_u64 $_27, $_26, $_28
+  ld_f64 $_29, [$_27]
+  st_f64 $_29, [$_25]
+  ld_u64 $_30, [$_0 + 24]
+  add_u64 $_31, $_30, $_4
+  ld_u64 $_32, [$_0]
+  add_u64 $_33, $_32, $_28
+  ld_f64 $_34, [$_33]
+  st_f64 $_34, [$_31]
+  ret_none 
+
+BB 7:
+  add_s32 $_35, $_8, -1 (s32)
+  cvt_u64 $_36, $_35
+  mul_u64 $_37, $_36, 8 (u64)
+  mov_u64 $_28, $_37
+  Fall-through to BB 6
+
+------- After register allocation: -------
+
+HSAIL IL for particleFilter__omp_fn_9
+BB 0:
+  ld_kernarg_u64 $d0, [%.omp_data_i]
+  Fall-through to BB 1
+
+BB 1:
+  workitemabsid_u32 $s0, 0 (u32)
+  mov_s32 $s1, $s0
+  cvt_u64 $d1, $s1
+  mul_u64 $d2, $d1, 8 (u64)
+  ld_u64 $d3, [$d0 + 16]
+  add_u64 $d4, $d3, $d2
+  ld_f64 $d5, [$d4]
+  ld_s32 $s2, [$d0 + 48]
+  ld_u64 $d6, [$d0 + 40]
+  cmp_gt_b1_s32 $c0, $s2, 0 (s32)
+  cbr $c0, BB 2
+  Fall-through to BB 7
+
+BB 2:
+  ld_f64 $d7, [$d6]
+  cmp_le_b1_f64 $c1, $d5, $d7
+  cbr $c1, BB 10
+  Fall-through to BB 4
+
+BB 10:
+  mov_u64 $d8, 0 (u64)
+  Fall-through to BB 6
+
+BB 3:
+  add_u64 $d9, $d10, 8 (u64)
+  mov_u64 $d11, $d9
+  add_u64 $d11, $d6, $d11
+  ld_f64 $d12, [$d11 + -8]
+  cmp_le_b1_f64 $c2, $d5, $d12
+  cbr $c2, BB 9
+  Fall-through to BB 8
+
+BB 8:
+  mov_u64 $d10, $d9
+  Fall-through to BB 5
+
+BB 4:
+  mov_u32 $s3, $s2
+  add_u32 $s4, $s3, 4294967295 (u32)
+  cvt_u64 $d13, $s4
+  add_u64 $d14, $d13, 1 (u64)
+  mul_u64 $d15, $d14, 8 (u64)
+  mov_u64 $d10, 8 (u64)
+  Fall-through to BB 5
+
+BB 5:
+  cmp_ne_b1_u64 $c3, $d10, $d15
+  cbr $c3, BB 3
+  Fall-through to BB 7
+
+BB 9:
+  mov_u64 $d8, $d10
+  Fall-through to BB 6
+
+BB 6:
+  ld_u64 $d16, [$d0 + 32]
+  add_u64 $d17, $d16, $d2
+  ld_u64 $d18, [$d0 + 8]
+  add_u64 $d19, $d18, $d8
+  ld_f64 $d20, [$d19]
+  st_spill_f64 $d20, [%__spill_29]
+  ld_spill_f64 $d20, [%__spill_29]
+  st_f64 $d20, [$d17]
+  ld_u64 $d20, [$d0 + 24]
+  st_spill_u64 $d20, [%__spill_30]
+  ld_spill_u64 $d21, [%__spill_30]
+  add_u64 $d20, $d21, $d2
+  st_spill_u64 $d20, [%__spill_31]
+  ld_u64 $d20, [$d0]
+  st_spill_u64 $d20, [%__spill_32]
+  ld_spill_u64 $d21, [%__spill_32]
+  add_u64 $d20, $d21, $d8
+  st_spill_u64 $d20, [%__spill_33]
+  ld_spill_u64 $d21, [%__spill_33]
+  ld_f64 $d20, [$d21]
+  st_spill_f64 $d20, [%__spill_34]
+  ld_spill_f64 $d20, [%__spill_34]
+  ld_spill_u64 $d21, [%__spill_31]
+  st_f64 $d20, [$d21]
+  ret_none 
+
+BB 7:
+  add_s32 $s5, $s2, -1 (s32)
+  cvt_u64 $d20, $s5
+  st_spill_u64 $d20, [%__spill_36]
+  ld_spill_u64 $d21, [%__spill_36]
+  mul_u64 $d20, $d21, 8 (u64)
+  st_spill_u64 $d20, [%__spill_37]
+  ld_spill_u64 $d21, [%__spill_37]
+  mov_u64 $d8, $d21
+  Fall-through to BB 6
+
+particleFilter._omp_fn.9 (struct .omp_data_s.16 * .omp_data_i)
+{
+  long unsigned int ivtmp.74;
+  int i;
+  int j;
+  long unsigned int _5;
+  long unsigned int _6;
+  double * _7;
+  double * _8;
+  double _9;
+  int _10;
+  double * _11;
+  double * _13;
+  double * _14;
+  double * _17;
+  double * _18;
+  double _19;
+  double * _21;
+  double * _22;
+  double * _23;
+  double * _24;
+  double _25;
+  long unsigned int _27;
+  double _31;
+  double _33;
+  long unsigned int _35;
+  long unsigned int _36;
+  long unsigned int pretmp_38;
+  long unsigned int prephitmp_39;
+  unsigned int _41;
+  long unsigned int pretmp_44;
+  unsigned int _46;
+
+  <bb 2>:
+  j_4 = __builtin_omp_get_thread_num ();
+  _5 = (long unsigned int) j_4;
+  _6 = _5 * 8;
+  _7 = .omp_data_i_3(D)->u;
+  _8 = _7 + _6;
+  _9 = *_8;
+  _10 = .omp_data_i_3(D)->Nparticles;
+  _11 = .omp_data_i_3(D)->CDF;
+  if (_10 > 0)
+    goto <bb 3>;
+  else
+    goto <bb 8>;
+
+  <bb 3>:
+  _33 = *_11;
+  if (_9 <= _33)
+    goto <bb 11>;
+  else
+    goto <bb 5>;
+
+  <bb 11>:
+  goto <bb 7>;
+
+  <bb 4>:
+  ivtmp.74_43 = ivtmp.74_1 + 8;
+  _31 = MEM[base: _11, index: ivtmp.74_43, offset: -8B];
+  if (_9 <= _31)
+    goto <bb 10>;
+  else
+    goto <bb 9>;
+
+  <bb 9>:
+  goto <bb 6>;
+
+  <bb 5>:
+  _46 = (unsigned int) _10;
+  _41 = _46 + 4294967295;
+  _36 = (long unsigned int) _41;
+  _35 = _36 + 1;
+  _27 = _35 * 8;
+
+  <bb 6>:
+  # ivtmp.74_1 = PHI <8(5), ivtmp.74_43(9)>
+  if (ivtmp.74_1 != _27)
+    goto <bb 4>;
+  else
+    goto <bb 8>;
+
+  <bb 10>:
+
+  <bb 7>:
+  # prephitmp_39 = PHI <ivtmp.74_1(10), 0(11), pretmp_38(8)>
+  _13 = .omp_data_i_3(D)->xj;
+  _14 = _13 + _6;
+  _17 = .omp_data_i_3(D)->arrayX;
+  _18 = _17 + prephitmp_39;
+  _19 = *_18;
+  *_14 = _19;
+  _21 = .omp_data_i_3(D)->yj;
+  _22 = _21 + _6;
+  _23 = .omp_data_i_3(D)->arrayY;
+  _24 = _23 + prephitmp_39;
+  _25 = *_24;
+  *_22 = _25;
+  return;
+
+  <bb 8>:
+  i_34 = _10 + -1;
+  pretmp_44 = (long unsigned int) i_34;
+  pretmp_38 = pretmp_44 * 8;
+  goto <bb 7>;
+
+}
+
+
+
+;; Function particleFilter._omp_fn.8 (particleFilter._omp_fn.8, funcdef_no=48, decl_uid=4821, cgraph_uid=49, symbol_order=52)
+
+------- Generated SSA form -------
+
+HSAIL IL for particleFilter__omp_fn_8
+BB 0:
+  ld_kernarg_u64 $_0, [%.omp_data_i]
+  Fall-through to BB 1
+
+BB 1:
+  workitemabsid_u32 $_2, 0 (u32)
+  mov_s32 $_1, $_2
+  cvt_u64 $_3, $_1
+  mul_u64 $_4, $_3, 8 (u64)
+  ld_u64 $_5, [$_0 + 8]
+  add_u64 $_6, $_5, $_4
+  cvt_f64 $_7, $_1
+  ld_s32 $_8, [$_0 + 16]
+  cvt_f64 $_9, $_8
+  div_f64 $_10, $_7, $_9
+  ld_f64 $_11, [$_0]
+  add_f64 $_12, $_10, $_11
+  st_f64 $_12, [$_6]
+  ret_none 
+
+------- After out-of-SSA: -------
+
+HSAIL IL for particleFilter__omp_fn_8
+BB 0:
+  ld_kernarg_u64 $_0, [%.omp_data_i]
+  Fall-through to BB 1
+
+BB 1:
+  workitemabsid_u32 $_2, 0 (u32)
+  mov_s32 $_1, $_2
+  cvt_u64 $_3, $_1
+  mul_u64 $_4, $_3, 8 (u64)
+  ld_u64 $_5, [$_0 + 8]
+  add_u64 $_6, $_5, $_4
+  cvt_f64 $_7, $_1
+  ld_s32 $_8, [$_0 + 16]
+  cvt_f64 $_9, $_8
+  div_f64 $_10, $_7, $_9
+  ld_f64 $_11, [$_0]
+  add_f64 $_12, $_10, $_11
+  st_f64 $_12, [$_6]
+  ret_none 
+
+------- After register allocation: -------
+
+HSAIL IL for particleFilter__omp_fn_8
+BB 0:
+  ld_kernarg_u64 $d0, [%.omp_data_i]
+  Fall-through to BB 1
+
+BB 1:
+  workitemabsid_u32 $s0, 0 (u32)
+  mov_s32 $s1, $s0
+  cvt_u64 $d1, $s1
+  mul_u64 $d2, $d1, 8 (u64)
+  ld_u64 $d3, [$d0 + 8]
+  add_u64 $d4, $d3, $d2
+  cvt_f64 $d5, $s1
+  ld_s32 $s2, [$d0 + 16]
+  cvt_f64 $d6, $s2
+  div_f64 $d7, $d5, $d6
+  ld_f64 $d8, [$d0]
+  add_f64 $d9, $d7, $d8
+  st_f64 $d9, [$d4]
+  ret_none 
+
+particleFilter._omp_fn.8 (struct .omp_data_s.15 * .omp_data_i)
+{
+  int x;
+  long unsigned int _4;
+  long unsigned int _5;
+  double * _6;
+  double * _7;
+  double _8;
+  int _9;
+  double _10;
+  double _11;
+  double _12;
+  double _13;
+
+  <bb 2>:
+  x_3 = __builtin_omp_get_thread_num ();
+  _4 = (long unsigned int) x_3;
+  _5 = _4 * 8;
+  _6 = .omp_data_i_2(D)->u;
+  _7 = _6 + _5;
+  _8 = (double) x_3;
+  _9 = .omp_data_i_2(D)->Nparticles;
+  _10 = (double) _9;
+  _11 = _8 / _10;
+  _12 = .omp_data_i_2(D)->u1;
+  _13 = _11 + _12;
+  *_7 = _13;
+  return;
+
+}
+
+
+
+;; Function particleFilter._omp_fn.7 (particleFilter._omp_fn.7, funcdef_no=47, decl_uid=4804, cgraph_uid=50, symbol_order=53)
+
+particleFilter._omp_fn.7 (struct .omp_data_s.14 * .omp_data_i)
+{
+  int x;
+  double ye;
+  double xe;
+  long unsigned int _4;
+  long unsigned int _5;
+  double * _6;
+  double * _7;
+  double _8;
+  double * _9;
+  double * _10;
+  double _11;
+  double _12;
+  double * _14;
+  double * _15;
+  double _16;
+  double _17;
+  double _20;
+  double _21;
+  double _23;
+  double _24;
+
+  <bb 2>:
+  x_3 = __builtin_omp_get_thread_num ();
+  _4 = (long unsigned int) x_3;
+  _5 = _4 * 8;
+  _6 = .omp_data_i_2(D)->arrayX;
+  _7 = _6 + _5;
+  _8 = *_7;
+  _9 = .omp_data_i_2(D)->weights;
+  _10 = _9 + _5;
+  _11 = *_10;
+  _12 = _8 * _11;
+  xe_13 = _12 + 0.0;
+  _14 = .omp_data_i_2(D)->arrayY;
+  _15 = _14 + _5;
+  _16 = *_15;
+  _17 = _11 * _16;
+  ye_18 = _17 + 0.0;
+  __builtin_GOMP_atomic_start ();
+  _20 = .omp_data_i_2(D)->xe;
+  _21 = _20 + xe_13;
+  .omp_data_i_2(D)->xe = _21;
+  _23 = .omp_data_i_2(D)->ye;
+  _24 = _23 + ye_18;
+  .omp_data_i_2(D)->ye = _24;
+  __builtin_GOMP_atomic_end (); [tail call]
+  return;
+
+}
+
+
+
+;; Function particleFilter._omp_fn.6 (particleFilter._omp_fn.6, funcdef_no=46, decl_uid=4793, cgraph_uid=53, symbol_order=56)
+
+particleFilter._omp_fn.6 (struct .omp_data_s.13 * .omp_data_i)
+{
+  int x;
+  long unsigned int _4;
+  long unsigned int _5;
+  double * _6;
+  double * _7;
+  double _8;
+  double _9;
+  double _10;
+
+  <bb 2>:
+  x_3 = __builtin_omp_get_thread_num ();
+  _4 = (long unsigned int) x_3;
+  _5 = _4 * 8;
+  _6 = .omp_data_i_2(D)->weights;
+  _7 = _6 + _5;
+  _8 = *_7;
+  _9 = .omp_data_i_2(D)->sumWeights;
+  _10 = _8 / _9;
+  *_7 = _10;
+  return;
+
+}
+
+
+
+;; Function particleFilter._omp_fn.4 (particleFilter._omp_fn.4, funcdef_no=44, decl_uid=4771, cgraph_uid=58, symbol_order=61)
+
+particleFilter._omp_fn.4 (struct .omp_data_s.11 * .omp_data_i)
+{
+  int x;
+  long unsigned int _4;
+  long unsigned int _5;
+  double * _6;
+  double * _7;
+  double _8;
+  double * _9;
+  double * _10;
+  double _11;
+  double _13;
+  double _14;
+
+  <bb 2>:
+  x_3 = __builtin_omp_get_thread_num ();
+  _4 = (long unsigned int) x_3;
+  _5 = _4 * 8;
+  _6 = .omp_data_i_2(D)->weights;
+  _7 = _6 + _5;
+  _8 = *_7;
+  _9 = .omp_data_i_2(D)->likelihood;
+  _10 = _9 + _5;
+  _11 = *_10;
+  _13 = exp (_11);
+  _14 = _8 * _13;
+  *_7 = _14;
+  return;
+
+}
+
+
+
+;; Function particleFilter._omp_fn.3 (particleFilter._omp_fn.3, funcdef_no=43, decl_uid=4731, cgraph_uid=60, symbol_order=63)
+
+particleFilter._omp_fn.3 (struct .omp_data_s.10 * .omp_data_i)
+{
+  unsigned long ivtmp.99;
+  unsigned long ivtmp.92;
+  int indY;
+  int indX;
+  int y;
+  int x;
+  double powmult_5;
+  double * _18;
+  double * _20;
+  double _21;
+  double _22;
+  double * _27;
+  double _29;
+  double _30;
+  int _32;
+  int _33;
+  long unsigned int _34;
+  long unsigned int _35;
+  int * _37;
+  int _38;
+  int _39;
+  int _40;
+  int _41;
+  int _42;
+  int _43;
+  int _44;
+  double _45;
+  double _46;
+  int _47;
+  int _49;
+  int _50;
+  int _51;
+  long unsigned int _52;
+  long unsigned int _53;
+  int * _54;
+  int _55;
+  int _56;
+  double * _61;
+  double * _62;
+  double * _68;
+  int _71;
+  long unsigned int _72;
+  long unsigned int _73;
+  int * _75;
+  int _76;
+  int _77;
+  double _78;
+  double powmult_79;
+  int _94;
+  double _95;
+  double _98;
+  double _99;
+  double _103;
+  void * _105;
+  double _109;
+  double _110;
+  int _123;
+  int _128;
+  long unsigned int pretmp_207;
+  long unsigned int pretmp_208;
+  double * pretmp_209;
+  double * pretmp_211;
+  double pretmp_212;
+  double * pretmp_218;
+  double * pretmp_220;
+  double * pretmp_222;
+  double pretmp_223;
+  int * pretmp_226;
+  int pretmp_229;
+  double pretmp_230;
+  int pretmp_231;
+  double pretmp_232;
+  int pretmp_233;
+  int prephitmp_234;
+  long unsigned int pretmp_247;
+  long unsigned int pretmp_249;
+  int * pretmp_271;
+  int pretmp_273;
+  int * pretmp_274;
+  double prephitmp_276;
+  int prephitmp_285;
+  int * _289;
+  sizetype _290;
+  sizetype _291;
+  double prephitmp_295;
+
+  <bb 2>:
+  x_8 = __builtin_omp_get_thread_num ();
+  _123 = .omp_data_i_7(D)->countOnes;
+  if (_123 > 0)
+    goto <bb 8>;
+  else
+    goto <bb 3>;
+
+  <bb 3>:
+  pretmp_247 = (long unsigned int) x_8;
+  pretmp_249 = pretmp_247 * 8;
+  _27 = .omp_data_i_7(D)->likelihood;
+  _18 = _27 + pretmp_249;
+  *_18 = 0.0;
+
+  <bb 4>:
+  # prephitmp_295 = PHI <_103(7), 0.0(11), 0.0(3)>
+  # _20 = PHI <_62(7), _62(11), _18(3)>
+  # prephitmp_285 = PHI <prephitmp_234(7), prephitmp_234(11), _123(3)>
+  _109 = (double) prephitmp_285;
+  _110 = prephitmp_295 / _109;
+  *_20 = _110;
+  return;
+
+  <bb 5>:
+  pretmp_271 = .omp_data_i_7(D)->ind;
+  pretmp_273 = x_8 * prephitmp_234;
+  pretmp_274 = .omp_data_i_7(D)->I;
+  _291 = (sizetype) pretmp_273;
+  _290 = _291 * 4;
+  _289 = pretmp_271 + _290;
+
+  <bb 6>:
+  # prephitmp_276 = PHI <0.0(5), _103(6)>
+  # ivtmp.92_292 = PHI <0(5), ivtmp.92_104(6)>
+  _71 = MEM[base: _289, index: ivtmp.92_292, step: 4, offset: 0B];
+  _72 = (long unsigned int) _71;
+  _73 = _72 * 4;
+  _75 = pretmp_274 + _73;
+  _76 = *_75;
+  _77 = _76 + -100;
+  _78 = (double) _77;
+  powmult_5 = _78 * _78;
+  _94 = _76 + -228;
+  _95 = (double) _94;
+  powmult_79 = _95 * _95;
+  _98 = powmult_5 - powmult_79;
+  _99 = _98 / 5.0e+1;
+  _103 = _99 + prephitmp_276;
+  ivtmp.92_104 = ivtmp.92_292 + 1;
+  y_287 = (int) ivtmp.92_104;
+  if (prephitmp_234 > y_287)
+    goto <bb 6>;
+  else
+    goto <bb 7>;
+
+  <bb 7>:
+  *_62 = _103;
+  goto <bb 4>;
+
+  <bb 8>:
+  pretmp_207 = (long unsigned int) x_8;
+  pretmp_208 = pretmp_207 * 8;
+  pretmp_209 = .omp_data_i_7(D)->arrayX;
+  pretmp_211 = pretmp_209 + pretmp_208;
+  pretmp_212 = *pretmp_211;
+  pretmp_218 = .omp_data_i_7(D)->objxy;
+  pretmp_220 = .omp_data_i_7(D)->arrayY;
+  pretmp_222 = pretmp_220 + pretmp_208;
+  pretmp_223 = *pretmp_222;
+  pretmp_226 = .omp_data_i_7(D)->ind;
+  pretmp_229 = (int) pretmp_212;
+  pretmp_230 = (double) pretmp_229;
+  pretmp_231 = (int) pretmp_223;
+  pretmp_232 = (double) pretmp_231;
+  _68 = pretmp_218 + 8;
+  ivtmp.99_67 = (unsigned long) _68;
+
+  <bb 9>:
+  # y_118 = PHI <0(8), y_58(10)>
+  # _128 = PHI <_123(8), prephitmp_234(10)>
+  # ivtmp.99_126 = PHI <ivtmp.99_67(8), ivtmp.99_66(10)>
+  _105 = (void *) ivtmp.99_126;
+  _21 = MEM[base: _105, offset: 0B];
+  _22 = _21 + pretmp_230;
+  indX_23 = (int) _22;
+  _29 = MEM[base: _105, offset: -8B];
+  _30 = _29 + pretmp_232;
+  indY_31 = (int) _30;
+  _32 = x_8 * _128;
+  _33 = _32 + y_118;
+  _34 = (long unsigned int) _33;
+  _35 = _34 * 4;
+  _37 = pretmp_226 + _35;
+  _38 = .omp_data_i_7(D)->IszY;
+  _39 = indX_23 * _38;
+  _40 = _39 + indY_31;
+  _41 = .omp_data_i_7(D)->Nfr;
+  _42 = _40 * _41;
+  _43 = .omp_data_i_7(D)->k;
+  _44 = _42 + _43;
+  _45 = (double) _44;
+  _46 = ABS_EXPR <_45>;
+  _47 = (int) _46;
+  *_37 = _47;
+  _49 = .omp_data_i_7(D)->countOnes;
+  _50 = x_8 * _49;
+  _51 = _50 + y_118;
+  _52 = (long unsigned int) _51;
+  _53 = _52 * 4;
+  _54 = pretmp_226 + _53;
+  _55 = *_54;
+  _56 = .omp_data_i_7(D)->max_size;
+  if (_55 >= _56)
+    goto <bb 12>;
+  else
+    goto <bb 10>;
+
+  <bb 10>:
+  # prephitmp_234 = PHI <_49(9), pretmp_233(12)>
+  y_58 = y_118 + 1;
+  ivtmp.99_66 = ivtmp.99_126 + 16;
+  if (y_58 < prephitmp_234)
+    goto <bb 9>;
+  else
+    goto <bb 11>;
+
+  <bb 11>:
+  _61 = .omp_data_i_7(D)->likelihood;
+  _62 = _61 + pretmp_208;
+  *_62 = 0.0;
+  if (prephitmp_234 > 0)
+    goto <bb 5>;
+  else
+    goto <bb 4>;
+
+  <bb 12>:
+  *_54 = 0;
+  pretmp_233 = .omp_data_i_7(D)->countOnes;
+  goto <bb 10>;
+
+}
+
+
+
+;; Function particleFilter._omp_fn.2 (particleFilter._omp_fn.2, funcdef_no=42, decl_uid=4718, cgraph_uid=61, symbol_order=64)
+
+particleFilter._omp_fn.2 (struct .omp_data_s.9 * .omp_data_i)
+{
+  double cosine;
+  double rt;
+  int num;
+  int num;
+  double cosine;
+  double rt;
+  int num;
+  int num;
+  int x;
+  int * _4;
+  double _5;
+  double _6;
+  long unsigned int _7;
+  double * _8;
+  double * _9;
+  double _10;
+  double _11;
+  int * _13;
+  double _15;
+  double _16;
+  double * _17;
+  double * _18;
+  double _19;
+  double _20;
+  long unsigned int _22;
+  long unsigned int _23;
+  int * _24;
+  int _25;
+  int A.1_26;
+  int _27;
+  int C.2_28;
+  long int _30;
+  long int M.3_31;
+  long int _32;
+  int _33;
+  double _34;
+  double _35;
+  double _36;
+  double _37;
+  int A.1_38;
+  int _39;
+  int C.2_40;
+  long int _42;
+  long int _43;
+  int _44;
+  double _45;
+  double _46;
+  double _47;
+  double _48;
+  double _50;
+  double _52;
+  double _53;
+  int * _54;
+  int _55;
+  int A.1_56;
+  int _57;
+  int C.2_58;
+  long int _60;
+  long int M.3_61;
+  long int _62;
+  int _63;
+  double _64;
+  double _65;
+  double _66;
+  double _67;
+  int A.1_68;
+  int _69;
+  int C.2_70;
+  long int _72;
+  long int _73;
+  int _74;
+  double _75;
+  double _76;
+  double _77;
+  double _78;
+  double _80;
+  double _82;
+  double _83;
+
+  <bb 2>:
+  x_3 = __builtin_omp_get_thread_num ();
+  _4 = .omp_data_i_2(D)->seed;
+  _22 = (long unsigned int) x_3;
+  _23 = _22 * 4;
+  _24 = _4 + _23;
+  _25 = *_24;
+  A.1_26 = A;
+  _27 = _25 * A.1_26;
+  C.2_28 = C;
+  num_29 = _27 + C.2_28;
+  _30 = (long int) num_29;
+  M.3_31 = M;
+  _32 = _30 % M.3_31;
+  _33 = (int) _32;
+  *_24 = _33;
+  _34 = (double) _33;
+  _35 = (double) M.3_31;
+  _36 = _34 / _35;
+  _37 = ABS_EXPR <_36>;
+  A.1_38 = A;
+  _39 = _33 * A.1_38;
+  C.2_40 = C;
+  num_41 = _39 + C.2_40;
+  _42 = (long int) num_41;
+  _43 = _42 % M.3_31;
+  _44 = (int) _43;
+  *_24 = _44;
+  _45 = (double) _44;
+  _46 = _45 / _35;
+  _47 = ABS_EXPR <_46>;
+  _48 = _47 * 6.28318530717958623199592693708837032318115234375e+0;
+  cosine_49 = cos (_48);
+  _50 = log (_37);
+  rt_51 = _50 * -2.0e+0;
+  _52 = sqrt (rt_51);
+  _53 = _52 * cosine_49;
+  _5 = _53 * 5.0e+0;
+  _6 = _5 + 1.0e+0;
+  _7 = _22 * 8;
+  _8 = .omp_data_i_2(D)->arrayX;
+  _9 = _8 + _7;
+  _10 = *_9;
+  _11 = _10 + _6;
+  *_9 = _11;
+  _13 = .omp_data_i_2(D)->seed;
+  _54 = _13 + _23;
+  _55 = *_54;
+  A.1_56 = A;
+  _57 = _55 * A.1_56;
+  C.2_58 = C;
+  num_59 = _57 + C.2_58;
+  _60 = (long int) num_59;
+  M.3_61 = M;
+  _62 = _60 % M.3_61;
+  _63 = (int) _62;
+  *_54 = _63;
+  _64 = (double) _63;
+  _65 = (double) M.3_61;
+  _66 = _64 / _65;
+  _67 = ABS_EXPR <_66>;
+  A.1_68 = A;
+  _69 = _63 * A.1_68;
+  C.2_70 = C;
+  num_71 = _69 + C.2_70;
+  _72 = (long int) num_71;
+  _73 = _72 % M.3_61;
+  _74 = (int) _73;
+  *_54 = _74;
+  _75 = (double) _74;
+  _76 = _75 / _65;
+  _77 = ABS_EXPR <_76>;
+  _78 = _77 * 6.28318530717958623199592693708837032318115234375e+0;
+  cosine_79 = cos (_78);
+  _80 = log (_67);
+  rt_81 = _80 * -2.0e+0;
+  _82 = sqrt (rt_81);
+  _83 = _82 * cosine_79;
+  _15 = _83 * 2.0e+0;
+  _16 = _15 - 2.0e+0;
+  _17 = .omp_data_i_2(D)->arrayY;
+  _18 = _17 + _7;
+  _19 = *_18;
+  _20 = _19 + _16;
+  *_18 = _20;
+  return;
+
+}
+
+
+
+;; Function particleFilter._omp_fn.1 (particleFilter._omp_fn.1, funcdef_no=41, decl_uid=4703, cgraph_uid=62, symbol_order=65)
+
+particleFilter._omp_fn.1 (struct .omp_data_s.8 * .omp_data_i)
+{
+  int x;
+  long unsigned int _4;
+  long unsigned int _5;
+  double * _6;
+  double * _7;
+  double _8;
+  double * _10;
+  double * _11;
+  double _12;
+
+  <bb 2>:
+  x_3 = __builtin_omp_get_thread_num ();
+  _4 = (long unsigned int) x_3;
+  _5 = _4 * 8;
+  _6 = .omp_data_i_2(D)->arrayX;
+  _7 = _6 + _5;
+  _8 = .omp_data_i_2(D)->xe;
+  *_7 = _8;
+  _10 = .omp_data_i_2(D)->arrayY;
+  _11 = _10 + _5;
+  _12 = .omp_data_i_2(D)->ye;
+  *_11 = _12;
+  return;
+
+}
+
+
+
+;; Function particleFilter._omp_fn.0 (particleFilter._omp_fn.0, funcdef_no=40, decl_uid=4694, cgraph_uid=63, symbol_order=66)
+
+particleFilter._omp_fn.0 (struct .omp_data_s.7 * .omp_data_i)
+{
+  int x;
+  long unsigned int _4;
+  long unsigned int _5;
+  double * _6;
+  double * _7;
+  int _8;
+  double _9;
+  double _10;
+
+  <bb 2>:
+  x_3 = __builtin_omp_get_thread_num ();
+  _4 = (long unsigned int) x_3;
+  _5 = _4 * 8;
+  _6 = .omp_data_i_2(D)->weights;
+  _7 = _6 + _5;
+  _8 = .omp_data_i_2(D)->Nparticles;
+  _9 = (double) _8;
+  _10 = 1.0e+0 / _9;
+  *_7 = _10;
+  return;
+
+}
+
+
+
+;; Function particleFilter._omp_fn.5.constprop (particleFilter._omp_fn.5.constprop.10, funcdef_no=55, decl_uid=5544, cgraph_uid=0, symbol_order=120)
+
+particleFilter._omp_fn.5.constprop (struct .omp_data_s.12 * .omp_data_i)
+{
+  unsigned long ivtmp.114;
+  double sumWeights;
+  int x;
+  int _2;
+  int _3;
+  int _4;
+  int q.31_5;
+  int tt.32_6;
+  int q.31_7;
+  int _8;
+  int tt.32_9;
+  int _11;
+  sizetype _13;
+  double _17;
+  double * _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  double _24;
+  double _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  int q.31_29;
+  unsigned long _41;
+  double * _42;
+  sizetype _43;
+  sizetype _44;
+  sizetype _46;
+  unsigned int _47;
+  unsigned int _48;
+  unsigned int _49;
+  unsigned int _50;
+  void * _52;
+  double * _53;
+  double * pretmp_54;
+  long unsigned int _56;
+  long unsigned int _57;
+
+  <bb 2>:
+  _2 = .omp_data_i_1(D)->Nparticles;
+  _3 = __builtin_omp_get_num_threads ();
+  _4 = __builtin_omp_get_thread_num ();
+  q.31_5 = _2 / _3;
+  tt.32_6 = _2 % _3;
+  if (_4 < tt.32_6)
+    goto <bb 9>;
+  else
+    goto <bb 3>;
+
+  <bb 3>:
+  # q.31_7 = PHI <q.31_5(2), q.31_29(9)>
+  # tt.32_9 = PHI <tt.32_6(2), 0(9)>
+  _8 = _4 * q.31_7;
+  x_10 = _8 + tt.32_9;
+  _11 = q.31_7 + x_10;
+  if (x_10 >= _11)
+    goto <bb 6>;
+  else
+    goto <bb 4>;
+
+  <bb 4>:
+  pretmp_54 = .omp_data_i_1(D)->weights;
+  _57 = (long unsigned int) x_10;
+  _56 = _57 * 8;
+  _53 = pretmp_54 + _56;
+  ivtmp.114_58 = (unsigned long) _53;
+  _50 = (unsigned int) _11;
+  _49 = (unsigned int) x_10;
+  _48 = _50 - _49;
+  _47 = _48 + 4294967295;
+  _46 = (sizetype) _47;
+  _13 = _57 + 1;
+  _44 = _13 + _46;
+  _43 = _44 * 8;
+  _42 = pretmp_54 + _43;
+  _41 = (unsigned long) _42;
+
+  <bb 5>:
+  # sumWeights_18 = PHI <0.0(4), sumWeights_19(5)>
+  # ivtmp.114_60 = PHI <ivtmp.114_58(4), ivtmp.114_59(5)>
+  _52 = (void *) ivtmp.114_60;
+  _17 = MEM[base: _52, offset: 0B];
+  sumWeights_19 = _17 + sumWeights_18;
+  ivtmp.114_59 = ivtmp.114_60 + 8;
+  if (ivtmp.114_59 != _41)
+    goto <bb 5>;
+  else
+    goto <bb 6>;
+
+  <bb 6>:
+  # sumWeights_25 = PHI <0.0(3), sumWeights_19(5)>
+  _21 = &.omp_data_i_1(D)->sumWeights;
+  _22 = __atomic_load_8 (_21, 0);
+
+  <bb 7>:
+  # _23 = PHI <_22(6), _28(7)>
+  _24 = VIEW_CONVERT_EXPR<double>(_23);
+  _26 = _24 + sumWeights_25;
+  _27 = VIEW_CONVERT_EXPR<long unsigned int>(_26);
+  _28 = __sync_val_compare_and_swap_8 (_21, _23, _27);
+  if (_23 != _28)
+    goto <bb 7>;
+  else
+    goto <bb 8>;
+
+  <bb 8>:
+  return;
+
+  <bb 9>:
+  q.31_29 = q.31_5 + 1;
+  goto <bb 3>;
+
+}
+
+
+
+;; Function get_time (get_time, funcdef_no=23, decl_uid=3958, cgraph_uid=23, symbol_order=26)
+
+get_time ()
+{
+  struct timeval tv;
+  long int _3;
+  long int _4;
+  long int _5;
+  long long int _6;
+
+  <bb 2>:
+  gettimeofday (&tv, 0B);
+  _3 = tv.tv_sec;
+  _4 = _3 * 1000000;
+  _5 = tv.tv_usec;
+  _6 = _4 + _5;
+  tv ={v} {CLOBBER};
+  return _6;
+
+}
+
+
+
+;; Function elapsed_time (elapsed_time, funcdef_no=24, decl_uid=3963, cgraph_uid=24, symbol_order=27)
+
+elapsed_time (long long int start_time, long long int end_time)
+{
+  long long int _3;
+  float _4;
+  float _5;
+
+  <bb 2>:
+  _3 = end_time_1(D) - start_time_2(D);
+  _4 = (float) _3;
+  _5 = _4 / 1.0e+6;
+  return _5;
+
+}
+
+
+
+;; Function roundDouble (roundDouble, funcdef_no=25, decl_uid=3966, cgraph_uid=25, symbol_order=28)
+
+roundDouble (double value)
+{
+  int newValue;
+  double _3;
+
+  <bb 2>:
+  newValue_2 = (int) value_1(D);
+  _3 = (double) newValue_2;
+  return _3;
+
+}
+
+
+
+;; Function setIf (setIf, funcdef_no=26, decl_uid=3975, cgraph_uid=26, symbol_order=29)
+
+setIf (int testValue, int newValue, int * array3D, int * dimX, int * dimY, int * dimZ)
+{
+  int z;
+  int y;
+  int x;
+  int _16;
+  int _17;
+  int _19;
+  int _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  int * _24;
+  int _25;
+  int _35;
+  int _49;
+  int prephitmp_55;
+  int prephitmp_57;
+  int _61;
+  int prephitmp_63;
+  int prephitmp_67;
+  int pretmp_70;
+  int prephitmp_71;
+  int prephitmp_78;
+  int prephitmp_79;
+  int pretmp_80;
+  int prephitmp_81;
+  int prephitmp_82;
+  int pretmp_83;
+  int prephitmp_84;
+  int pretmp_85;
+  int prephitmp_86;
+  int pretmp_87;
+  int prephitmp_88;
+
+  <bb 2>:
+  _35 = *dimX_9(D);
+  if (_35 > 0)
+    goto <bb 3>;
+  else
+    goto <bb 14>;
+
+  <bb 3>:
+  pretmp_83 = *dimY_11(D);
+  goto <bb 12>;
+
+  <bb 4>:
+  # z_62 = PHI <0(9)>
+  # _61 = PHI <prephitmp_86(9)>
+  # prephitmp_63 = PHI <prephitmp_57(9)>
+
+  <bb 5>:
+  # z_44 = PHI <z_62(4), z_30(7)>
+  # _49 = PHI <_61(4), prephitmp_88(7)>
+  # prephitmp_67 = PHI <prephitmp_63(4), prephitmp_71(7)>
+  _16 = x_42 * prephitmp_67;
+  _17 = _16 + y_43;
+  _19 = _49 * _17;
+  _20 = _19 + z_44;
+  _21 = (long unsigned int) _20;
+  _22 = _21 * 4;
+  _24 = array3D_23(D) + _22;
+  _25 = *_24;
+  if (_25 == testValue_26(D))
+    goto <bb 6>;
+  else
+    goto <bb 7>;
+
+  <bb 6>:
+  *_24 = newValue_28(D);
+  pretmp_70 = *dimY_11(D);
+  pretmp_87 = *dimZ_13(D);
+
+  <bb 7>:
+  # prephitmp_71 = PHI <prephitmp_67(5), pretmp_70(6)>
+  # prephitmp_88 = PHI <_49(5), pretmp_87(6)>
+  z_30 = z_44 + 1;
+  if (z_30 < prephitmp_88)
+    goto <bb 5>;
+  else
+    goto <bb 8>;
+
+  <bb 8>:
+  # prephitmp_78 = PHI <prephitmp_71(7), prephitmp_57(9)>
+  # prephitmp_79 = PHI <prephitmp_88(7), prephitmp_86(9)>
+  y_31 = y_43 + 1;
+  if (y_31 < prephitmp_78)
+    goto <bb 9>;
+  else
+    goto <bb 10>;
+
+  <bb 9>:
+  # y_43 = PHI <0(13), y_31(8)>
+  # prephitmp_57 = PHI <prephitmp_84(13), prephitmp_78(8)>
+  # prephitmp_86 = PHI <pretmp_85(13), prephitmp_79(8)>
+  if (prephitmp_86 > 0)
+    goto <bb 4>;
+  else
+    goto <bb 8>;
+
+  <bb 10>:
+  pretmp_80 = *dimX_9(D);
+
+  <bb 11>:
+  # prephitmp_81 = PHI <pretmp_80(10), prephitmp_55(12)>
+  # prephitmp_82 = PHI <prephitmp_78(10), prephitmp_84(12)>
+  x_32 = x_42 + 1;
+  if (x_32 < prephitmp_81)
+    goto <bb 12>;
+  else
+    goto <bb 14>;
+
+  <bb 12>:
+  # x_42 = PHI <0(3), x_32(11)>
+  # prephitmp_55 = PHI <_35(3), prephitmp_81(11)>
+  # prephitmp_84 = PHI <pretmp_83(3), prephitmp_82(11)>
+  if (prephitmp_84 > 0)
+    goto <bb 13>;
+  else
+    goto <bb 11>;
+
+  <bb 13>:
+  pretmp_85 = *dimZ_13(D);
+  goto <bb 9>;
+
+  <bb 14>:
+  return;
+
+}
+
+
+
+;; Function randu (randu, funcdef_no=27, decl_uid=3991, cgraph_uid=27, symbol_order=30)
+
+randu (int * seed, int index)
+{
+  int num;
+  long unsigned int _2;
+  long unsigned int _3;
+  int * _5;
+  int _7;
+  int A.1_8;
+  int _9;
+  int C.2_10;
+  long int _12;
+  long int M.3_13;
+  long int _14;
+  int _15;
+  double _17;
+  double _18;
+  double _19;
+  double _20;
+
+  <bb 2>:
+  _2 = (long unsigned int) index_1(D);
+  _3 = _2 * 4;
+  _5 = seed_4(D) + _3;
+  _7 = *_5;
+  A.1_8 = A;
+  _9 = _7 * A.1_8;
+  C.2_10 = C;
+  num_11 = _9 + C.2_10;
+  _12 = (long int) num_11;
+  M.3_13 = M;
+  _14 = _12 % M.3_13;
+  _15 = (int) _14;
+  *_5 = _15;
+  _17 = (double) _15;
+  _18 = (double) M.3_13;
+  _19 = _17 / _18;
+  _20 = ABS_EXPR <_19>;
+  return _20;
+
+}
+
+
+
+;; Function randn (randn, funcdef_no=28, decl_uid=3996, cgraph_uid=28, symbol_order=31)
+
+randn (int * seed, int index)
+{
+  int num;
+  int num;
+  double rt;
+  double cosine;
+  double _5;
+  double _8;
+  double _11;
+  double _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  int * _15;
+  int _16;
+  int A.1_17;
+  int _18;
+  int C.2_19;
+  long int _21;
+  long int M.3_22;
+  long int _23;
+  int _24;
+  double _25;
+  double _26;
+  double _27;
+  double _28;
+  int A.1_29;
+  int _30;
+  int C.2_31;
+  long int _33;
+  long int _34;
+  int _35;
+  double _36;
+  double _37;
+  double _38;
+
+  <bb 2>:
+  _13 = (long unsigned int) index_3(D);
+  _14 = _13 * 4;
+  _15 = seed_2(D) + _14;
+  _16 = *_15;
+  A.1_17 = A;
+  _18 = _16 * A.1_17;
+  C.2_19 = C;
+  num_20 = _18 + C.2_19;
+  _21 = (long int) num_20;
+  M.3_22 = M;
+  _23 = _21 % M.3_22;
+  _24 = (int) _23;
+  *_15 = _24;
+  _25 = (double) _24;
+  _26 = (double) M.3_22;
+  _27 = _25 / _26;
+  _28 = ABS_EXPR <_27>;
+  A.1_29 = A;
+  _30 = _24 * A.1_29;
+  C.2_31 = C;
+  num_32 = _30 + C.2_31;
+  _33 = (long int) num_32;
+  _34 = _33 % M.3_22;
+  _35 = (int) _34;
+  *_15 = _35;
+  _36 = (double) _35;
+  _37 = _36 / _26;
+  _38 = ABS_EXPR <_37>;
+  _5 = _38 * 6.28318530717958623199592693708837032318115234375e+0;
+  cosine_6 = cos (_5);
+  _8 = log (_28);
+  rt_9 = _8 * -2.0e+0;
+  _11 = sqrt (rt_9);
+  _12 = _11 * cosine_6;
+  return _12;
+
+}
+
+
+
+;; Function addNoise (addNoise, funcdef_no=29, decl_uid=4007, cgraph_uid=29, symbol_order=32)
+
+addNoise (int * array3D, int * dimX, int * dimY, int * dimZ, int * seed)
+{
+  int num;
+  int num;
+  double rt;
+  double cosine;
+  int z;
+  int y;
+  int x;
+  int _13;
+  int _15;
+  int _16;
+  int _18;
+  int _19;
+  long unsigned int _20;
+  long unsigned int _21;
+  int _23;
+  int * _24;
+  int _25;
+  double _29;
+  int _30;
+  int _31;
+  int _39;
+  int A.1_40;
+  int _41;
+  int C.2_42;
+  long int _44;
+  long int M.3_45;
+  long int _46;
+  int _47;
+  double _48;
+  double _49;
+  double _50;
+  double _51;
+  int A.1_52;
+  int _53;
+  int C.2_54;
+  long int _56;
+  long int _57;
+  int _58;
+  double _59;
+  double _60;
+  double _61;
+  double _62;
+  double _64;
+  double _66;
+  double _67;
+  int _83;
+  int prephitmp_137;
+  int prephitmp_139;
+  int _141;
+  int prephitmp_143;
+  int pretmp_148;
+  int prephitmp_149;
+  int pretmp_151;
+  int prephitmp_152;
+  int prephitmp_153;
+  int pretmp_154;
+  int prephitmp_155;
+  int prephitmp_156;
+  int pretmp_157;
+  int prephitmp_158;
+  int pretmp_159;
+  int prephitmp_160;
+
+  <bb 2>:
+  _23 = *dimX_8(D);
+  if (_23 > 0)
+    goto <bb 3>;
+  else
+    goto <bb 14>;
+
+  <bb 3>:
+  pretmp_157 = *dimY_10(D);
+  goto <bb 12>;
+
+  <bb 4>:
+  pretmp_148 = *dimY_10(D);
+
+  <bb 5>:
+  # z_78 = PHI <z_140(9), z_33(4)>
+  # _83 = PHI <_141(9), _13(4)>
+  # prephitmp_149 = PHI <prephitmp_143(9), pretmp_148(4)>
+  _15 = x_76 * prephitmp_149;
+  _16 = _15 + y_77;
+  _18 = _83 * _16;
+  _19 = _18 + z_78;
+  _20 = (long unsigned int) _19;
+  _21 = _20 * 4;
+  _24 = array3D_22(D) + _21;
+  _25 = *_24;
+  _39 = *seed_26(D);
+  A.1_40 = A;
+  _41 = _39 * A.1_40;
+  C.2_42 = C;
+  num_43 = _41 + C.2_42;
+  _44 = (long int) num_43;
+  M.3_45 = M;
+  _46 = _44 % M.3_45;
+  _47 = (int) _46;
+  *seed_26(D) = _47;
+  _48 = (double) _47;
+  _49 = (double) M.3_45;
+  _50 = _48 / _49;
+  _51 = ABS_EXPR <_50>;
+  A.1_52 = A;
+  _53 = _47 * A.1_52;
+  C.2_54 = C;
+  num_55 = _53 + C.2_54;
+  _56 = (long int) num_55;
+  _57 = _56 % M.3_45;
+  _58 = (int) _57;
+  *seed_26(D) = _58;
+  _59 = (double) _58;
+  _60 = _59 / _49;
+  _61 = ABS_EXPR <_60>;
+  _62 = _61 * 6.28318530717958623199592693708837032318115234375e+0;
+  cosine_63 = cos (_62);
+  _64 = log (_51);
+  rt_65 = _64 * -2.0e+0;
+  _66 = sqrt (rt_65);
+  _67 = cosine_63 * _66;
+  _29 = _67 * 5.0e+0;
+  _30 = (int) _29;
+  _31 = _25 + _30;
+  *_24 = _31;
+  z_33 = z_78 + 1;
+  _13 = *dimZ_12(D);
+  if (_13 > z_33)
+    goto <bb 4>;
+  else
+    goto <bb 6>;
+
+  <bb 6>:
+  pretmp_151 = *dimY_10(D);
+
+  <bb 7>:
+  # prephitmp_152 = PHI <pretmp_151(6), prephitmp_139(8)>
+  # prephitmp_153 = PHI <_13(6), prephitmp_160(8)>
+  y_34 = y_77 + 1;
+  if (y_34 < prephitmp_152)
+    goto <bb 8>;
+  else
+    goto <bb 10>;
+
+  <bb 8>:
+  # y_77 = PHI <0(13), y_34(7)>
+  # prephitmp_139 = PHI <prephitmp_158(13), prephitmp_152(7)>
+  # prephitmp_160 = PHI <pretmp_159(13), prephitmp_153(7)>
+  if (prephitmp_160 > 0)
+    goto <bb 9>;
+  else
+    goto <bb 7>;
+
+  <bb 9>:
+  # z_140 = PHI <0(8)>
+  # _141 = PHI <prephitmp_160(8)>
+  # prephitmp_143 = PHI <prephitmp_139(8)>
+  goto <bb 5>;
+
+  <bb 10>:
+  pretmp_154 = *dimX_8(D);
+
+  <bb 11>:
+  # prephitmp_155 = PHI <pretmp_154(10), prephitmp_137(12)>
+  # prephitmp_156 = PHI <prephitmp_152(10), prephitmp_158(12)>
+  x_35 = x_76 + 1;
+  if (x_35 < prephitmp_155)
+    goto <bb 12>;
+  else
+    goto <bb 14>;
+
+  <bb 12>:
+  # x_76 = PHI <0(3), x_35(11)>
+  # prephitmp_137 = PHI <_23(3), prephitmp_155(11)>
+  # prephitmp_158 = PHI <pretmp_157(3), prephitmp_156(11)>
+  if (prephitmp_158 > 0)
+    goto <bb 13>;
+  else
+    goto <bb 11>;
+
+  <bb 13>:
+  pretmp_159 = *dimZ_12(D);
+  goto <bb 8>;
+
+  <bb 14>:
+  return;
+
+}
+
+
+
+;; Function strelDisk (strelDisk, funcdef_no=30, decl_uid=4023, cgraph_uid=30, symbol_order=33)
+
+strelDisk (int * disk, int radius)
+{
+  unsigned int ivtmp.165;
+  unsigned int ivtmp.163;
+  unsigned long ivtmp.158;
+  unsigned int ivtmp.156;
+  double distance;
+  int diameter;
+  int * _2;
+  long unsigned int _4;
+  long unsigned int _5;
+  int _7;
+  int _9;
+  void * _11;
+  unsigned int _12;
+  unsigned int _13;
+  double powmult_14;
+  unsigned int _16;
+  int _17;
+  double _18;
+  double _21;
+  double _24;
+  int _28;
+  unsigned int _41;
+  int pretmp_48;
+  double pretmp_49;
+  double pretmp_51;
+
+  <bb 2>:
+  _7 = radius_6(D) * 2;
+  diameter_8 = _7 + -1;
+  if (diameter_8 > 0)
+    goto <bb 7>;
+  else
+    goto <bb 9>;
+
+  <bb 3>:
+  # ivtmp.156_42 = PHI <ivtmp.163_27(8), ivtmp.156_53(5)>
+  # ivtmp.158_37 = PHI <ivtmp.158_19(8), ivtmp.158_35(5)>
+  _17 = (int) ivtmp.156_42;
+  _18 = (double) _17;
+  powmult_14 = _18 * _18;
+  _21 = powmult_14 + pretmp_51;
+  distance_23 = sqrt (_21);
+  _24 = (double) radius_6(D);
+  if (distance_23 < _24)
+    goto <bb 4>;
+  else
+    goto <bb 5>;
+
+  <bb 4>:
+  _11 = (void *) ivtmp.158_37;
+  MEM[base: _11, offset: 0B] = 1;
+
+  <bb 5>:
+  ivtmp.156_53 = ivtmp.156_42 + 1;
+  ivtmp.158_35 = ivtmp.158_37 + 4;
+  if (_41 != ivtmp.156_53)
+    goto <bb 3>;
+  else
+    goto <bb 6>;
+
+  <bb 6>:
+  ivtmp.163_26 = ivtmp.163_39 + 1;
+  ivtmp.165_30 = ivtmp.165_32 + _16;
+  if (ivtmp.163_26 != _41)
+    goto <bb 8>;
+  else
+    goto <bb 9>;
+
+  <bb 7>:
+  _28 = 1 - radius_6(D);
+  ivtmp.163_27 = (unsigned int) _28;
+  _16 = (unsigned int) diameter_8;
+  _12 = (unsigned int) _7;
+  _13 = (unsigned int) radius_6(D);
+  _41 = _12 - _13;
+
+  <bb 8>:
+  # ivtmp.163_39 = PHI <ivtmp.163_27(7), ivtmp.163_26(6)>
+  # ivtmp.165_32 = PHI <0(7), ivtmp.165_30(6)>
+  pretmp_48 = (int) ivtmp.163_39;
+  pretmp_49 = (double) pretmp_48;
+  pretmp_51 = pretmp_49 * pretmp_49;
+  _9 = (int) ivtmp.165_32;
+  _5 = (long unsigned int) _9;
+  _4 = _5 * 4;
+  _2 = disk_29(D) + _4;
+  ivtmp.158_19 = (unsigned long) _2;
+  goto <bb 3>;
+
+  <bb 9>:
+  return;
+
+}
+
+
+
+;; Function dilate_matrix (dilate_matrix, funcdef_no=31, decl_uid=4043, cgraph_uid=31, symbol_order=34)
+
+dilate_matrix (int * matrix, int posX, int posY, int posZ, int dimX, int dimY, int dimZ, int error)
+{
+  unsigned int ivtmp.180;
+  unsigned int ivtmp.179;
+  unsigned long ivtmp.173;
+  unsigned int ivtmp.172;
+  double distance;
+  int y;
+  int x;
+  int endY;
+  int endX;
+  unsigned int _2;
+  double pretmp_4;
+  double pretmp_6;
+  int pretmp_8;
+  unsigned int _9;
+  unsigned int _23;
+  int _25;
+  double powmult_27;
+  long unsigned int _28;
+  int _29;
+  double _30;
+  long unsigned int _32;
+  double _33;
+  double _36;
+  int _42;
+  unsigned int _48;
+  unsigned int _64;
+  unsigned int _66;
+  unsigned int _67;
+  unsigned int _72;
+  unsigned int _73;
+  int _77;
+  int _78;
+  int _79;
+  long unsigned int _80;
+  long unsigned int _81;
+  long unsigned int _82;
+  long unsigned int _83;
+  int * _84;
+  unsigned int _85;
+  unsigned int _86;
+  unsigned int _87;
+  void * _88;
+  unsigned int _90;
+  unsigned int _91;
+  unsigned int _92;
+  unsigned int _93;
+
+  <bb 2>:
+  x_12 = posX_10(D) - error_11(D);
+  x_3 = MAX_EXPR <0, x_12>;
+  y_15 = posY_14(D) - error_11(D);
+  y_57 = MAX_EXPR <0, y_15>;
+  endX_17 = posX_10(D) + error_11(D);
+  if (endX_17 > dimX_18(D))
+    goto <bb 3>;
+  else
+    goto <bb 4>;
+
+  <bb 3>:
+  _73 = (unsigned int) endX_17;
+  _9 = (unsigned int) dimX_18(D);
+  _66 = _73 + _9;
+  _2 = _9;
+  endX_54 = (int) _2;
+
+  <bb 4>:
+  # endX_58 = PHI <endX_54(3), endX_17(2)>
+  endY_20 = posY_14(D) + error_11(D);
+  if (endY_20 > dimY_21(D))
+    goto <bb 5>;
+  else
+    goto <bb 6>;
+
+  <bb 5>:
+  _72 = (unsigned int) endY_20;
+  _64 = (unsigned int) dimY_21(D);
+  _23 = _72 + _64;
+  _67 = _64;
+  endY_53 = (int) _67;
+
+  <bb 6>:
+  # endY_68 = PHI <endY_53(5), endY_20(4)>
+  if (x_3 < endX_58)
+    goto <bb 11>;
+  else
+    goto <bb 14>;
+
+  <bb 7>:
+  # ivtmp.172_55 = PHI <ivtmp.172_1(13), ivtmp.172_56(9)>
+  # ivtmp.173_26 = PHI <ivtmp.173_76(13), ivtmp.173_52(9)>
+  _29 = (int) ivtmp.172_55;
+  _30 = (double) _29;
+  powmult_27 = _30 * _30;
+  _33 = pretmp_4 + powmult_27;
+  distance_35 = sqrt (_33);
+  _36 = (double) error_11(D);
+  if (distance_35 < _36)
+    goto <bb 8>;
+  else
+    goto <bb 9>;
+
+  <bb 8>:
+  _88 = (void *) ivtmp.173_26;
+  MEM[base: _88, offset: 0B] = 1;
+
+  <bb 9>:
+  ivtmp.172_56 = ivtmp.172_55 + 1;
+  ivtmp.173_52 = ivtmp.173_26 + _32;
+  if (ivtmp.172_56 != _87)
+    goto <bb 7>;
+  else
+    goto <bb 10>;
+
+  <bb 10>:
+  ivtmp.179_38 = ivtmp.179_70 + 1;
+  ivtmp.180_44 = ivtmp.180_43 + _48;
+  if (ivtmp.179_38 != _93)
+    goto <bb 12>;
+  else
+    goto <bb 14>;
+
+  <bb 11>:
+  _42 = x_3 - posX_10(D);
+  ivtmp.179_40 = (unsigned int) _42;
+  _48 = (unsigned int) dimY_21(D);
+  _90 = (unsigned int) x_3;
+  ivtmp.180_46 = _48 * _90;
+  _91 = (unsigned int) endX_58;
+  _92 = (unsigned int) posX_10(D);
+  _93 = _91 - _92;
+  _28 = (long unsigned int) dimZ_39(D);
+  _32 = _28 * 4;
+
+  <bb 12>:
+  # ivtmp.179_70 = PHI <ivtmp.179_40(11), ivtmp.179_38(10)>
+  # ivtmp.180_43 = PHI <ivtmp.180_46(11), ivtmp.180_44(10)>
+  if (y_57 < endY_68)
+    goto <bb 13>;
+  else
+    goto <bb 10>;
+
+  <bb 13>:
+  pretmp_8 = (int) ivtmp.179_70;
+  pretmp_6 = (double) pretmp_8;
+  pretmp_4 = pretmp_6 * pretmp_6;
+  _25 = y_57 - posY_14(D);
+  ivtmp.172_1 = (unsigned int) _25;
+  _77 = (int) ivtmp.180_43;
+  _78 = y_57 + _77;
+  _79 = dimZ_39(D) * _78;
+  _80 = (long unsigned int) _79;
+  _81 = (long unsigned int) posZ_41(D);
+  _82 = _80 + _81;
+  _83 = _82 * 4;
+  _84 = matrix_45(D) + _83;
+  ivtmp.173_76 = (unsigned long) _84;
+  _85 = (unsigned int) endY_68;
+  _86 = (unsigned int) posY_14(D);
+  _87 = _85 - _86;
+  goto <bb 7>;
+
+  <bb 14>:
+  return;
+
+}
+
+
+
+;; Function imdilate_disk (imdilate_disk, funcdef_no=32, decl_uid=4076, cgraph_uid=32, symbol_order=35)
+
+imdilate_disk (int * matrix, int dimX, int dimY, int dimZ, int error, int * newMatrix)
+{
+  unsigned long ivtmp.255;
+  unsigned long ivtmp.253;
+  unsigned long ivtmp.246;
+  unsigned long ivtmp.244;
+  unsigned long ivtmp.237;
+  unsigned long ivtmp.235;
+  unsigned int ivtmp.214;
+  unsigned int ivtmp.213;
+  unsigned long ivtmp.207;
+  unsigned int ivtmp.206;
+  int endX;
+  int endY;
+  int x;
+  int y;
+  double distance;
+  int y;
+  int _1;
+  int _2;
+  int _3;
+  long unsigned int _6;
+  long unsigned int _14;
+  int _19;
+  int _22;
+  long unsigned int _26;
+  unsigned int _27;
+  unsigned int _28;
+  long unsigned int _30;
+  int _41;
+  int * _42;
+  unsigned int _43;
+  unsigned int _44;
+  int _46;
+  double _47;
+  void * _48;
+  double _49;
+  double _51;
+  long unsigned int _52;
+  unsigned int _59;
+  long unsigned int _63;
+  double powmult_65;
+  unsigned int _69;
+  unsigned long _72;
+  unsigned long _73;
+  unsigned int _75;
+  unsigned int _76;
+  long unsigned int _81;
+  int _85;
+  long unsigned int _86;
+  unsigned int _93;
+  int pretmp_104;
+  double pretmp_105;
+  double pretmp_106;
+  unsigned int _110;
+  unsigned int _118;
+  unsigned int _120;
+  long unsigned int _121;
+  unsigned int _125;
+  unsigned int _128;
+  void * _129;
+  unsigned int _131;
+  unsigned long _132;
+  unsigned long _133;
+  unsigned int _136;
+  unsigned int _140;
+  unsigned int _142;
+  unsigned int _150;
+  unsigned int _152;
+  int _153;
+  unsigned int _158;
+  unsigned int _159;
+  unsigned int _160;
+  unsigned int _161;
+  unsigned int _162;
+  unsigned long _163;
+  unsigned long _164;
+  unsigned int _167;
+  int _168;
+  unsigned int _174;
+  unsigned int _176;
+  unsigned int _181;
+  unsigned int _183;
+  int _184;
+  unsigned int _193;
+  unsigned int _194;
+  unsigned int _195;
+
+  <bb 2>:
+  if (dimZ_10(D) > 0)
+    goto <bb 20>;
+  else
+    goto <bb 22>;
+
+  <bb 3>:
+  # ivtmp.235_100 = PHI <0(18), ivtmp.235_64(14)>
+  # ivtmp.237_62 = PHI <ivtmp.246_17(18), ivtmp.237_60(14)>
+  y_89 = (int) ivtmp.235_100;
+  _129 = (void *) ivtmp.237_62;
+  _22 = MEM[base: _129, offset: 0B];
+  if (_22 == 1)
+    goto <bb 4>;
+  else
+    goto <bb 14>;
+
+  <bb 4>:
+  _150 = (unsigned int) ivtmp.235_100;
+  _152 = _150 - _75;
+  _153 = (int) _152;
+  y_90 = MAX_EXPR <0, _153>;
+  _136 = _75 + _150;
+  endY_137 = (int) _136;
+  if (dimY_13(D) < endY_137)
+    goto <bb 5>;
+  else
+    goto <bb 6>;
+
+  <bb 5>:
+  _140 = _158 - _75;
+  _142 = _140 - _150;
+  _93 = _136 + _142;
+  endY_77 = (int) _93;
+
+  <bb 6>:
+  # endY_99 = PHI <endY_77(5), endY_137(4)>
+  if (x_78 < endX_97)
+    goto <bb 11>;
+  else
+    goto <bb 14>;
+
+  <bb 7>:
+  # ivtmp.206_33 = PHI <ivtmp.206_39(13), ivtmp.206_36(9)>
+  # ivtmp.207_82 = PHI <ivtmp.207_5(13), ivtmp.207_8(9)>
+  _46 = (int) ivtmp.206_33;
+  _47 = (double) _46;
+  powmult_65 = _47 * _47;
+  _49 = powmult_65 + pretmp_106;
+  distance_50 = sqrt (_49);
+  _51 = (double) error_24(D);
+  if (distance_50 < _51)
+    goto <bb 8>;
+  else
+    goto <bb 9>;
+
+  <bb 8>:
+  _48 = (void *) ivtmp.207_82;
+  MEM[base: _48, offset: 0B] = 1;
+
+  <bb 9>:
+  ivtmp.206_36 = ivtmp.206_33 + 1;
+  ivtmp.207_8 = ivtmp.207_82 + _6;
+  if (ivtmp.206_36 != _44)
+    goto <bb 7>;
+  else
+    goto <bb 10>;
+
+  <bb 10>:
+  ivtmp.213_53 = ivtmp.213_101 + 1;
+  ivtmp.214_57 = ivtmp.214_56 + _59;
+  if (ivtmp.213_53 != _120)
+    goto <bb 12>;
+  else
+    goto <bb 14>;
+
+  <bb 11>:
+  _59 = _158;
+
+  <bb 12>:
+  # ivtmp.213_101 = PHI <ivtmp.213_54(11), ivtmp.213_53(10)>
+  # ivtmp.214_56 = PHI <ivtmp.214_58(11), ivtmp.214_57(10)>
+  if (y_90 < endY_99)
+    goto <bb 13>;
+  else
+    goto <bb 10>;
+
+  <bb 13>:
+  pretmp_104 = (int) ivtmp.213_101;
+  pretmp_105 = (double) pretmp_104;
+  pretmp_106 = pretmp_105 * pretmp_105;
+  _85 = y_90 - y_89;
+  ivtmp.206_39 = (unsigned int) _85;
+  _3 = (int) ivtmp.214_56;
+  _2 = _3 + y_90;
+  _1 = _2 * dimZ_10(D);
+  _81 = (long unsigned int) _1;
+  _63 = ivtmp.253_91;
+  _30 = _81 + _63;
+  _14 = _30 * 4;
+  _42 = newMatrix_23(D) + _14;
+  ivtmp.207_5 = (unsigned long) _42;
+  _43 = (unsigned int) endY_99;
+  _44 = _43 - _150;
+  goto <bb 7>;
+
+  <bb 14>:
+  ivtmp.235_64 = ivtmp.235_100 + 1;
+  ivtmp.237_60 = ivtmp.237_62 + _121;
+  if (ivtmp.235_64 != _133)
+    goto <bb 3>;
+  else
+    goto <bb 15>;
+
+  <bb 15>:
+  ivtmp.244_16 = ivtmp.244_15 + 1;
+  ivtmp.246_18 = ivtmp.246_17 + _26;
+  if (ivtmp.244_16 != _164)
+    goto <bb 17>;
+  else
+    goto <bb 19>;
+
+  <bb 16>:
+  _161 = (unsigned int) dimX_11(D);
+  _162 = _161 + 4294967295;
+  _163 = (unsigned long) _162;
+  _164 = _163 + 1;
+
+  <bb 17>:
+  # ivtmp.244_15 = PHI <0(16), ivtmp.244_16(15)>
+  # ivtmp.246_17 = PHI <ivtmp.255_124(16), ivtmp.246_18(15)>
+  if (dimY_13(D) > 0)
+    goto <bb 18>;
+  else
+    goto <bb 15>;
+
+  <bb 18>:
+  _75 = (unsigned int) error_24(D);
+  _181 = (unsigned int) ivtmp.244_15;
+  _183 = _181 - _75;
+  _184 = (int) _183;
+  _167 = _75 + _181;
+  _168 = (int) _167;
+  _131 = _158 + 4294967295;
+  _132 = (unsigned long) _131;
+  _133 = _132 + 1;
+  _160 = _183;
+  _125 = _160 + 1;
+  _41 = ~_184;
+  _28 = _125;
+  _69 = (unsigned int) _41;
+  _27 = _28 + _69;
+  x_92 = (int) _27;
+  x_78 = _184 < 0 ? x_92 : _184;
+  _174 = _161 - _75;
+  _176 = _174 - _181;
+  _110 = _167 + _176;
+  endX_80 = (int) _110;
+  endX_97 = dimX_11(D) < _168 ? endX_80 : _168;
+  _193 = (unsigned int) x_78;
+  _194 = (unsigned int) ivtmp.244_15;
+  _195 = _193 - _194;
+  ivtmp.213_54 = _195;
+  ivtmp.214_58 = _158 * _193;
+  _118 = (unsigned int) endX_97;
+  _120 = _118 - _181;
+  goto <bb 3>;
+
+  <bb 19>:
+  ivtmp.253_123 = ivtmp.253_91 + 1;
+  ivtmp.255_126 = ivtmp.255_124 + 4;
+  if (ivtmp.253_123 != _72)
+    goto <bb 21>;
+  else
+    goto <bb 22>;
+
+  <bb 20>:
+  ivtmp.255_127 = (unsigned long) matrix_20(D);
+  _128 = (unsigned int) dimZ_10(D);
+  _76 = _128 + 4294967295;
+  _73 = (unsigned long) _76;
+  _72 = _73 + 1;
+  _158 = (unsigned int) dimY_13(D);
+  _159 = _128 * _158;
+  _19 = (int) _159;
+  _86 = (long unsigned int) _19;
+  _26 = _86 * 4;
+  _52 = (long unsigned int) dimZ_10(D);
+  _121 = _52 * 4;
+  _6 = _121;
+
+  <bb 21>:
+  # ivtmp.253_91 = PHI <0(20), ivtmp.253_123(19)>
+  # ivtmp.255_124 = PHI <ivtmp.255_127(20), ivtmp.255_126(19)>
+  if (dimX_11(D) > 0)
+    goto <bb 16>;
+  else
+    goto <bb 19>;
+
+  <bb 22>:
+  return;
+
+}
+
+
+
+;; Function getneighbors (getneighbors, funcdef_no=33, decl_uid=4094, cgraph_uid=33, symbol_order=36)
+
+getneighbors (int * se, int numOnes, double * neighbors, int radius)
+{
+  unsigned int ivtmp.271;
+  unsigned long ivtmp.269;
+  unsigned int ivtmp.264;
+  unsigned long ivtmp.262;
+  int diameter;
+  int neighY;
+  unsigned int _4;
+  unsigned int _5;
+  unsigned int _7;
+  int _8;
+  int _11;
+  long unsigned int _16;
+  long unsigned int _17;
+  int _20;
+  int _21;
+  long unsigned int _22;
+  long unsigned int _23;
+  double * _25;
+  int _26;
+  double _27;
+  sizetype _31;
+  sizetype _32;
+  double * _33;
+  int _34;
+  double _35;
+  void * _45;
+
+  <bb 2>:
+  _11 = radius_9(D) * 2;
+  diameter_12 = _11 + -1;
+  if (diameter_12 > 0)
+    goto <bb 7>;
+  else
+    goto <bb 9>;
+
+  <bb 3>:
+  # neighY_49 = PHI <neighY_41(8), neighY_3(5)>
+  # ivtmp.262_65 = PHI <ivtmp.269_48(8), ivtmp.262_53(5)>
+  # ivtmp.264_54 = PHI <ivtmp.271_30(8), ivtmp.264_52(5)>
+  _45 = (void *) ivtmp.262_65;
+  _20 = MEM[base: _45, offset: 0B];
+  if (_20 != 0)
+    goto <bb 4>;
+  else
+    goto <bb 5>;
+
+  <bb 4>:
+  _21 = neighY_49 * 2;
+  _22 = (long unsigned int) _21;
+  _23 = _22 * 8;
+  _25 = neighbors_24(D) + _23;
+  _26 = (int) ivtmp.264_54;
+  _27 = (double) _26;
+  *_25 = _27;
+  _31 = _22 + 1;
+  _32 = _31 * 8;
+  _33 = neighbors_24(D) + _32;
+  _34 = (int) ivtmp.271_19;
+  _35 = (double) _34;
+  *_33 = _35;
+  neighY_37 = neighY_49 + 1;
+
+  <bb 5>:
+  # neighY_3 = PHI <neighY_49(3), neighY_37(4)>
+  ivtmp.262_53 = ivtmp.262_65 + 4;
+  ivtmp.264_52 = ivtmp.264_54 + 1;
+  if (_4 != ivtmp.264_52)
+    goto <bb 3>;
+  else
+    goto <bb 6>;
+
+  <bb 6>:
+  ivtmp.269_15 = ivtmp.269_48 + _17;
+  ivtmp.271_40 = ivtmp.271_19 + 1;
+  if (ivtmp.271_40 != _4)
+    goto <bb 8>;
+  else
+    goto <bb 9>;
+
+  <bb 7>:
+  _16 = (long unsigned int) diameter_12;
+  _17 = _16 * 4;
+  ivtmp.269_38 = (unsigned long) se_18(D);
+  _8 = 1 - radius_9(D);
+  ivtmp.271_30 = (unsigned int) _8;
+  _7 = (unsigned int) _11;
+  _5 = (unsigned int) radius_9(D);
+  _4 = _7 - _5;
+
+  <bb 8>:
+  # neighY_41 = PHI <0(7), neighY_3(6)>
+  # ivtmp.269_48 = PHI <ivtmp.269_38(7), ivtmp.269_15(6)>
+  # ivtmp.271_19 = PHI <ivtmp.271_30(7), ivtmp.271_40(6)>
+  goto <bb 3>;
+
+  <bb 9>:
+  return;
+
+}
+
+
+
+;; Function videoSequence (videoSequence, funcdef_no=34, decl_uid=4112, cgraph_uid=34, symbol_order=37)
+
+videoSequence (int * I, int IszX, int IszY, int Nfr, int * seed)
+{
+  unsigned int ivtmp.370;
+  unsigned long ivtmp.363;
+  unsigned long ivtmp.361;
+  unsigned long ivtmp.358;
+  unsigned int ivtmp.350;
+  unsigned int ivtmp.340;
+  unsigned long ivtmp.338;
+  unsigned int ivtmp.329;
+  unsigned int ivtmp.328;
+  unsigned long ivtmp.322;
+  unsigned int ivtmp.321;
+  unsigned int ivtmp.316;
+  sizetype ivtmp.311;
+  unsigned int ivtmp.306;
+  unsigned long ivtmp.302;
+  unsigned long ivtmp.294;
+  unsigned int ivtmp.290;
+  unsigned long ivtmp.286;
+  unsigned long ivtmp.278;
+  int x;
+  int y;
+  int x;
+  int y;
+  double distance;
+  int y;
+  int x;
+  int endY;
+  int endX;
+  int z;
+  int newValue;
+  int newValue;
+  int y;
+  int x;
+  int * newMatrix;
+  int pos;
+  int yk;
+  int xk;
+  int max_size;
+  int k;
+  void * _4;
+  unsigned int _5;
+  int pretmp_6;
+  unsigned int _8;
+  int * _9;
+  int IszX.4_11;
+  int IszY.5_12;
+  int _13;
+  int Nfr.6_14;
+  long unsigned int _16;
+  double _17;
+  double _18;
+  long unsigned int _20;
+  double _21;
+  double _22;
+  int _24;
+  int _25;
+  int _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  int * _30;
+  unsigned int _32;
+  unsigned int _35;
+  unsigned int _36;
+  int _37;
+  int _39;
+  int _40;
+  int _41;
+  unsigned int _43;
+  int * _45;
+  long unsigned int _48;
+  long unsigned int _49;
+  long unsigned int _50;
+  long unsigned int _51;
+  unsigned int _52;
+  long unsigned int _53;
+  int Nfr.6_56;
+  int IszY.5_57;
+  int IszX.4_58;
+  int _61;
+  unsigned int _62;
+  int _63;
+  unsigned int _68;
+  long unsigned int _69;
+  void * _70;
+  long unsigned int _77;
+  long unsigned int _85;
+  unsigned int _86;
+  int _87;
+  int _90;
+  int _93;
+  long unsigned int _94;
+  int _95;
+  int _100;
+  long unsigned int _104;
+  long unsigned int _105;
+  int _111;
+  int * _116;
+  int _117;
+  double _118;
+  double _120;
+  unsigned int _130;
+  long unsigned int _131;
+  unsigned int _139;
+  unsigned int _140;
+  unsigned long _141;
+  long unsigned int _143;
+  long unsigned int _144;
+  int _145;
+  int _146;
+  unsigned long _151;
+  unsigned long _152;
+  unsigned int _153;
+  unsigned long _154;
+  unsigned int _155;
+  unsigned int _156;
+  unsigned int _159;
+  unsigned int _160;
+  long unsigned int _162;
+  long unsigned int _163;
+  int _164;
+  int _165;
+  int * _171;
+  long unsigned int _173;
+  long unsigned int _174;
+  unsigned int _176;
+  int _177;
+  long unsigned int _178;
+  int * _182;
+  sizetype _184;
+  unsigned long _185;
+  unsigned long _186;
+  double powmult_187;
+  unsigned long _193;
+  unsigned int _195;
+  unsigned long _199;
+  unsigned long _201;
+  int _202;
+  unsigned int _203;
+  unsigned int _208;
+  int * _218;
+  long unsigned int _227;
+  long unsigned int _228;
+  int _230;
+  unsigned int _232;
+  unsigned int _239;
+  unsigned int _240;
+  int prephitmp_243;
+  unsigned int _244;
+  int _247;
+  unsigned int _249;
+  sizetype _250;
+  sizetype _251;
+  sizetype _252;
+  unsigned int _253;
+  unsigned int _255;
+  int _258;
+  int pretmp_276;
+  unsigned int _278;
+  void * _280;
+  unsigned int _282;
+  unsigned int _283;
+  unsigned int _289;
+  int pretmp_290;
+  void * _292;
+  int pretmp_293;
+  long unsigned int _307;
+  int pretmp_311;
+  int _312;
+  unsigned int _315;
+  unsigned int _316;
+  unsigned int _318;
+  long unsigned int _319;
+  unsigned int _322;
+  unsigned int _323;
+  unsigned int _324;
+  int _325;
+  unsigned int _326;
+  int pretmp_338;
+  int pretmp_339;
+  int pretmp_340;
+  int pretmp_341;
+  int prephitmp_342;
+  unsigned int _344;
+  int pretmp_346;
+  double pretmp_347;
+  double pretmp_348;
+  unsigned int _357;
+  unsigned int _359;
+  long unsigned int pretmp_363;
+  long unsigned int pretmp_365;
+  long unsigned int prephitmp_366;
+  int pretmp_367;
+  int prephitmp_368;
+  int prephitmp_372;
+  unsigned int _381;
+  int _382;
+  unsigned long _388;
+
+  <bb 2>:
+  IszX.4_11 = IszX;
+  IszY.5_12 = IszY;
+  _13 = IszX.4_11 * IszY.5_12;
+  Nfr.6_14 = Nfr;
+  max_size_15 = _13 * Nfr.6_14;
+  _17 = (double) IszY.5_12;
+  _18 = _17 * 5.0e-1;
+  newValue_81 = (int) _18;
+  _21 = (double) IszX.4_11;
+  _22 = _21 * 5.0e-1;
+  newValue_83 = (int) _22;
+  _24 = IszY.5_12 * newValue_81;
+  _25 = _24 + newValue_83;
+  _26 = Nfr.6_14 * _25;
+  _27 = (long unsigned int) _26;
+  _28 = _27 * 4;
+  _30 = I_29(D) + _28;
+  *_30 = 1;
+  if (Nfr.6_14 > 1)
+    goto <bb 4>;
+  else
+    goto <bb 3>;
+
+  <bb 3>:
+  _48 = (long unsigned int) IszX.4_11;
+  _49 = (long unsigned int) IszY.5_12;
+  _50 = _48 * _49;
+  _51 = (long unsigned int) Nfr.6_14;
+  _178 = _50 * 4;
+  _53 = _178 * _51;
+  newMatrix_55 = malloc (_53);
+  Nfr.6_56 = Nfr;
+  IszY.5_57 = IszY;
+  IszX.4_58 = IszX;
+  if (Nfr.6_56 > 0)
+    goto <bb 41>;
+  else
+    goto <bb 73>;
+
+  <bb 4>:
+  ivtmp.370_138 = (unsigned int) newValue_83;
+
+  <bb 5>:
+  # k_261 = PHI <1(4), k_47(5)>
+  # ivtmp.370_108 = PHI <ivtmp.370_138(4), ivtmp.370_136(5)>
+  _324 = (unsigned int) newValue_81;
+  _140 = (unsigned int) k_261;
+  _195 = _324 + 4294967295;
+  _326 = _195 + _140;
+  _325 = (int) _326;
+  xk_34 = ABS_EXPR <_325>;
+  _37 = (int) ivtmp.370_108;
+  yk_38 = ABS_EXPR <_37>;
+  _39 = IszY.5_12 * yk_38;
+  _40 = _39 + xk_34;
+  _41 = Nfr.6_14 * _40;
+  pos_42 = _41 + k_261;
+  pretmp_363 = (long unsigned int) pos_42;
+  pretmp_365 = pretmp_363 * 4;
+  prephitmp_366 = max_size_15 <= pos_42 ? 0 : pretmp_365;
+  _45 = I_29(D) + prephitmp_366;
+  *_45 = 1;
+  k_47 = k_261 + 1;
+  ivtmp.370_136 = ivtmp.370_108 - 2;
+  if (k_47 != Nfr.6_14)
+    goto <bb 5>;
+  else
+    goto <bb 3>;
+
+  <bb 6>:
+  # ivtmp.338_266 = PHI <ivtmp.358_91(38), ivtmp.338_308(34)>
+  # ivtmp.340_309 = PHI <1(38), ivtmp.340_304(34)>
+  _239 = ivtmp.340_309 + 4294967295;
+  _312 = (int) _239;
+  _292 = (void *) ivtmp.338_266;
+  _95 = MEM[base: _292, offset: 0B];
+  if (_95 == 1)
+    goto <bb 7>;
+  else
+    goto <bb 33>;
+
+  <bb 7>:
+  _52 = ivtmp.340_309 + 4294967290;
+  y_115 = (int) _52;
+  if (y_115 < 0)
+    goto <bb 8>;
+  else
+    goto <bb 11>;
+
+  <bb 8>:
+  _244 = ivtmp.340_309 + 4294967291;
+  _111 = (int) _244;
+  if (_111 < 0)
+    goto <bb 9>;
+  else
+    goto <bb 11>;
+
+  <bb 9>:
+  _240 = ivtmp.340_309 + 4294967292;
+  _63 = (int) _240;
+  if (_63 < 0)
+    goto <bb 10>;
+  else
+    goto <bb 11>;
+
+  <bb 10>:
+  _62 = ivtmp.340_309 + 4294967293;
+  _61 = (int) _62;
+
+  <bb 11>:
+  # y_224 = PHI <0(10), y_115(7), 0(8), 0(9)>
+  if (IszX.4_58 < endX_277)
+    goto <bb 12>;
+  else
+    goto <bb 16>;
+
+  <bb 12>:
+  if (IszX.4_58 < endX_235)
+    goto <bb 13>;
+  else
+    goto <bb 16>;
+
+  <bb 13>:
+  if (IszX.4_58 < endX_157)
+    goto <bb 14>;
+  else
+    goto <bb 16>;
+
+  <bb 14>:
+  if (IszX.4_58 < endX_158)
+    goto <bb 15>;
+  else
+    goto <bb 16>;
+
+  <bb 15>:
+
+  <bb 16>:
+  # endX_222 = PHI <endX_149(15), endX_277(11), endX_235(12), endX_157(13), endX_158(14)>
+  _289 = ivtmp.340_309 + 4;
+  endY_288 = (int) _289;
+  if (IszY.5_57 < endY_288)
+    goto <bb 18>;
+  else
+    goto <bb 17>;
+
+  <bb 17>:
+  pretmp_338 = (int) ivtmp.340_309;
+  goto <bb 25>;
+
+  <bb 18>:
+  _278 = ivtmp.340_309 + 3;
+  endY_275 = (int) _278;
+  if (IszY.5_57 < endY_275)
+    goto <bb 20>;
+  else
+    goto <bb 19>;
+
+  <bb 19>:
+  pretmp_339 = (int) ivtmp.340_309;
+  goto <bb 25>;
+
+  <bb 20>:
+  _43 = ivtmp.340_309 + 2;
+  endY_44 = (int) _43;
+  if (endY_44 > IszY.5_57)
+    goto <bb 22>;
+  else
+    goto <bb 21>;
+
+  <bb 21>:
+  pretmp_340 = (int) ivtmp.340_309;
+  goto <bb 25>;
+
+  <bb 22>:
+  _86 = ivtmp.340_309 + 1;
+  endY_369 = (int) _86;
+  if (IszY.5_57 < endY_369)
+    goto <bb 24>;
+  else
+    goto <bb 23>;
+
+  <bb 23>:
+  pretmp_341 = (int) ivtmp.340_309;
+  goto <bb 25>;
+
+  <bb 24>:
+  endY_213 = (int) ivtmp.340_309;
+
+  <bb 25>:
+  # endY_223 = PHI <endY_213(24), endY_288(17), endY_275(19), endY_44(21), endY_369(23)>
+  # prephitmp_342 = PHI <endY_213(24), pretmp_338(17), pretmp_339(19), pretmp_340(21), pretmp_341(23)>
+  if (endX_222 > x_268)
+    goto <bb 30>;
+  else
+    goto <bb 34>;
+
+  <bb 26>:
+  # ivtmp.321_306 = PHI <ivtmp.321_301(32), ivtmp.321_300(28)>
+  # ivtmp.322_245 = PHI <ivtmp.322_101(32), ivtmp.322_233(28)>
+  _117 = (int) ivtmp.321_306;
+  _118 = (double) _117;
+  powmult_187 = _118 * _118;
+  _120 = powmult_187 + pretmp_348;
+  distance_121 = sqrt (_120);
+  if (distance_121 < 5.0e+0)
+    goto <bb 27>;
+  else
+    goto <bb 28>;
+
+  <bb 27>:
+  _4 = (void *) ivtmp.322_245;
+  MEM[base: _4, offset: 0B] = 1;
+
+  <bb 28>:
+  ivtmp.321_300 = ivtmp.321_306 + 1;
+  ivtmp.322_233 = ivtmp.322_245 + _104;
+  if (ivtmp.321_300 != _5)
+    goto <bb 26>;
+  else
+    goto <bb 29>;
+
+  <bb 29>:
+  ivtmp.328_124 = ivtmp.328_263 + 1;
+  ivtmp.329_128 = ivtmp.329_127 + _130;
+  if (ivtmp.328_124 != _357)
+    goto <bb 31>;
+  else
+    goto <bb 34>;
+
+  <bb 30>:
+  _130 = _36;
+  _359 = (unsigned int) endX_222;
+  _357 = _359 - ivtmp.350_88;
+
+  <bb 31>:
+  # ivtmp.328_263 = PHI <ivtmp.328_125(30), ivtmp.328_124(29)>
+  # ivtmp.329_127 = PHI <ivtmp.329_129(30), ivtmp.329_128(29)>
+  if (endY_223 > y_224)
+    goto <bb 32>;
+  else
+    goto <bb 29>;
+
+  <bb 32>:
+  pretmp_346 = (int) ivtmp.328_263;
+  pretmp_347 = (double) pretmp_346;
+  pretmp_348 = pretmp_347 * pretmp_347;
+  _247 = y_224 - _312;
+  ivtmp.321_301 = (unsigned int) _247;
+  _100 = (int) ivtmp.329_127;
+  _90 = _100 + y_224;
+  _87 = Nfr.6_56 * _90;
+  _85 = (long unsigned int) _87;
+  _77 = ivtmp.361_331;
+  _20 = _85 + _77;
+  _16 = _20 * 4;
+  _9 = newMatrix_55 + _16;
+  ivtmp.322_101 = (unsigned long) _9;
+  _8 = (unsigned int) endY_223;
+  _5 = _8 - _239;
+  goto <bb 26>;
+
+  <bb 33>:
+  pretmp_367 = (int) ivtmp.340_309;
+
+  <bb 34>:
+  # prephitmp_368 = PHI <pretmp_367(33), prephitmp_342(29), prephitmp_342(25)>
+  ivtmp.338_308 = ivtmp.338_266 + _131;
+  ivtmp.340_304 = ivtmp.340_309 + 1;
+  if (IszY.5_57 > prephitmp_368)
+    goto <bb 6>;
+  else
+    goto <bb 35>;
+
+  <bb 35>:
+  # prephitmp_372 = PHI <endX_149(34), _202(37)>
+  ivtmp.350_89 = ivtmp.350_88 + 1;
+  ivtmp.358_92 = ivtmp.358_91 + _94;
+  if (IszX.4_58 > prephitmp_372)
+    goto <bb 36>;
+  else
+    goto <bb 39>;
+
+  <bb 36>:
+  # ivtmp.350_88 = PHI <0(42), ivtmp.350_89(35)>
+  # ivtmp.358_91 = PHI <ivtmp.363_332(42), ivtmp.358_92(35)>
+  if (IszY.5_57 > 0)
+    goto <bb 38>;
+  else
+    goto <bb 37>;
+
+  <bb 37>:
+  _176 = ivtmp.350_88 + 1;
+  _202 = (int) _176;
+  goto <bb 35>;
+
+  <bb 38>:
+  _139 = ivtmp.350_88 + 1;
+  endX_149 = (int) _139;
+  _381 = ivtmp.350_88 + 4294967291;
+  _382 = (int) _381;
+  _232 = ivtmp.350_88 + 5;
+  endX_277 = (int) _232;
+  _153 = ivtmp.350_88 + 4;
+  endX_235 = (int) _153;
+  _155 = ivtmp.350_88 + 3;
+  endX_157 = (int) _155;
+  _159 = ivtmp.350_88 + 2;
+  endX_158 = (int) _159;
+  _283 = 4294967291;
+  _282 = _283 + 5;
+  x_343 = (int) _282;
+  x_268 = _382 < 0 ? x_343 : _382;
+  _323 = (unsigned int) x_268;
+  _322 = ivtmp.350_88;
+  _318 = _323 - _322;
+  ivtmp.328_125 = _318;
+  ivtmp.329_129 = _36 * _323;
+  goto <bb 6>;
+
+  <bb 39>:
+  ivtmp.361_356 = ivtmp.361_331 + 1;
+  ivtmp.363_329 = ivtmp.363_332 + 4;
+  z_327 = (int) ivtmp.361_356;
+  if (Nfr.6_56 > z_327)
+    goto <bb 42>;
+  else
+    goto <bb 40>;
+
+  <bb 40>:
+  pretmp_6 = IszX;
+  if (pretmp_6 > 0)
+    goto <bb 43>;
+  else
+    goto <bb 71>;
+
+  <bb 41>:
+  ivtmp.363_328 = (unsigned long) I_29(D);
+  _35 = (unsigned int) Nfr.6_56;
+  _36 = (unsigned int) IszY.5_57;
+  _32 = _36 * _35;
+  _93 = (int) _32;
+  _105 = (long unsigned int) _93;
+  _94 = _105 * 4;
+  _307 = (long unsigned int) Nfr.6_56;
+  _131 = _307 * 4;
+  _104 = _131;
+
+  <bb 42>:
+  # ivtmp.361_331 = PHI <0(41), ivtmp.361_356(39)>
+  # ivtmp.363_332 = PHI <ivtmp.363_328(41), ivtmp.363_329(39)>
+  if (IszX.4_58 > 0)
+    goto <bb 36>;
+  else
+    goto <bb 39>;
+
+  <bb 43>:
+  # prephitmp_243 = PHI <pretmp_6(40), IszX.4_58(73)>
+  pretmp_290 = IszY;
+  pretmp_293 = Nfr;
+  _249 = (unsigned int) pretmp_290;
+  _319 = (long unsigned int) pretmp_293;
+  _69 = _319 * 4;
+  _255 = (unsigned int) pretmp_293;
+  _253 = _255 + 4294967295;
+  _252 = (sizetype) _253;
+  _251 = _252 + 1;
+  _250 = _251 * 4;
+  goto <bb 48>;
+
+  <bb 44>:
+  y_74 = y_110 + 1;
+  ivtmp.311_297 = ivtmp.311_299 + _69;
+  if (y_74 != pretmp_290)
+    goto <bb 45>;
+  else
+    goto <bb 47>;
+
+  <bb 45>:
+  # y_110 = PHI <0(49), y_74(44)>
+  # ivtmp.311_299 = PHI <0(49), ivtmp.311_297(44)>
+  if (pretmp_293 > 0)
+    goto <bb 46>;
+  else
+    goto <bb 44>;
+
+  <bb 46>:
+  _184 = ivtmp.311_299 + _185;
+  _182 = I_29(D) + _184;
+  _116 = newMatrix_55 + _184;
+  __builtin_memcpy (_182, _116, _250);
+  goto <bb 44>;
+
+  <bb 47>:
+  x_75 = x_262 + 1;
+  ivtmp.316_303 = ivtmp.316_302 + _249;
+  if (x_75 != prephitmp_243)
+    goto <bb 48>;
+  else
+    goto <bb 50>;
+
+  <bb 48>:
+  # x_262 = PHI <0(43), x_75(47)>
+  # ivtmp.316_302 = PHI <0(43), ivtmp.316_303(47)>
+  if (pretmp_290 > 0)
+    goto <bb 49>;
+  else
+    goto <bb 47>;
+
+  <bb 49>:
+  _316 = ivtmp.316_302;
+  _315 = _255 * _316;
+  _258 = (int) _315;
+  _186 = (unsigned long) _258;
+  _185 = _186 * 4;
+  goto <bb 45>;
+
+  <bb 50>:
+  free (newMatrix_55);
+  pretmp_311 = Nfr;
+  _68 = _249;
+  _143 = (long unsigned int) pretmp_311;
+  _144 = _143 * 4;
+  _160 = (unsigned int) pretmp_311;
+  _156 = _160 + 4294967295;
+  _154 = (unsigned long) _156;
+  _152 = _154 * 4;
+  goto <bb 58>;
+
+  <bb 51>:
+  # ivtmp.294_296 = PHI <ivtmp.302_226(56), ivtmp.294_284(53)>
+  _70 = (void *) ivtmp.294_296;
+  _146 = MEM[base: _70, offset: 0B];
+  if (_146 == 0)
+    goto <bb 52>;
+  else
+    goto <bb 53>;
+
+  <bb 52>:
+  MEM[base: _70, offset: 0B] = 100;
+
+  <bb 53>:
+  ivtmp.294_284 = ivtmp.294_296 + 4;
+  if (_141 != ivtmp.294_284)
+    goto <bb 51>;
+  else
+    goto <bb 54>;
+
+  <bb 54>:
+  y_148 = y_264 + 1;
+  ivtmp.302_142 = ivtmp.302_226 + _144;
+  if (y_148 != pretmp_290)
+    goto <bb 55>;
+  else
+    goto <bb 57>;
+
+  <bb 55>:
+  # y_264 = PHI <0(59), y_148(54)>
+  # ivtmp.302_226 = PHI <ivtmp.302_147(59), ivtmp.302_142(54)>
+  if (pretmp_311 > 0)
+    goto <bb 56>;
+  else
+    goto <bb 54>;
+
+  <bb 56>:
+  _388 = _152 + 4;
+  _141 = _388 + ivtmp.302_226;
+  goto <bb 51>;
+
+  <bb 57>:
+  x_150 = x_225 + 1;
+  ivtmp.306_321 = ivtmp.306_320 + _68;
+  if (x_150 != prephitmp_243)
+    goto <bb 58>;
+  else
+    goto <bb 67>;
+
+  <bb 58>:
+  # x_225 = PHI <0(50), x_150(57)>
+  # ivtmp.306_320 = PHI <0(50), ivtmp.306_321(57)>
+  if (pretmp_290 > 0)
+    goto <bb 59>;
+  else
+    goto <bb 57>;
+
+  <bb 59>:
+  _145 = (int) ivtmp.306_320;
+  _177 = _145 * pretmp_311;
+  _174 = (long unsigned int) _177;
+  _173 = _174 * 4;
+  _171 = I_29(D) + _173;
+  ivtmp.302_147 = (unsigned long) _171;
+  goto <bb 55>;
+
+  <bb 60>:
+  # ivtmp.278_281 = PHI <ivtmp.286_234(65), ivtmp.278_212(62)>
+  _280 = (void *) ivtmp.278_281;
+  _165 = MEM[base: _280, offset: 0B];
+  if (_165 == 1)
+    goto <bb 61>;
+  else
+    goto <bb 62>;
+
+  <bb 61>:
+  MEM[base: _280, offset: 0B] = 228;
+
+  <bb 62>:
+  ivtmp.278_212 = ivtmp.278_281 + 4;
+  if (_193 != ivtmp.278_212)
+    goto <bb 60>;
+  else
+    goto <bb 63>;
+
+  <bb 63>:
+  y_167 = y_236 + 1;
+  ivtmp.286_161 = ivtmp.286_234 + _163;
+  if (y_167 != pretmp_290)
+    goto <bb 64>;
+  else
+    goto <bb 66>;
+
+  <bb 64>:
+  # y_236 = PHI <0(69), y_167(63)>
+  # ivtmp.286_234 = PHI <ivtmp.286_166(69), ivtmp.286_161(63)>
+  if (pretmp_276 > 0)
+    goto <bb 65>;
+  else
+    goto <bb 63>;
+
+  <bb 65>:
+  _151 = _199 + 4;
+  _193 = _151 + ivtmp.286_234;
+  goto <bb 60>;
+
+  <bb 66>:
+  x_169 = x_237 + 1;
+  ivtmp.290_287 = ivtmp.290_286 + _344;
+  if (prephitmp_243 > x_169)
+    goto <bb 68>;
+  else
+    goto <bb 70>;
+
+  <bb 67>:
+  pretmp_276 = Nfr;
+  _344 = (unsigned int) pretmp_290;
+  _162 = (long unsigned int) pretmp_276;
+  _163 = _162 * 4;
+  _208 = (unsigned int) pretmp_276;
+  _203 = _208 + 4294967295;
+  _201 = (unsigned long) _203;
+  _199 = _201 * 4;
+
+  <bb 68>:
+  # x_237 = PHI <0(67), x_169(66)>
+  # ivtmp.290_286 = PHI <0(67), ivtmp.290_287(66)>
+  if (pretmp_290 > 0)
+    goto <bb 69>;
+  else
+    goto <bb 66>;
+
+  <bb 69>:
+  _164 = (int) ivtmp.290_286;
+  _230 = _164 * pretmp_276;
+  _228 = (long unsigned int) _230;
+  _227 = _228 * 4;
+  _218 = I_29(D) + _227;
+  ivtmp.286_166 = (unsigned long) _218;
+  goto <bb 64>;
+
+  <bb 70>:
+  addNoise (I_29(D), &IszX, &IszY, &Nfr, seed_79(D));
+  return;
+
+  <bb 71>:
+  free (newMatrix_55);
+  goto <bb 70>;
+
+  <bb 72>:
+  free (newMatrix_55);
+  goto <bb 70>;
+
+  <bb 73>:
+  if (IszX.4_58 > 0)
+    goto <bb 43>;
+  else
+    goto <bb 72>;
+
+}
+
+
+
+;; Function calcLikelihoodSum (calcLikelihoodSum, funcdef_no=35, decl_uid=4139, cgraph_uid=35, symbol_order=38)
+
+calcLikelihoodSum (int * I, int * ind, int numOnes)
+{
+  unsigned long ivtmp.377;
+  double likelihoodSum;
+  double powmult_1;
+  int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  int * _14;
+  int _15;
+  int _16;
+  double _17;
+  double powmult_18;
+  int _25;
+  double _26;
+  double _29;
+  double _30;
+  unsigned long _72;
+  int * _73;
+  sizetype _74;
+  sizetype _75;
+  sizetype _76;
+  unsigned int _77;
+  unsigned int _78;
+  void * _79;
+
+  <bb 2>:
+  if (numOnes_5(D) > 0)
+    goto <bb 3>;
+  else
+    goto <bb 5>;
+
+  <bb 3>:
+  ivtmp.377_82 = (unsigned long) ind_8(D);
+  _78 = (unsigned int) numOnes_5(D);
+  _77 = _78 + 4294967295;
+  _76 = (sizetype) _77;
+  _75 = _76 + 1;
+  _74 = _75 * 4;
+  _73 = ind_8(D) + _74;
+  _72 = (unsigned long) _73;
+
+  <bb 4>:
+  # likelihoodSum_36 = PHI <0.0(3), likelihoodSum_31(4)>
+  # ivtmp.377_81 = PHI <ivtmp.377_82(3), ivtmp.377_83(4)>
+  _79 = (void *) ivtmp.377_81;
+  _10 = MEM[base: _79, offset: 0B];
+  _11 = (long unsigned int) _10;
+  _12 = _11 * 4;
+  _14 = I_13(D) + _12;
+  _15 = *_14;
+  _16 = _15 + -100;
+  _17 = (double) _16;
+  powmult_1 = _17 * _17;
+  _25 = _15 + -228;
+  _26 = (double) _25;
+  powmult_18 = _26 * _26;
+  _29 = powmult_1 - powmult_18;
+  _30 = _29 / 5.0e+1;
+  likelihoodSum_31 = _30 + likelihoodSum_36;
+  ivtmp.377_83 = ivtmp.377_81 + 4;
+  if (ivtmp.377_83 != _72)
+    goto <bb 4>;
+  else
+    goto <bb 5>;
+
+  <bb 5>:
+  # likelihoodSum_37 = PHI <likelihoodSum_31(4), 0.0(2)>
+  return likelihoodSum_37;
+
+}
+
+
+
+;; Function findIndex (findIndex, funcdef_no=36, decl_uid=4149, cgraph_uid=36, symbol_order=39)
+
+findIndex (double * CDF, int lengthCDF, double value)
+{
+  unsigned long ivtmp.384;
+  int index;
+  void * _1;
+  double * _2;
+  int _3;
+  double _10;
+  int _13;
+  double _17;
+
+  <bb 2>:
+  if (lengthCDF_4(D) > 0)
+    goto <bb 3>;
+  else
+    goto <bb 8>;
+
+  <bb 3>:
+  _17 = *CDF_7(D);
+  if (value_11(D) <= _17)
+    goto <bb 9>;
+  else
+    goto <bb 4>;
+
+  <bb 4>:
+  _2 = CDF_7(D) + 8;
+  ivtmp.384_16 = (unsigned long) _2;
+  goto <bb 6>;
+
+  <bb 5>:
+  ivtmp.384_14 = ivtmp.384_15 + 8;
+  _1 = (void *) ivtmp.384_14;
+  _10 = MEM[base: _1, offset: -8B];
+  if (_10 >= value_11(D))
+    goto <bb 7>;
+  else
+    goto <bb 6>;
+
+  <bb 6>:
+  # index_18 = PHI <0(4), index_12(5)>
+  # ivtmp.384_15 = PHI <ivtmp.384_16(4), ivtmp.384_14(5)>
+  index_12 = index_18 + 1;
+  if (index_12 != lengthCDF_4(D))
+    goto <bb 5>;
+  else
+    goto <bb 8>;
+
+  <bb 7>:
+  if (index_12 == -1)
+    goto <bb 8>;
+  else
+    goto <bb 9>;
+
+  <bb 8>:
+  _13 = lengthCDF_4(D) + -1;
+
+  <bb 9>:
+  # _3 = PHI <_13(8), index_12(7), 0(3)>
+  return _3;
+
+}
+
+
+
+;; Function findIndexBin (findIndexBin, funcdef_no=37, decl_uid=4160, cgraph_uid=37, symbol_order=40)
+
+findIndexBin (double * CDF, int beginIndex, int endIndex, double value)
+{
+  unsigned long ivtmp.396;
+  int middleIndex;
+  int _2;
+  int _7;
+  int _8;
+  long unsigned int _10;
+  long unsigned int _11;
+  double * _13;
+  double _14;
+  sizetype _19;
+  double * _20;
+  double _21;
+  double _28;
+  void * _43;
+
+  <bb 2>:
+  if (beginIndex_18(D) > endIndex_22(D))
+    goto <bb 16>;
+  else
+    goto <bb 4>;
+
+  <bb 3>:
+  # beginIndex_35 = PHI <beginIndex_33(15), beginIndex_41(14)>
+  # endIndex_31 = PHI <endIndex_40(15), endIndex_30(14)>
+  if (endIndex_31 < beginIndex_35)
+    goto <bb 16>;
+  else
+    goto <bb 5>;
+
+  <bb 4>:
+  # endIndex_46 = PHI <endIndex_22(D)(2)>
+  # beginIndex_45 = PHI <beginIndex_18(D)(2)>
+
+  <bb 5>:
+  # endIndex_40 = PHI <endIndex_46(4), endIndex_31(3)>
+  # beginIndex_41 = PHI <beginIndex_45(4), beginIndex_35(3)>
+  _7 = endIndex_40 - beginIndex_41;
+  _8 = _7 / 2;
+  middleIndex_9 = _8 + beginIndex_41;
+  _10 = (long unsigned int) middleIndex_9;
+  _11 = _10 * 8;
+  _13 = CDF_17(D) + _11;
+  _14 = *_13;
+  if (_14 >= value_23(D))
+    goto <bb 6>;
+  else
+    goto <bb 13>;
+
+  <bb 6>:
+  if (middleIndex_9 == 0)
+    goto <bb 16>;
+  else
+    goto <bb 7>;
+
+  <bb 7>:
+  _19 = _11 + 18446744073709551608;
+  _20 = CDF_17(D) + _19;
+  _21 = *_20;
+  if (_21 < value_23(D))
+    goto <bb 16>;
+  else
+    goto <bb 8>;
+
+  <bb 8>:
+  if (_21 == value_23(D))
+    goto <bb 9>;
+  else
+    goto <bb 13>;
+
+  <bb 9>:
+  if (middleIndex_9 > 0)
+    goto <bb 10>;
+  else
+    goto <bb 16>;
+
+  <bb 10>:
+  ivtmp.396_47 = (unsigned long) _13;
+
+  <bb 11>:
+  # middleIndex_39 = PHI <middleIndex_9(10), middleIndex_29(12)>
+  # ivtmp.396_49 = PHI <ivtmp.396_47(10), ivtmp.396_48(12)>
+  middleIndex_29 = middleIndex_39 + -1;
+  if (middleIndex_29 != 0)
+    goto <bb 12>;
+  else
+    goto <bb 16>;
+
+  <bb 12>:
+  ivtmp.396_48 = ivtmp.396_49 - 8;
+  _43 = (void *) ivtmp.396_48;
+  _28 = MEM[base: _43, offset: -8B];
+  if (value_23(D) == _28)
+    goto <bb 11>;
+  else
+    goto <bb 16>;
+
+  <bb 13>:
+  if (_14 > value_23(D))
+    goto <bb 14>;
+  else
+    goto <bb 15>;
+
+  <bb 14>:
+  endIndex_30 = middleIndex_9 + 1;
+  goto <bb 3>;
+
+  <bb 15>:
+  beginIndex_33 = middleIndex_9 + -1;
+  goto <bb 3>;
+
+  <bb 16>:
+  # _2 = PHI <-1(3), 0(6), middleIndex_9(7), middleIndex_29(12), 0(11), middleIndex_9(9), -1(2)>
+  return _2;
+
+}
+
+
+
+;; Function particleFilter (particleFilter, funcdef_no=38, decl_uid=4172, cgraph_uid=38, symbol_order=41)
+
+
+Symbols to be put in SSA form
+{ D.5427 }
+Incremental SSA update started at block: 0
+Number of blocks in CFG: 52
+Number of blocks to update: 51 ( 98%)
+
+
+particleFilter (int * I, int IszX, int IszY, int Nfr, int * seed, int Nparticles)
+{
+  long unsigned int D.6312[3];
+  struct  __hsa_range.514;
+  long unsigned int D.6309[3];
+  struct  __hsa_range.513;
+  long unsigned int D.6306[3];
+  struct  __hsa_range.512;
+  long unsigned int D.6303[3];
+  struct  __hsa_range.511;
+  long unsigned int D.6300[1];
+  struct  __hsa_range.510;
+  long unsigned int D.6297[3];
+  struct  __hsa_range.509;
+  long unsigned int D.6294[3];
+  struct  __hsa_range.508;
+  long unsigned int D.6291[3];
+  struct  __hsa_range.507;
+  long unsigned int D.6288[3];
+  struct  __hsa_range.506;
+  long unsigned int D.6285[3];
+  struct  __hsa_range.505;
+  unsigned long ivtmp.503;
+  unsigned int ivtmp.502;
+  unsigned long ivtmp.494;
+  unsigned int ivtmp.493;
+  unsigned long ivtmp.477;
+  unsigned int ivtmp.470;
+  unsigned long ivtmp.468;
+  unsigned int ivtmp.461;
+  unsigned long ivtmp.459;
+  unsigned long ivtmp.445;
+  sizetype ivtmp.433;
+  unsigned int ivtmp.430;
+  unsigned long ivtmp.422;
+  double D__lsm0.420;
+  vector(2) double * vectp_prephitmp.419;
+  vector(2) double vect_cst_.417;
+  vector(2) double * vectp_prephitmp.416;
+  vector(2) double vect__306.414;
+  vector(2) double * vectp_prephitmp.413;
+  vector(2) double * vectp_prephitmp.411;
+  vector(2) double vect__302.409;
+  vector(2) double * vectp_prephitmp.408;
+  int tmp.406;
+  unsigned int ratio_mult_vf.405;
+  unsigned int bnd.404;
+  unsigned int niters.403;
+  sizetype prolog_loop_adjusted_niters.402;
+  unsigned int prolog_loop_niters.401;
+  int neighY;
+  double distance;
+  struct timeval tv;
+  struct timeval tv;
+  struct timeval tv;
+  int num;
+  struct timeval tv;
+  int newValue;
+  struct timeval tv;
+  struct timeval tv;
+  struct timeval tv;
+  struct timeval tv;
+  struct timeval tv;
+  struct timeval tv;
+  struct timeval tv;
+  struct timeval tv;
+  struct timeval tv;
+  struct timeval tv;
+  int newValue;
+  int newValue;
+  struct timeval tv;
+  double u1;
+  double distance;
+  double sumWeights;
+  int k;
+  int * ind;
+  double * u;
+  double * CDF;
+  double * yj;
+  double * xj;
+  double * arrayY;
+  double * arrayX;
+  double * likelihood;
+  double * weights;
+  double * objxy;
+  int x;
+  int countOnes;
+  int * disk;
+  int max_size;
+  struct .omp_data_s.16 .omp_data_o.26;
+  struct .omp_data_s.15 .omp_data_o.25;
+  struct .omp_data_s.14 .omp_data_o.24;
+  struct .omp_data_s.13 .omp_data_o.23;
+  struct .omp_data_s.12 .omp_data_o.22;
+  struct .omp_data_s.11 .omp_data_o.21;
+  struct .omp_data_s.10 .omp_data_o.20;
+  struct .omp_data_s.9 .omp_data_o.19;
+  struct .omp_data_s.8 .omp_data_o.18;
+  struct .omp_data_s.7 .omp_data_o.17;
+  double _2;
+  unsigned int _11;
+  unsigned int _12;
+  unsigned long _13;
+  unsigned long _15;
+  unsigned long _16;
+  unsigned long _17;
+  double _33;
+  int _40;
+  double _46;
+  double _47;
+  double _48;
+  double _49;
+  _Bool _52;
+  double _57;
+  int _62;
+  long unsigned int _63;
+  long unsigned int _64;
+  long long int _68;
+  double _69;
+  long unsigned int _72;
+  long unsigned int _73;
+  unsigned int Nparticles.37_78;
+  unsigned int _79;
+  void * _82;
+  long long int _84;
+  double _85;
+  long unsigned int _87;
+  long unsigned int _103;
+  long unsigned int _105;
+  unsigned int Nparticles.36_113;
+  unsigned int _114;
+  unsigned long _118;
+  long long int _120;
+  double _121;
+  long int _125;
+  unsigned int Nparticles.35_130;
+  unsigned int _131;
+  unsigned int _133;
+  long long int _138;
+  double _139;
+  unsigned int Nparticles.34_153;
+  unsigned int _154;
+  unsigned long _156;
+  unsigned int _157;
+  long unsigned int _159;
+  long long int _169;
+  double _170;
+  unsigned int Nparticles.33_175;
+  unsigned int _176;
+  long long int _182;
+  double _183;
+  long long int _193;
+  double _194;
+  unsigned int Nparticles.30_199;
+  unsigned int _200;
+  long long int _205;
+  double _206;
+  unsigned int Nparticles.29_214;
+  unsigned int _215;
+  long long int _224;
+  double _225;
+  double _229;
+  double _230;
+  double _232;
+  double _233;
+  double powmult_234;
+  double _238;
+  double _241;
+  double _245;
+  unsigned int _248;
+  double _251;
+  long unsigned int _252;
+  long unsigned int _253;
+  double _255;
+  unsigned int _257;
+  long long int _258;
+  double _259;
+  double _261;
+  double _262;
+  long int _263;
+  unsigned int Nparticles.28_268;
+  unsigned int _269;
+  long long int _274;
+  double _275;
+  unsigned int Nparticles.27_284;
+  unsigned int _285;
+  long long int _295;
+  double _296;
+  unsigned int _311;
+  long long int _313;
+  double _314;
+  long int _328;
+  long int _329;
+  long int _330;
+  long long int _331;
+  double _332;
+  double _334;
+  long int _335;
+  long int _336;
+  long int _337;
+  long long int _338;
+  float _339;
+  float _340;
+  long int _341;
+  long int _342;
+  long int _343;
+  long long int _344;
+  float _345;
+  float _346;
+  long int _347;
+  long int _348;
+  long int _349;
+  long long int _350;
+  float _351;
+  float _352;
+  long int _353;
+  long int _354;
+  long int _355;
+  long long int _356;
+  long int _357;
+  long int _358;
+  long long int _359;
+  float _360;
+  float _361;
+  long int _362;
+  long int _363;
+  long int _364;
+  long long int _365;
+  float _366;
+  float _367;
+  long int _368;
+  long int _369;
+  long int _370;
+  long long int _371;
+  float _372;
+  float _373;
+  long int _374;
+  long int _375;
+  long int _376;
+  long long int _377;
+  float _378;
+  float _379;
+  long int _380;
+  long int _381;
+  long int _382;
+  long long int _383;
+  float _384;
+  float _385;
+  long int _386;
+  long int _387;
+  long int _388;
+  long long int _389;
+  float _390;
+  float _391;
+  long int _394;
+  long int _395;
+  long int _396;
+  long long int _397;
+  float _398;
+  float _399;
+  int _400;
+  int A.1_401;
+  int _402;
+  int C.2_403;
+  long int _405;
+  long int M.3_406;
+  long int _407;
+  int _408;
+  double _409;
+  double _410;
+  double _411;
+  double _412;
+  long int _413;
+  long int _414;
+  long long int _415;
+  float _416;
+  float _417;
+  long int _418;
+  long int _419;
+  long int _420;
+  long long int _421;
+  float _422;
+  float _423;
+  long int _424;
+  long int _425;
+  long int _426;
+  long long int _427;
+  float _428;
+  float _429;
+  _Bool _432;
+  _Bool _464;
+  _Bool _469;
+  int _471;
+  double _472;
+  unsigned int _473;
+  double _474;
+  unsigned long _482;
+  _Bool _489;
+  long unsigned int _491;
+  long unsigned int _493;
+  int _494;
+  int _496;
+  long unsigned int _497;
+  long unsigned int _498;
+  double * _499;
+  int _500;
+  double _501;
+  sizetype _502;
+  sizetype _503;
+  double * _504;
+  int _505;
+  double _506;
+  long unsigned int _508;
+  unsigned int _509;
+  _Bool _513;
+  double powmult_519;
+  double powmult_520;
+  int _530;
+  _Bool _536;
+  void * _537;
+  int _541;
+  void * _546;
+  _Bool _547;
+  int _552;
+  int _563;
+  _Bool _569;
+  int _574;
+  int _585;
+  _Bool _591;
+  unsigned int _592;
+  int _596;
+  _Bool _602;
+  int _607;
+  _Bool _611;
+  int _618;
+  _Bool _622;
+  _Bool _624;
+  _Bool _625;
+  _Bool _626;
+  _Bool _628;
+  _Bool _630;
+  _Bool _631;
+  _Bool _632;
+  _Bool _634;
+  _Bool _636;
+  _Bool _637;
+  _Bool _638;
+  double * _639;
+  _Bool _640;
+  _Bool _642;
+  _Bool _643;
+  _Bool _644;
+  double * _645;
+  _Bool _646;
+  _Bool _648;
+  _Bool _649;
+  _Bool _650;
+  long unsigned int _661;
+  unsigned int _662;
+  unsigned int _665;
+  unsigned int _666;
+  sizetype _668;
+  int _670;
+  int pretmp_671;
+  double pretmp_672;
+  double pretmp_673;
+  double * _680;
+  long unsigned int _682;
+  double * _688;
+  double _690;
+  double * _691;
+  double * _692;
+  double _694;
+  double * _695;
+  double * _696;
+  long unsigned int _697;
+  long unsigned int _698;
+  unsigned int _702;
+  unsigned int _703;
+  _Bool _710;
+  long unsigned int _712;
+  _Bool _718;
+  _Bool _719;
+  double * _720;
+  _Bool _721;
+  double * _722;
+  long unsigned int _723;
+  _Bool _725;
+  double * pretmp_726;
+  int pretmp_728;
+  int prephitmp_729;
+  long unsigned int pretmp_730;
+  long unsigned int prephitmp_731;
+  long unsigned int pretmp_732;
+  long unsigned int prephitmp_733;
+  unsigned int _734;
+  double * pretmp_735;
+  double * pretmp_737;
+  int pretmp_739;
+  int * pretmp_742;
+  double * pretmp_744;
+  double * prephitmp_745;
+  double * pretmp_746;
+  double * prephitmp_747;
+  int pretmp_748;
+  int prephitmp_749;
+  int * pretmp_751;
+  double * pretmp_753;
+  double * pretmp_755;
+  double * prephitmp_756;
+  double * pretmp_757;
+  double * prephitmp_758;
+  int * pretmp_759;
+  double * pretmp_761;
+  double * prephitmp_762;
+  int pretmp_763;
+  int pretmp_765;
+  int pretmp_767;
+  int prephitmp_768;
+  int pretmp_769;
+  int pretmp_771;
+  int pretmp_773;
+  int prephitmp_774;
+  int * _775;
+  double * pretmp_776;
+  double * pretmp_778;
+  double * prephitmp_779;
+  int pretmp_780;
+  int prephitmp_781;
+  double * pretmp_782;
+  double * prephitmp_783;
+  int pretmp_784;
+  int prephitmp_785;
+  double pretmp_787;
+  double prephitmp_788;
+  double pretmp_789;
+  double prephitmp_790;
+  double * pretmp_791;
+  double * pretmp_793;
+  double * prephitmp_794;
+  double * pretmp_795;
+  double * prephitmp_796;
+  int pretmp_797;
+  int prephitmp_798;
+  double * pretmp_799;
+  double * prephitmp_800;
+  int pretmp_801;
+  int prephitmp_802;
+  double * pretmp_804;
+  double * pretmp_806;
+  double * pretmp_808;
+  double * pretmp_810;
+  double * pretmp_812;
+  double * pretmp_814;
+  int pretmp_816;
+  double pretmp_820;
+  double pretmp_821;
+  double _825;
+
+  <bb 2>:
+  _40 = IszX_38(D) * IszY_39(D);
+  max_size_42 = _40 * Nfr_41(D);
+  gettimeofday (&tv, 0B);
+  _328 = tv.tv_sec;
+  _329 = _328 * 1000000;
+  _330 = tv.tv_usec;
+  _331 = _329 + _330;
+  tv ={v} {CLOBBER};
+  _46 = (double) IszY_39(D);
+  _47 = _46 * 5.0e-1;
+  newValue_44 = (int) _47;
+  _332 = (double) newValue_44;
+  _48 = (double) IszX_38(D);
+  _49 = _48 * 5.0e-1;
+  newValue_333 = (int) _49;
+  _334 = (double) newValue_333;
+  disk_51 = malloc (324);
+  ivtmp.503_786 = (unsigned long) disk_51;
+  _775 = disk_51 + 324;
+  _482 = (unsigned long) _775;
+  goto <bb 7>;
+
+  <bb 3>:
+  # ivtmp.493_476 = PHI <ivtmp.493_525(5), 4294967292(7)>
+  # ivtmp.494_614 = PHI <ivtmp.494_603(5), ivtmp.503_479(7)>
+  _471 = (int) ivtmp.493_476;
+  _472 = (double) _471;
+  powmult_519 = _472 * _472;
+  _474 = powmult_519 + pretmp_673;
+  distance_475 = sqrt (_474);
+  if (distance_475 < 5.0e+0)
+    goto <bb 4>;
+  else
+    goto <bb 5>;
+
+  <bb 4>:
+  _537 = (void *) ivtmp.494_614;
+  MEM[base: _537, offset: 0B] = 1;
+
+  <bb 5>:
+  ivtmp.493_525 = ivtmp.493_476 + 1;
+  ivtmp.494_603 = ivtmp.494_614 + 4;
+  if (ivtmp.493_525 != 5)
+    goto <bb 3>;
+  else
+    goto <bb 6>;
+
+  <bb 6>:
+  ivtmp.502_478 = ivtmp.502_462 + 1;
+  ivtmp.503_480 = ivtmp.503_479 + 36;
+  if (ivtmp.503_480 != _482)
+    goto <bb 7>;
+  else
+    goto <bb 8>;
+
+  <bb 7>:
+  # ivtmp.502_462 = PHI <ivtmp.502_478(6), 4294967292(2)>
+  # ivtmp.503_479 = PHI <ivtmp.503_480(6), ivtmp.503_786(2)>
+  pretmp_671 = (int) ivtmp.502_462;
+  pretmp_672 = (double) pretmp_671;
+  pretmp_673 = pretmp_672 * pretmp_672;
+  goto <bb 3>;
+
+  <bb 8>:
+  # countOnes_526 = PHI <0(6), countOnes_620(8)>
+  # ivtmp.477_535 = PHI <ivtmp.503_786(6), ivtmp.477_485(8)>
+  _546 = (void *) ivtmp.477_535;
+  _530 = MEM[base: _546, offset: 0B];
+  countOnes_531 = countOnes_526 + 1;
+  countOnes_532 = _530 == 1 ? countOnes_531 : countOnes_526;
+  _541 = MEM[base: _546, offset: 4B];
+  countOnes_542 = countOnes_532 + 1;
+  countOnes_543 = _541 == 1 ? countOnes_542 : countOnes_532;
+  _552 = MEM[base: _546, offset: 8B];
+  countOnes_553 = countOnes_543 + 1;
+  countOnes_554 = _552 == 1 ? countOnes_553 : countOnes_543;
+  _563 = MEM[base: _546, offset: 12B];
+  countOnes_564 = countOnes_554 + 1;
+  countOnes_565 = _563 == 1 ? countOnes_564 : countOnes_554;
+  _574 = MEM[base: _546, offset: 16B];
+  countOnes_575 = countOnes_565 + 1;
+  countOnes_576 = _574 == 1 ? countOnes_575 : countOnes_565;
+  _585 = MEM[base: _546, offset: 20B];
+  countOnes_586 = countOnes_576 + 1;
+  countOnes_587 = _585 == 1 ? countOnes_586 : countOnes_576;
+  _596 = MEM[base: _546, offset: 24B];
+  countOnes_597 = countOnes_587 + 1;
+  countOnes_598 = _596 == 1 ? countOnes_597 : countOnes_587;
+  _607 = MEM[base: _546, offset: 28B];
+  countOnes_608 = countOnes_598 + 1;
+  countOnes_609 = _607 == 1 ? countOnes_608 : countOnes_598;
+  _618 = MEM[base: _546, offset: 32B];
+  countOnes_619 = countOnes_609 + 1;
+  countOnes_620 = _618 == 1 ? countOnes_619 : countOnes_609;
+  ivtmp.477_485 = ivtmp.477_535 + 36;
+  if (_482 != ivtmp.477_485)
+    goto <bb 8>;
+  else
+    goto <bb 9>;
+
+  <bb 9>:
+  _62 = countOnes_620 * 2;
+  _63 = (long unsigned int) _62;
+  _64 = _63 * 8;
+  objxy_66 = malloc (_64);
+  goto <bb 14>;
+
+  <bb 10>:
+  # neighY_534 = PHI <neighY_510(12), neighY_393(14)>
+  # ivtmp.459_518 = PHI <ivtmp.459_247(12), ivtmp.468_53(14)>
+  # ivtmp.461_250 = PHI <ivtmp.461_249(12), 4294967292(14)>
+  _82 = (void *) ivtmp.459_518;
+  _494 = MEM[base: _82, offset: 0B];
+  if (_494 != 0)
+    goto <bb 11>;
+  else
+    goto <bb 12>;
+
+  <bb 11>:
+  _496 = neighY_534 * 2;
+  _497 = (long unsigned int) _496;
+  _498 = _497 * 8;
+  _499 = objxy_66 + _498;
+  _500 = (int) ivtmp.461_250;
+  _501 = (double) _500;
+  *_499 = _501;
+  _502 = _497 + 1;
+  _503 = _502 * 8;
+  _504 = objxy_66 + _503;
+  _505 = (int) ivtmp.470_492;
+  _506 = (double) _505;
+  *_504 = _506;
+  neighY_507 = neighY_534 + 1;
+
+  <bb 12>:
+  # neighY_510 = PHI <neighY_534(10), neighY_507(11)>
+  ivtmp.459_247 = ivtmp.459_518 + 4;
+  ivtmp.461_249 = ivtmp.461_250 + 1;
+  if (ivtmp.461_249 != 5)
+    goto <bb 10>;
+  else
+    goto <bb 13>;
+
+  <bb 13>:
+  ivtmp.468_490 = ivtmp.468_53 + 36;
+  ivtmp.470_678 = ivtmp.470_492 + 1;
+  if (_482 != ivtmp.468_490)
+    goto <bb 14>;
+  else
+    goto <bb 15>;
+
+  <bb 14>:
+  # neighY_393 = PHI <neighY_510(13), 0(9)>
+  # ivtmp.468_53 = PHI <ivtmp.468_490(13), ivtmp.503_786(9)>
+  # ivtmp.470_492 = PHI <ivtmp.470_678(13), 4294967292(9)>
+  goto <bb 10>;
+
+  <bb 15>:
+  gettimeofday (&tv, 0B);
+  _335 = tv.tv_sec;
+  _336 = _335 * 1000000;
+  _337 = tv.tv_usec;
+  _338 = _336 + _337;
+  tv ={v} {CLOBBER};
+  _68 = _338 - _331;
+  _339 = (float) _68;
+  _340 = _339 / 1.0e+6;
+  _69 = (double) _340;
+  printf ("TIME TO GET NEIGHBORS TOOK: %f\n", _69);
+  _72 = (long unsigned int) Nparticles_71(D);
+  _73 = _72 * 8;
+  weights_75 = malloc (_73);
+  .omp_data_o.17.weights = weights_75;
+  .omp_data_o.17.Nparticles = Nparticles_71(D);
+  if (Nparticles_71(D) > 0)
+    goto <bb 16>;
+  else
+    goto <bb 17>;
+
+  <bb 16>:
+  Nparticles.37_78 = (unsigned int) Nparticles_71(D);
+  _79 = MIN_EXPR <Nparticles.37_78, 16>;
+  _662 = (unsigned int) Nparticles_71(D);
+  __hsa_range.505.dimension = 1;
+  __hsa_range.505.global_size[0] = _662;
+  __hsa_range.505.global_size[1] = 1;
+  __hsa_range.505.global_size[2] = 1;
+  __hsa_range.505.group_size[0] = _79;
+  __hsa_range.505.group_size[1] = 1;
+  __hsa_range.505.group_size[2] = 1;
+  _661 = (long unsigned int) &.omp_data_o.17;
+  D.6285[0] = _661;
+  __hsa_launch_kernel (&*.__hsa_kd0, &__hsa_range.505, &D.6285);
+  pretmp_726 = .omp_data_o.17.weights;
+  pretmp_728 = .omp_data_o.17.Nparticles;
+  pretmp_730 = (long unsigned int) pretmp_728;
+  pretmp_732 = pretmp_730 * 8;
+
+  <bb 17>:
+  # weights_727 = PHI <pretmp_726(16), weights_75(15)>
+  # prephitmp_729 = PHI <pretmp_728(16), Nparticles_71(D)(15)>
+  # prephitmp_731 = PHI <pretmp_730(16), _72(15)>
+  # prephitmp_733 = PHI <pretmp_732(16), _73(15)>
+  .omp_data_o.17 ={v} {CLOBBER};
+  gettimeofday (&tv, 0B);
+  _341 = tv.tv_sec;
+  _342 = _341 * 1000000;
+  _343 = tv.tv_usec;
+  _344 = _342 + _343;
+  tv ={v} {CLOBBER};
+  _84 = _344 - _338;
+  _345 = (float) _84;
+  _346 = _345 / 1.0e+6;
+  _85 = (double) _346;
+  printf ("TIME TO GET WEIGHTSTOOK: %f\n", _85);
+  likelihood_90 = malloc (prephitmp_733);
+  arrayX_92 = malloc (prephitmp_733);
+  arrayY_94 = malloc (prephitmp_733);
+  xj_96 = malloc (prephitmp_733);
+  yj_98 = malloc (prephitmp_733);
+  CDF_100 = malloc (prephitmp_733);
+  u_102 = malloc (prephitmp_733);
+  _103 = (long unsigned int) countOnes_620;
+  _712 = _103 * 4;
+  _105 = _712 * prephitmp_731;
+  ind_107 = malloc (_105);
+  .omp_data_o.18.ye = _334;
+  .omp_data_o.18.xe = _332;
+  .omp_data_o.18.arrayY = arrayY_94;
+  .omp_data_o.18.arrayX = arrayX_92;
+  .omp_data_o.18.Nparticles = prephitmp_729;
+  if (prephitmp_729 > 0)
+    goto <bb 18>;
+  else
+    goto <bb 19>;
+
+  <bb 18>:
+  Nparticles.36_113 = (unsigned int) prephitmp_729;
+  _114 = MIN_EXPR <Nparticles.36_113, 16>;
+  _592 = (unsigned int) prephitmp_729;
+  __hsa_range.506.dimension = 1;
+  __hsa_range.506.global_size[0] = _592;
+  __hsa_range.506.global_size[1] = 1;
+  __hsa_range.506.global_size[2] = 1;
+  __hsa_range.506.group_size[0] = _114;
+  __hsa_range.506.group_size[1] = 1;
+  __hsa_range.506.group_size[2] = 1;
+  _723 = (long unsigned int) &.omp_data_o.18;
+  D.6288[0] = _723;
+  __hsa_launch_kernel (&*.__hsa_kd1, &__hsa_range.506, &D.6288);
+  pretmp_735 = .omp_data_o.18.arrayY;
+  pretmp_737 = .omp_data_o.18.arrayX;
+  pretmp_739 = .omp_data_o.18.Nparticles;
+
+  <bb 19>:
+  # arrayY_736 = PHI <pretmp_735(18), arrayY_94(17)>
+  # arrayX_738 = PHI <pretmp_737(18), arrayX_92(17)>
+  # Nparticles_740 = PHI <pretmp_739(18), prephitmp_729(17)>
+  .omp_data_o.18 ={v} {CLOBBER};
+  gettimeofday (&tv, 0B);
+  _347 = tv.tv_sec;
+  _348 = _347 * 1000000;
+  _349 = tv.tv_usec;
+  _350 = _348 + _349;
+  tv ={v} {CLOBBER};
+  _120 = _350 - _344;
+  _351 = (float) _120;
+  _352 = _351 / 1.0e+6;
+  _121 = (double) _352;
+  printf ("TIME TO SET ARRAYS TOOK: %f\n", _121);
+  if (Nfr_41(D) > 1)
+    goto <bb 20>;
+  else
+    goto <bb 51>;
+
+  <bb 20>:
+  # I_617 = PHI <I_123(D)(19)>
+  # IszY_803 = PHI <IszY_39(D)(19)>
+  # Nfr_823 = PHI <Nfr_41(D)(19)>
+  # seed_528 = PHI <seed_124(D)(19)>
+  # Nparticles_539 = PHI <Nparticles_740(19)>
+  # max_size_550 = PHI <max_size_42(19)>
+  # countOnes_561 = PHI <countOnes_620(19)>
+  # objxy_572 = PHI <objxy_66(19)>
+  # weights_583 = PHI <weights_727(19)>
+  # likelihood_594 = PHI <likelihood_90(19)>
+  # arrayX_653 = PHI <arrayX_738(19)>
+  # arrayY_654 = PHI <arrayY_736(19)>
+  # xj_655 = PHI <xj_96(19)>
+  # yj_656 = PHI <yj_98(19)>
+  # CDF_657 = PHI <CDF_100(19)>
+  # u_658 = PHI <u_102(19)>
+  # ind_659 = PHI <ind_107(19)>
+  # k_660 = PHI <1(19)>
+
+  <bb 21>:
+  # I_7 = PHI <I_617(20), I_760(39)>
+  # IszY_589 = PHI <IszY_803(20), IszY_764(39)>
+  # Nfr_55 = PHI <Nfr_823(20), Nfr_766(39)>
+  # seed_54 = PHI <seed_528(20), seed_743(39)>
+  # Nparticles_56 = PHI <Nparticles_539(20), Nparticles_817(39)>
+  # max_size_545 = PHI <max_size_550(20), max_size_770(39)>
+  # countOnes_600 = PHI <countOnes_561(20), countOnes_772(39)>
+  # objxy_484 = PHI <objxy_572(20), objxy_754(39)>
+  # weights_515 = PHI <weights_583(20), weights_792(39)>
+  # likelihood_465 = PHI <likelihood_594(20), likelihood_777(39)>
+  # arrayX_621 = PHI <arrayX_653(20), arrayX_807(39)>
+  # arrayY_8 = PHI <arrayY_654(20), arrayY_805(39)>
+  # xj_14 = PHI <xj_655(20), xj_813(39)>
+  # yj_601 = PHI <yj_656(20), yj_811(39)>
+  # CDF_590 = PHI <CDF_657(20), CDF_815(39)>
+  # u_579 = PHI <u_658(20), u_809(39)>
+  # ind_568 = PHI <ind_659(20), ind_752(39)>
+  # k_557 = PHI <k_660(20), k_316(39)>
+  gettimeofday (&tv, 0B);
+  _353 = tv.tv_sec;
+  _354 = _353 * 1000000;
+  _355 = tv.tv_usec;
+  _356 = _354 + _355;
+  tv ={v} {CLOBBER};
+  .omp_data_o.19.seed = seed_54;
+  .omp_data_o.19.arrayY = arrayY_8;
+  .omp_data_o.19.arrayX = arrayX_621;
+  .omp_data_o.19.Nparticles = Nparticles_56;
+  if (Nparticles_56 > 0)
+    goto <bb 22>;
+  else
+    goto <bb 23>;
+
+  <bb 22>:
+  Nparticles.35_130 = (unsigned int) Nparticles_56;
+  _131 = MIN_EXPR <Nparticles.35_130, 16>;
+  _133 = (unsigned int) Nparticles_56;
+  __hsa_range.507.dimension = 1;
+  __hsa_range.507.global_size[0] = _133;
+  __hsa_range.507.global_size[1] = 1;
+  __hsa_range.507.global_size[2] = 1;
+  __hsa_range.507.group_size[0] = _131;
+  __hsa_range.507.group_size[1] = 1;
+  __hsa_range.507.group_size[2] = 1;
+  _87 = (long unsigned int) &.omp_data_o.19;
+  D.6291[0] = _87;
+  __hsa_launch_kernel (&*.__hsa_kd2, &__hsa_range.507, &D.6291);
+  pretmp_742 = .omp_data_o.19.seed;
+  pretmp_744 = .omp_data_o.19.arrayY;
+  pretmp_746 = .omp_data_o.19.arrayX;
+  pretmp_748 = .omp_data_o.19.Nparticles;
+
+  <bb 23>:
+  # seed_743 = PHI <pretmp_742(22), seed_54(21)>
+  # prephitmp_745 = PHI <pretmp_744(22), arrayY_8(21)>
+  # prephitmp_747 = PHI <pretmp_746(22), arrayX_621(21)>
+  # prephitmp_749 = PHI <pretmp_748(22), Nparticles_56(21)>
+  .omp_data_o.19 ={v} {CLOBBER};
+  gettimeofday (&tv, 0B);
+  _125 = tv.tv_sec;
+  _357 = _125 * 1000000;
+  _358 = tv.tv_usec;
+  _359 = _357 + _358;
+  tv ={v} {CLOBBER};
+  _138 = _359 - _356;
+  _360 = (float) _138;
+  _361 = _360 / 1.0e+6;
+  _139 = (double) _361;
+  printf ("TIME TO SET ERROR TOOK: %f\n", _139);
+  .omp_data_o.20.ind = ind_568;
+  .omp_data_o.20.objxy = objxy_484;
+  .omp_data_o.20.arrayY = prephitmp_745;
+  .omp_data_o.20.arrayX = prephitmp_747;
+  .omp_data_o.20.I = I_7;
+  .omp_data_o.20.likelihood = likelihood_465;
+  .omp_data_o.20.IszY = IszY_589;
+  .omp_data_o.20.Nfr = Nfr_55;
+  .omp_data_o.20.Nparticles = prephitmp_749;
+  .omp_data_o.20.max_size = max_size_545;
+  .omp_data_o.20.countOnes = countOnes_600;
+  .omp_data_o.20.k = k_557;
+  if (prephitmp_749 > 0)
+    goto <bb 24>;
+  else
+    goto <bb 25>;
+
+  <bb 24>:
+  Nparticles.34_153 = (unsigned int) prephitmp_749;
+  _154 = MIN_EXPR <Nparticles.34_153, 16>;
+  _509 = (unsigned int) prephitmp_749;
+  __hsa_range.508.dimension = 1;
+  __hsa_range.508.global_size[0] = _509;
+  __hsa_range.508.global_size[1] = 1;
+  __hsa_range.508.global_size[2] = 1;
+  __hsa_range.508.group_size[0] = _154;
+  __hsa_range.508.group_size[1] = 1;
+  __hsa_range.508.group_size[2] = 1;
+  _252 = (long unsigned int) &.omp_data_o.20;
+  D.6294[0] = _252;
+  __hsa_launch_kernel (&*.__hsa_kd3, &__hsa_range.508, &D.6294);
+  pretmp_751 = .omp_data_o.20.ind;
+  pretmp_753 = .omp_data_o.20.objxy;
+  pretmp_755 = .omp_data_o.20.arrayY;
+  pretmp_757 = .omp_data_o.20.arrayX;
+  pretmp_759 = .omp_data_o.20.I;
+  pretmp_761 = .omp_data_o.20.likelihood;
+  pretmp_763 = .omp_data_o.20.IszY;
+  pretmp_765 = .omp_data_o.20.Nfr;
+  pretmp_767 = .omp_data_o.20.Nparticles;
+  pretmp_769 = .omp_data_o.20.max_size;
+  pretmp_771 = .omp_data_o.20.countOnes;
+  pretmp_773 = .omp_data_o.20.k;
+
+  <bb 25>:
+  # ind_752 = PHI <pretmp_751(24), ind_568(23)>
+  # objxy_754 = PHI <pretmp_753(24), objxy_484(23)>
+  # prephitmp_756 = PHI <pretmp_755(24), prephitmp_745(23)>
+  # prephitmp_758 = PHI <pretmp_757(24), prephitmp_747(23)>
+  # I_760 = PHI <pretmp_759(24), I_7(23)>
+  # prephitmp_762 = PHI <pretmp_761(24), likelihood_465(23)>
+  # IszY_764 = PHI <pretmp_763(24), IszY_589(23)>
+  # Nfr_766 = PHI <pretmp_765(24), Nfr_55(23)>
+  # prephitmp_768 = PHI <pretmp_767(24), prephitmp_749(23)>
+  # max_size_770 = PHI <pretmp_769(24), max_size_545(23)>
+  # countOnes_772 = PHI <pretmp_771(24), countOnes_600(23)>
+  # prephitmp_774 = PHI <pretmp_773(24), k_557(23)>
+  .omp_data_o.20 ={v} {CLOBBER};
+  gettimeofday (&tv, 0B);
+  _362 = tv.tv_sec;
+  _363 = _362 * 1000000;
+  _364 = tv.tv_usec;
+  _365 = _363 + _364;
+  tv ={v} {CLOBBER};
+  _169 = _365 - _359;
+  _366 = (float) _169;
+  _367 = _366 / 1.0e+6;
+  _170 = (double) _367;
+  printf ("TIME TO GET LIKELIHOODS TOOK: %f\n", _170);
+  .omp_data_o.21.likelihood = prephitmp_762;
+  .omp_data_o.21.weights = weights_515;
+  .omp_data_o.21.Nparticles = prephitmp_768;
+  if (prephitmp_768 > 0)
+    goto <bb 26>;
+  else
+    goto <bb 27>;
+
+  <bb 26>:
+  Nparticles.33_175 = (unsigned int) prephitmp_768;
+  _176 = MIN_EXPR <Nparticles.33_175, 16>;
+  _257 = (unsigned int) prephitmp_768;
+  __hsa_range.509.dimension = 1;
+  __hsa_range.509.global_size[0] = _257;
+  __hsa_range.509.global_size[1] = 1;
+  __hsa_range.509.global_size[2] = 1;
+  __hsa_range.509.group_size[0] = _176;
+  __hsa_range.509.group_size[1] = 1;
+  __hsa_range.509.group_size[2] = 1;
+  _253 = (long unsigned int) &.omp_data_o.21;
+  D.6297[0] = _253;
+  __hsa_launch_kernel (&*.__hsa_kd4, &__hsa_range.509, &D.6297);
+  pretmp_776 = .omp_data_o.21.likelihood;
+  pretmp_778 = .omp_data_o.21.weights;
+  pretmp_780 = .omp_data_o.21.Nparticles;
+
+  <bb 27>:
+  # likelihood_777 = PHI <pretmp_776(26), prephitmp_762(25)>
+  # prephitmp_779 = PHI <pretmp_778(26), weights_515(25)>
+  # prephitmp_781 = PHI <pretmp_780(26), prephitmp_768(25)>
+  .omp_data_o.21 ={v} {CLOBBER};
+  gettimeofday (&tv, 0B);
+  _368 = tv.tv_sec;
+  _369 = _368 * 1000000;
+  _370 = tv.tv_usec;
+  _371 = _369 + _370;
+  tv ={v} {CLOBBER};
+  _182 = _371 - _365;
+  _372 = (float) _182;
+  _373 = _372 / 1.0e+6;
+  _183 = (double) _373;
+  printf ("TIME TO GET EXP TOOK: %f\n", _183);
+  .omp_data_o.22.sumWeights = 0.0;
+  .omp_data_o.22.weights = prephitmp_779;
+  .omp_data_o.22.Nparticles = prephitmp_781;
+  __hsa_range.510.dimension = 1;
+  __hsa_range.510.global_size[0] = 256;
+  __hsa_range.510.global_size[1] = 1;
+  __hsa_range.510.global_size[2] = 1;
+  __hsa_range.510.group_size[0] = 16;
+  __hsa_range.510.group_size[1] = 1;
+  __hsa_range.510.group_size[2] = 1;
+  _493 = (long unsigned int) &.omp_data_o.22;
+  D.6300[0] = _493;
+  __hsa_launch_kernel (&*.__hsa_kd5, &__hsa_range.510, &D.6300);
+  sumWeights_189 = .omp_data_o.22.sumWeights;
+  weights_190 = .omp_data_o.22.weights;
+  Nparticles_191 = .omp_data_o.22.Nparticles;
+  .omp_data_o.22 ={v} {CLOBBER};
+  gettimeofday (&tv, 0B);
+  _374 = tv.tv_sec;
+  _375 = _374 * 1000000;
+  _376 = tv.tv_usec;
+  _377 = _375 + _376;
+  tv ={v} {CLOBBER};
+  _193 = _377 - _371;
+  _378 = (float) _193;
+  _379 = _378 / 1.0e+6;
+  _194 = (double) _379;
+  printf ("TIME TO SUM WEIGHTS TOOK: %f\n", _194);
+  .omp_data_o.23.weights = weights_190;
+  .omp_data_o.23.sumWeights = sumWeights_189;
+  .omp_data_o.23.Nparticles = Nparticles_191;
+  if (Nparticles_191 > 0)
+    goto <bb 28>;
+  else
+    goto <bb 29>;
+
+  <bb 28>:
+  Nparticles.30_199 = (unsigned int) Nparticles_191;
+  _200 = MIN_EXPR <Nparticles.30_199, 16>;
+  _311 = (unsigned int) Nparticles_191;
+  __hsa_range.511.dimension = 1;
+  __hsa_range.511.global_size[0] = _311;
+  __hsa_range.511.global_size[1] = 1;
+  __hsa_range.511.global_size[2] = 1;
+  __hsa_range.511.group_size[0] = _200;
+  __hsa_range.511.group_size[1] = 1;
+  __hsa_range.511.group_size[2] = 1;
+  _159 = (long unsigned int) &.omp_data_o.23;
+  D.6303[0] = _159;
+  __hsa_launch_kernel (&*.__hsa_kd6, &__hsa_range.511, &D.6303);
+  pretmp_782 = .omp_data_o.23.weights;
+  pretmp_784 = .omp_data_o.23.Nparticles;
+
+  <bb 29>:
+  # prephitmp_783 = PHI <pretmp_782(28), weights_190(27)>
+  # prephitmp_785 = PHI <pretmp_784(28), Nparticles_191(27)>
+  .omp_data_o.23 ={v} {CLOBBER};
+  gettimeofday (&tv, 0B);
+  _380 = tv.tv_sec;
+  _381 = _380 * 1000000;
+  _382 = tv.tv_usec;
+  _383 = _381 + _382;
+  tv ={v} {CLOBBER};
+  _205 = _383 - _377;
+  _384 = (float) _205;
+  _385 = _384 / 1.0e+6;
+  _206 = (double) _385;
+  printf ("TIME TO NORMALIZE WEIGHTS TOOK: %f\n", _206);
+  .omp_data_o.24.xe = 0.0;
+  .omp_data_o.24.ye = 0.0;
+  .omp_data_o.24.weights = prephitmp_783;
+  .omp_data_o.24.arrayX = prephitmp_758;
+  .omp_data_o.24.arrayY = prephitmp_756;
+  .omp_data_o.24.Nparticles = prephitmp_785;
+  if (prephitmp_785 > 0)
+    goto <bb 30>;
+  else
+    goto <bb 31>;
+
+  <bb 30>:
+  Nparticles.29_214 = (unsigned int) prephitmp_785;
+  _215 = MIN_EXPR <Nparticles.29_214, 16>;
+  _157 = (unsigned int) prephitmp_785;
+  __hsa_range.512.dimension = 1;
+  __hsa_range.512.global_size[0] = _157;
+  __hsa_range.512.global_size[1] = 1;
+  __hsa_range.512.global_size[2] = 1;
+  __hsa_range.512.group_size[0] = _215;
+  __hsa_range.512.group_size[1] = 1;
+  __hsa_range.512.group_size[2] = 1;
+  _491 = (long unsigned int) &.omp_data_o.24;
+  D.6306[0] = _491;
+  __hsa_launch_kernel (&*.__hsa_kd7, &__hsa_range.512, &D.6306);
+  pretmp_787 = .omp_data_o.24.xe;
+  pretmp_789 = .omp_data_o.24.ye;
+  pretmp_791 = .omp_data_o.24.weights;
+  pretmp_793 = .omp_data_o.24.arrayX;
+  pretmp_795 = .omp_data_o.24.arrayY;
+  pretmp_797 = .omp_data_o.24.Nparticles;
+
+  <bb 31>:
+  # prephitmp_788 = PHI <pretmp_787(30), 0.0(29)>
+  # prephitmp_790 = PHI <pretmp_789(30), 0.0(29)>
+  # weights_792 = PHI <pretmp_791(30), prephitmp_783(29)>
+  # prephitmp_794 = PHI <pretmp_793(30), prephitmp_758(29)>
+  # prephitmp_796 = PHI <pretmp_795(30), prephitmp_756(29)>
+  # prephitmp_798 = PHI <pretmp_797(30), prephitmp_785(29)>
+  .omp_data_o.24 ={v} {CLOBBER};
+  gettimeofday (&tv, 0B);
+  _386 = tv.tv_sec;
+  _387 = _386 * 1000000;
+  _388 = tv.tv_usec;
+  _389 = _387 + _388;
+  tv ={v} {CLOBBER};
+  _224 = _389 - _383;
+  _390 = (float) _224;
+  _391 = _390 / 1.0e+6;
+  _225 = (double) _391;
+  printf ("TIME TO MOVE OBJECT TOOK: %f\n", _225);
+  printf ("XE: %lf\n", prephitmp_788);
+  printf ("YE: %lf\n", prephitmp_790);
+  _229 = (double) IszY_764;
+  _230 = _229 * 5.0e-1;
+  newValue_392 = (int) _230;
+  _232 = (double) newValue_392;
+  _233 = prephitmp_788 - _232;
+  powmult_520 = _233 * _233;
+  _238 = prephitmp_790 - _334;
+  powmult_234 = _238 * _238;
+  _241 = powmult_234 + powmult_520;
+  distance_243 = sqrt (_241);
+  printf ("%lf\n", distance_243);
+  _245 = *weights_792;
+  *CDF_590 = _245;
+  if (prephitmp_798 > 1)
+    goto <bb 33>;
+  else
+    goto <bb 32>;
+
+  <bb 32>:
+  gettimeofday (&tv, 0B);
+  _394 = tv.tv_sec;
+  _395 = _394 * 1000000;
+  _396 = tv.tv_usec;
+  _397 = _395 + _396;
+  tv ={v} {CLOBBER};
+  _258 = _397 - _389;
+  _398 = (float) _258;
+  _399 = _398 / 1.0e+6;
+  _259 = (double) _399;
+  printf ("TIME TO CALC CUM SUM TOOK: %f\n", _259);
+  _261 = (double) prephitmp_798;
+  _262 = 1.0e+0 / _261;
+  _400 = *seed_743;
+  A.1_401 = A;
+  _402 = _400 * A.1_401;
+  C.2_403 = C;
+  num_404 = _402 + C.2_403;
+  _405 = (long int) num_404;
+  M.3_406 = M;
+  _407 = _405 % M.3_406;
+  _408 = (int) _407;
+  *seed_743 = _408;
+  _409 = (double) _408;
+  _410 = (double) M.3_406;
+  _411 = _409 / _410;
+  _412 = ABS_EXPR <_411>;
+  u1_264 = _262 * _412;
+  .omp_data_o.25.u1 = u1_264;
+  .omp_data_o.25.u = u_579;
+  .omp_data_o.25.Nparticles = prephitmp_798;
+  if (prephitmp_798 > 0)
+    goto <bb 35>;
+  else
+    goto <bb 36>;
+
+  <bb 33>:
+  _666 = (unsigned int) prephitmp_798;
+  _473 = _666 + 4294967294;
+  _156 = (unsigned long) _473;
+  _118 = _156 + 1;
+
+  <bb 34>:
+  # D__lsm0.420_676 = PHI <_245(33), _255(34)>
+  # ivtmp.445_468 = PHI <0(33), ivtmp.445_667(34)>
+  _251 = MEM[base: weights_792, index: ivtmp.445_468, step: 8, offset: 8B];
+  _255 = _251 + D__lsm0.420_676;
+  MEM[base: CDF_590, index: ivtmp.445_468, step: 8, offset: 8B] = _255;
+  ivtmp.445_667 = ivtmp.445_468 + 1;
+  if (ivtmp.445_667 != _118)
+    goto <bb 34>;
+  else
+    goto <bb 32>;
+
+  <bb 35>:
+  Nparticles.28_268 = (unsigned int) prephitmp_798;
+  _269 = MIN_EXPR <Nparticles.28_268, 16>;
+  _665 = (unsigned int) prephitmp_798;
+  __hsa_range.513.dimension = 1;
+  __hsa_range.513.global_size[0] = _665;
+  __hsa_range.513.global_size[1] = 1;
+  __hsa_range.513.global_size[2] = 1;
+  __hsa_range.513.group_size[0] = _269;
+  __hsa_range.513.group_size[1] = 1;
+  __hsa_range.513.group_size[2] = 1;
+  _508 = (long unsigned int) &.omp_data_o.25;
+  D.6309[0] = _508;
+  __hsa_launch_kernel (&*.__hsa_kd8, &__hsa_range.513, &D.6309);
+  pretmp_799 = .omp_data_o.25.u;
+  pretmp_801 = .omp_data_o.25.Nparticles;
+
+  <bb 36>:
+  # prephitmp_800 = PHI <pretmp_799(35), u_579(32)>
+  # prephitmp_802 = PHI <pretmp_801(35), prephitmp_798(32)>
+  .omp_data_o.25 ={v} {CLOBBER};
+  gettimeofday (&tv, 0B);
+  _263 = tv.tv_sec;
+  _413 = _263 * 1000000;
+  _414 = tv.tv_usec;
+  _415 = _413 + _414;
+  tv ={v} {CLOBBER};
+  _274 = _415 - _397;
+  _416 = (float) _274;
+  _417 = _416 / 1.0e+6;
+  _275 = (double) _417;
+  printf ("TIME TO CALC U TOOK: %f\n", _275);
+  .omp_data_o.26.arrayY = prephitmp_796;
+  .omp_data_o.26.arrayX = prephitmp_794;
+  .omp_data_o.26.u = prephitmp_800;
+  .omp_data_o.26.yj = yj_601;
+  .omp_data_o.26.xj = xj_14;
+  .omp_data_o.26.CDF = CDF_590;
+  .omp_data_o.26.Nparticles = prephitmp_802;
+  if (prephitmp_802 > 0)
+    goto <bb 37>;
+  else
+    goto <bb 38>;
+
+  <bb 37>:
+  Nparticles.27_284 = (unsigned int) prephitmp_802;
+  _285 = MIN_EXPR <Nparticles.27_284, 16>;
+  _248 = (unsigned int) prephitmp_802;
+  __hsa_range.514.dimension = 1;
+  __hsa_range.514.global_size[0] = _248;
+  __hsa_range.514.global_size[1] = 1;
+  __hsa_range.514.global_size[2] = 1;
+  __hsa_range.514.group_size[0] = _285;
+  __hsa_range.514.group_size[1] = 1;
+  __hsa_range.514.group_size[2] = 1;
+  _682 = (long unsigned int) &.omp_data_o.26;
+  D.6312[0] = _682;
+  __hsa_launch_kernel (&*.__hsa_kd9, &__hsa_range.514, &D.6312);
+  pretmp_804 = .omp_data_o.26.arrayY;
+  pretmp_806 = .omp_data_o.26.arrayX;
+  pretmp_808 = .omp_data_o.26.u;
+  pretmp_810 = .omp_data_o.26.yj;
+  pretmp_812 = .omp_data_o.26.xj;
+  pretmp_814 = .omp_data_o.26.CDF;
+  pretmp_816 = .omp_data_o.26.Nparticles;
+
+  <bb 38>:
+  # arrayY_805 = PHI <pretmp_804(37), prephitmp_796(36)>
+  # arrayX_807 = PHI <pretmp_806(37), prephitmp_794(36)>
+  # u_809 = PHI <pretmp_808(37), prephitmp_800(36)>
+  # yj_811 = PHI <pretmp_810(37), yj_601(36)>
+  # xj_813 = PHI <pretmp_812(37), xj_14(36)>
+  # CDF_815 = PHI <pretmp_814(37), CDF_590(36)>
+  # Nparticles_817 = PHI <pretmp_816(37), prephitmp_802(36)>
+  .omp_data_o.26 ={v} {CLOBBER};
+  gettimeofday (&tv, 0B);
+  _418 = tv.tv_sec;
+  _419 = _418 * 1000000;
+  _420 = tv.tv_usec;
+  _421 = _419 + _420;
+  tv ={v} {CLOBBER};
+  _295 = _421 - _415;
+  _422 = (float) _295;
+  _423 = _422 / 1.0e+6;
+  _296 = (double) _423;
+  printf ("TIME TO CALC NEW ARRAY X AND Y TOOK: %f\n", _296);
+  if (Nparticles_817 > 0)
+    goto <bb 40>;
+  else
+    goto <bb 39>;
+
+  <bb 39>:
+  gettimeofday (&tv, 0B);
+  _424 = tv.tv_sec;
+  _425 = _424 * 1000000;
+  _426 = tv.tv_usec;
+  _427 = _425 + _426;
+  tv ={v} {CLOBBER};
+  _313 = _427 - _421;
+  _428 = (float) _313;
+  _429 = _428 / 1.0e+6;
+  _314 = (double) _429;
+  printf ("TIME TO RESET WEIGHTS TOOK: %f\n", _314);
+  k_316 = prephitmp_774 + 1;
+  if (k_316 < Nfr_766)
+    goto <bb 21>;
+  else
+    goto <bb 51>;
+
+  <bb 40>:
+  pretmp_820 = (double) Nparticles_817;
+  pretmp_821 = 1.0e+0 / pretmp_820;
+  _734 = (unsigned int) Nparticles_817;
+  _725 = _734 > 42;
+  _722 = weights_792 + 16;
+  _721 = _722 <= arrayY_805;
+  _720 = arrayY_805 + 16;
+  _719 = _720 <= weights_792;
+  _718 = _719 | _721;
+  _710 = _722 <= arrayX_807;
+  _680 = arrayX_807 + 16;
+  _650 = _680 <= weights_792;
+  _649 = _650 | _710;
+  _52 = _718 & _649;
+  _648 = _52 & _725;
+  _646 = _722 <= yj_811;
+  _645 = yj_811 + 16;
+  _644 = _645 <= weights_792;
+  _643 = _644 | _646;
+  _642 = _648 & _643;
+  _640 = _722 <= xj_813;
+  _639 = xj_813 + 16;
+  _638 = _639 <= weights_792;
+  _637 = _638 | _640;
+  _636 = _642 & _637;
+  _634 = _720 <= arrayX_807;
+  _632 = _680 <= arrayY_805;
+  _631 = _632 | _634;
+  _630 = _636 & _631;
+  _628 = _720 <= yj_811;
+  _626 = _645 <= arrayY_805;
+  _625 = _626 | _628;
+  _624 = _630 & _625;
+  _622 = _720 <= xj_813;
+  _611 = _639 <= arrayY_805;
+  _602 = _611 | _622;
+  _591 = _624 & _602;
+  _569 = _680 <= yj_811;
+  _547 = _645 <= arrayX_807;
+  _536 = _547 | _569;
+  _513 = _591 & _536;
+  _489 = _680 <= xj_813;
+  _469 = _639 <= arrayX_807;
+  _464 = _469 | _489;
+  _432 = _513 & _464;
+  if (_432 != 0)
+    goto <bb 41>;
+  else
+    goto <bb 49>;
+
+  <bb 41>:
+  _17 = (unsigned long) xj_813;
+  _16 = _17 & 15;
+  _15 = _16 >> 3;
+  _13 = -_15;
+  _12 = (unsigned int) _13;
+  _11 = _12 & 1;
+  prolog_loop_niters.401_18 = MIN_EXPR <_11, _734>;
+  if (prolog_loop_niters.401_18 == 0)
+    goto <bb 43>;
+  else
+    goto <bb 42>;
+
+  <bb 42>:
+  _2 = *xj_813;
+  *arrayX_807 = _2;
+  _825 = *yj_811;
+  *arrayY_805 = _825;
+  *weights_792 = pretmp_821;
+
+  <bb 43>:
+  # x_724 = PHI <1(42), 0(41)>
+  prolog_loop_adjusted_niters.402_706 = (sizetype) prolog_loop_niters.401_18;
+  niters.403_705 = _734 - prolog_loop_niters.401_18;
+  _703 = niters.403_705 + 4294967294;
+  _702 = _703 >> 1;
+  bnd.404_704 = _702 + 1;
+  ratio_mult_vf.405_701 = bnd.404_704 << 1;
+  _668 = prolog_loop_adjusted_niters.402_706 * 8;
+  vectp_prephitmp.408_669 = xj_813 + _668;
+  vectp_prephitmp.411_467 = arrayX_807 + _668;
+  vectp_prephitmp.413_303 = yj_811 + _668;
+  vectp_prephitmp.416_116 = arrayY_805 + _668;
+  vect_cst_.417_307 = {pretmp_821, pretmp_821};
+  vectp_prephitmp.419_135 = weights_792 + _668;
+
+  <bb 44>:
+  # ivtmp.430_239 = PHI <0(43), ivtmp.430_231(44)>
+  # ivtmp.433_60 = PHI <0(43), ivtmp.433_59(44)>
+  vect__302.409_466 = MEM[base: vectp_prephitmp.408_669, index: ivtmp.433_60, offset: 0B];
+  MEM[base: vectp_prephitmp.411_467, index: ivtmp.433_60, offset: 0B] = vect__302.409_466;
+  vect__306.414_88 = MEM[base: vectp_prephitmp.413_303, index: ivtmp.433_60, offset: 0B];
+  MEM[base: vectp_prephitmp.416_116, index: ivtmp.433_60, offset: 0B] = vect__306.414_88;
+  MEM[base: vectp_prephitmp.419_135, index: ivtmp.433_60, offset: 0B] = vect_cst_.417_307;
+  ivtmp.430_231 = ivtmp.430_239 + 1;
+  ivtmp.433_59 = ivtmp.433_60 + 16;
+  if (ivtmp.430_231 < bnd.404_704)
+    goto <bb 44>;
+  else
+    goto <bb 45>;
+
+  <bb 45>:
+  _670 = (int) ratio_mult_vf.405_701;
+  tmp.406_674 = _670 + x_724;
+  if (ratio_mult_vf.405_701 == niters.403_705)
+    goto <bb 47>;
+  else
+    goto <bb 46>;
+
+  <bb 46>:
+  _698 = (long unsigned int) tmp.406_674;
+  _697 = _698 * 8;
+  _696 = arrayX_807 + _697;
+  _695 = xj_813 + _697;
+  _694 = *_695;
+  *_696 = _694;
+  _692 = arrayY_805 + _697;
+  _691 = yj_811 + _697;
+  _690 = *_691;
+  *_692 = _690;
+  _688 = weights_792 + _697;
+  *_688 = pretmp_821;
+
+  <bb 47>:
+
+  <bb 48>:
+  goto <bb 39>;
+
+  <bb 49>:
+  # ivtmp.422_681 = PHI <0(40)>
+
+  <bb 50>:
+  # ivtmp.422_699 = PHI <ivtmp.422_681(49), ivtmp.422_700(50)>
+  _57 = MEM[base: xj_813, index: ivtmp.422_699, step: 8, offset: 0B];
+  MEM[base: arrayX_807, index: ivtmp.422_699, step: 8, offset: 0B] = _57;
+  _33 = MEM[base: yj_811, index: ivtmp.422_699, step: 8, offset: 0B];
+  MEM[base: arrayY_805, index: ivtmp.422_699, step: 8, offset: 0B] = _33;
+  MEM[base: weights_792, index: ivtmp.422_699, step: 8, offset: 0B] = pretmp_821;
+  ivtmp.422_700 = ivtmp.422_699 + 1;
+  x_717 = (int) ivtmp.422_700;
+  if (x_717 < Nparticles_817)
+    goto <bb 50>;
+  else
+    goto <bb 48>;
+
+  <bb 51>:
+  # objxy_463 = PHI <objxy_754(39), objxy_66(19)>
+  # weights_514 = PHI <weights_792(39), weights_727(19)>
+  # likelihood_470 = PHI <likelihood_777(39), likelihood_90(19)>
+  # arrayX_612 = PHI <arrayX_807(39), arrayX_738(19)>
+  # arrayY_486 = PHI <arrayY_805(39), arrayY_736(19)>
+  # xj_610 = PHI <xj_813(39), xj_96(19)>
+  # yj_599 = PHI <yj_811(39), yj_98(19)>
+  # CDF_588 = PHI <CDF_815(39), CDF_100(19)>
+  # u_577 = PHI <u_809(39), u_102(19)>
+  # ind_566 = PHI <ind_752(39), ind_107(19)>
+  free (disk_51);
+  free (objxy_463);
+  free (weights_514);
+  free (likelihood_470);
+  free (xj_610);
+  free (yj_599);
+  free (arrayX_612);
+  free (arrayY_486);
+  free (CDF_588);
+  free (u_577);
+  free (ind_566);
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=39, decl_uid=4238, cgraph_uid=39, symbol_order=42) (executed once)
+
+main (int argc, char * * argv)
+{
+  unsigned long ivtmp.520;
+  struct timeval tv;
+  struct timeval tv;
+  struct timeval tv;
+  int * I;
+  int i;
+  int * seed;
+  int Nparticles;
+  int Nfr;
+  int IszY;
+  int IszX;
+  char * _8;
+  int _9;
+  char * _10;
+  int _11;
+  char * _12;
+  int _13;
+  char * _14;
+  int _15;
+  char * _16;
+  int _18;
+  int IszX.38_20;
+  char * _22;
+  int _24;
+  int IszY.39_26;
+  char * _28;
+  int _30;
+  int Nfr.40_32;
+  char * _34;
+  int _36;
+  int Nparticles.41_38;
+  long unsigned int _40;
+  long unsigned int _41;
+  int Nparticles.41_44;
+  int _49;
+  int _50;
+  int IszX.38_53;
+  long unsigned int _54;
+  int IszY.39_55;
+  long unsigned int _56;
+  long unsigned int _57;
+  int Nfr.40_58;
+  long unsigned int _59;
+  long unsigned int _61;
+  long int _64;
+  int Nfr.40_65;
+  int IszY.39_66;
+  int IszX.38_67;
+  long long int _69;
+  double _70;
+  int Nparticles.41_72;
+  int Nfr.40_73;
+  int IszY.39_74;
+  int IszX.38_75;
+  long long int _77;
+  double _78;
+  double _80;
+  long int _89;
+  long int _90;
+  long int _91;
+  long long int _92;
+  long int _93;
+  long int _94;
+  long long int _95;
+  float _96;
+  float _97;
+  long int _98;
+  long int _99;
+  long int _100;
+  long long int _101;
+  float _102;
+  float _103;
+  long long int _104;
+  float _105;
+  float _106;
+  long unsigned int _113;
+
+  <bb 2>:
+  if (argc_4(D) != 9)
+    goto <bb 3>;
+  else
+    goto <bb 4>;
+
+  <bb 3>:
+  __builtin_puts ("openmp.out -x <dimX> -y <dimY> -z <Nfr> -np <Nparticles>");
+  goto <bb 28>;
+
+  <bb 4>:
+  _8 = MEM[(char * *)argv_7(D) + 8B];
+  _9 = strcmp (_8, "-x");
+  if (_9 != 0)
+    goto <bb 3>;
+  else
+    goto <bb 5>;
+
+  <bb 5>:
+  _10 = MEM[(char * *)argv_7(D) + 24B];
+  _11 = strcmp (_10, "-y");
+  if (_11 != 0)
+    goto <bb 3>;
+  else
+    goto <bb 6>;
+
+  <bb 6>:
+  _12 = MEM[(char * *)argv_7(D) + 40B];
+  _13 = strcmp (_12, "-z");
+  if (_13 != 0)
+    goto <bb 3>;
+  else
+    goto <bb 7>;
+
+  <bb 7>:
+  _14 = MEM[(char * *)argv_7(D) + 56B];
+  _15 = strcmp (_14, "-np");
+  if (_15 != 0)
+    goto <bb 3>;
+  else
+    goto <bb 8>;
+
+  <bb 8>:
+  _16 = MEM[(char * *)argv_7(D) + 16B];
+  _18 = sscanf (_16, "%d", &IszX);
+  if (_18 == -1)
+    goto <bb 9>;
+  else
+    goto <bb 10>;
+
+  <bb 9>:
+  printf ("ERROR: dimX input is incorrect");
+  goto <bb 28>;
+
+  <bb 10>:
+  IszX.38_20 = IszX;
+  if (IszX.38_20 <= 0)
+    goto <bb 11>;
+  else
+    goto <bb 12>;
+
+  <bb 11>:
+  __builtin_puts (&"dimX must be > 0"[0]);
+  goto <bb 28>;
+
+  <bb 12>:
+  _22 = MEM[(char * *)argv_7(D) + 32B];
+  _24 = sscanf (_22, "%d", &IszY);
+  if (_24 == -1)
+    goto <bb 13>;
+  else
+    goto <bb 14>;
+
+  <bb 13>:
+  printf ("ERROR: dimY input is incorrect");
+  goto <bb 28>;
+
+  <bb 14>:
+  IszY.39_26 = IszY;
+  if (IszY.39_26 <= 0)
+    goto <bb 15>;
+  else
+    goto <bb 16>;
+
+  <bb 15>:
+  __builtin_puts (&"dimY must be > 0"[0]);
+  goto <bb 28>;
+
+  <bb 16>:
+  _28 = MEM[(char * *)argv_7(D) + 48B];
+  _30 = sscanf (_28, "%d", &Nfr);
+  if (_30 == -1)
+    goto <bb 17>;
+  else
+    goto <bb 18>;
+
+  <bb 17>:
+  printf ("ERROR: Number of frames input is incorrect");
+  goto <bb 28>;
+
+  <bb 18>:
+  Nfr.40_32 = Nfr;
+  if (Nfr.40_32 <= 0)
+    goto <bb 19>;
+  else
+    goto <bb 20>;
+
+  <bb 19>:
+  __builtin_puts (&"number of frames must be > 0"[0]);
+  goto <bb 28>;
+
+  <bb 20>:
+  _34 = MEM[(char * *)argv_7(D) + 64B];
+  _36 = sscanf (_34, "%d", &Nparticles);
+  if (_36 == -1)
+    goto <bb 21>;
+  else
+    goto <bb 22>;
+
+  <bb 21>:
+  printf ("ERROR: Number of particles input is incorrect");
+  goto <bb 28>;
+
+  <bb 22>:
+  Nparticles.41_38 = Nparticles;
+  if (Nparticles.41_38 <= 0)
+    goto <bb 23>;
+  else
+    goto <bb 24>;
+
+  <bb 23>:
+  __builtin_puts (&"Number of particles must be > 0"[0]);
+  goto <bb 28>;
+
+  <bb 24>:
+  _40 = (long unsigned int) Nparticles.41_38;
+  _41 = _40 * 4;
+  seed_43 = malloc (_41);
+  goto <bb 26>;
+
+  <bb 25>:
+  _49 = time (0);
+  _50 = _49 * i_1;
+  MEM[base: seed_43, index: ivtmp.520_129, step: 4, offset: 0B] = _50;
+  ivtmp.520_128 = ivtmp.520_129 + 1;
+
+  <bb 26>:
+  # ivtmp.520_129 = PHI <0(24), ivtmp.520_128(25)>
+  i_1 = (int) ivtmp.520_129;
+  Nparticles.41_44 = Nparticles;
+  if (i_1 < Nparticles.41_44)
+    goto <bb 25>;
+  else
+    goto <bb 27>;
+
+  <bb 27>:
+  IszX.38_53 = IszX;
+  _54 = (long unsigned int) IszX.38_53;
+  IszY.39_55 = IszY;
+  _56 = (long unsigned int) IszY.39_55;
+  _57 = _54 * _56;
+  Nfr.40_58 = Nfr;
+  _59 = (long unsigned int) Nfr.40_58;
+  _113 = _57 * 4;
+  _61 = _113 * _59;
+  I_63 = malloc (_61);
+  gettimeofday (&tv, 0B);
+  _89 = tv.tv_sec;
+  _90 = _89 * 1000000;
+  _91 = tv.tv_usec;
+  _92 = _90 + _91;
+  tv ={v} {CLOBBER};
+  Nfr.40_65 = Nfr;
+  IszY.39_66 = IszY;
+  IszX.38_67 = IszX;
+  videoSequence (I_63, IszX.38_67, IszY.39_66, Nfr.40_65, seed_43);
+  gettimeofday (&tv, 0B);
+  _64 = tv.tv_sec;
+  _93 = _64 * 1000000;
+  _94 = tv.tv_usec;
+  _95 = _93 + _94;
+  tv ={v} {CLOBBER};
+  _69 = _95 - _92;
+  _96 = (float) _69;
+  _97 = _96 / 1.0e+6;
+  _70 = (double) _97;
+  printf ("VIDEO SEQUENCE TOOK %f\n", _70);
+  Nparticles.41_72 = Nparticles;
+  Nfr.40_73 = Nfr;
+  IszY.39_74 = IszY;
+  IszX.38_75 = IszX;
+  particleFilter (I_63, IszX.38_75, IszY.39_74, Nfr.40_73, seed_43, Nparticles.41_72);
+  gettimeofday (&tv, 0B);
+  _98 = tv.tv_sec;
+  _99 = _98 * 1000000;
+  _100 = tv.tv_usec;
+  _101 = _99 + _100;
+  tv ={v} {CLOBBER};
+  _77 = _101 - _95;
+  _102 = (float) _77;
+  _103 = _102 / 1.0e+6;
+  _78 = (double) _103;
+  printf ("PARTICLE FILTER TOOK %f\n", _78);
+  _104 = _101 - _92;
+  _105 = (float) _104;
+  _106 = _105 / 1.0e+6;
+  _80 = (double) _106;
+  printf ("ENTIRE PROGRAM TOOK %f\n", _80);
+  free (seed_43);
+  free (I_63);
+
+  <bb 28>:
+  IszX ={v} {CLOBBER};
+  IszY ={v} {CLOBBER};
+  Nfr ={v} {CLOBBER};
+  Nparticles ={v} {CLOBBER};
+  return 0;
+
+}
+
+

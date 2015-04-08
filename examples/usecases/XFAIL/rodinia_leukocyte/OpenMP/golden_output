@@ -1,0 +1,4 @@
+track_ellipse.c: In function ‘ellipsetrack._omp_fn.0’:
+track_ellipse.c:84:11: sorry, unimplemented: Support for HSA does not implement calls to builtin malloc
+   #pragma omp parallel for num_threads(omp_num_threads) private(i, j)
+           ^

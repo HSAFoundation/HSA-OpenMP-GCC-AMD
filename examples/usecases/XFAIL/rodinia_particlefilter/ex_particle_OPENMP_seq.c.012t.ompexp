@@ -1,0 +1,2380 @@
+
+;; Function get_time (get_time, funcdef_no=23, decl_uid=3958, cgraph_uid=23, symbol_order=26)
+
+get_time ()
+{
+  struct timeval tv;
+  long int D.4261;
+  long int D.4260;
+  long int D.4259;
+  long long int D.4258;
+
+  <bb 2>:
+  gettimeofday (&tv, 0B);
+  D.4259 = tv.tv_sec;
+  D.4260 = D.4259 * 1000000;
+  D.4261 = tv.tv_usec;
+  D.4258 = D.4260 + D.4261;
+  tv = {CLOBBER};
+  return D.4258;
+
+}
+
+
+
+;; Function elapsed_time (elapsed_time, funcdef_no=24, decl_uid=3963, cgraph_uid=24, symbol_order=27)
+
+elapsed_time (long long int start_time, long long int end_time)
+{
+  float D.4266;
+  long long int D.4265;
+  float D.4264;
+
+  <bb 2>:
+  D.4265 = end_time - start_time;
+  D.4266 = (float) D.4265;
+  D.4264 = D.4266 / 1.0e+6;
+  return D.4264;
+
+}
+
+
+
+;; Function roundDouble (roundDouble, funcdef_no=25, decl_uid=3966, cgraph_uid=25, symbol_order=28)
+
+roundDouble (double value)
+{
+  int newValue;
+  int newValue.0;
+  double D.4272;
+  double D.4269;
+  double D.4268;
+
+  <bb 2>:
+  newValue = (int) value;
+  D.4268 = (double) newValue;
+  D.4269 = value - D.4268;
+  if (D.4269 < 5.0e-1)
+    goto <bb 3>;
+  else
+    goto <bb 4>;
+
+  <bb 3>:
+  D.4272 = (double) newValue;
+  goto <bb 5>;
+
+  <bb 4>:
+  newValue.0 = newValue;
+  newValue = newValue.0 + 1;
+  D.4272 = (double) newValue.0;
+
+  <bb 5>:
+  return D.4272;
+
+}
+
+
+
+;; Function setIf (setIf, funcdef_no=26, decl_uid=3975, cgraph_uid=26, symbol_order=29)
+
+setIf (int testValue, int newValue, int * array3D, int * dimX, int * dimY, int * dimZ)
+{
+  int z;
+  int y;
+  int x;
+  int D.4287;
+  int D.4284;
+  int * D.4283;
+  long unsigned int D.4282;
+  long unsigned int D.4281;
+  int D.4280;
+  int D.4279;
+  int D.4278;
+  int D.4277;
+  int D.4276;
+  int D.4275;
+
+  <bb 2>:
+  x = 0;
+  goto <bb 12>;
+
+  <bb 3>:
+  y = 0;
+  goto <bb 10>;
+
+  <bb 4>:
+  z = 0;
+  goto <bb 8>;
+
+  <bb 5>:
+  D.4275 = *dimY;
+  D.4276 = D.4275 * x;
+  D.4277 = D.4276 + y;
+  D.4278 = *dimZ;
+  D.4279 = D.4277 * D.4278;
+  D.4280 = D.4279 + z;
+  D.4281 = (long unsigned int) D.4280;
+  D.4282 = D.4281 * 4;
+  D.4283 = array3D + D.4282;
+  D.4284 = *D.4283;
+  if (D.4284 == testValue)
+    goto <bb 6>;
+  else
+    goto <bb 7>;
+
+  <bb 6>:
+  D.4275 = *dimY;
+  D.4276 = D.4275 * x;
+  D.4277 = D.4276 + y;
+  D.4278 = *dimZ;
+  D.4279 = D.4277 * D.4278;
+  D.4280 = D.4279 + z;
+  D.4281 = (long unsigned int) D.4280;
+  D.4282 = D.4281 * 4;
+  D.4283 = array3D + D.4282;
+  *D.4283 = newValue;
+
+  <bb 7>:
+  z = z + 1;
+
+  <bb 8>:
+  D.4278 = *dimZ;
+  if (D.4278 > z)
+    goto <bb 5>;
+  else
+    goto <bb 9>;
+
+  <bb 9>:
+  y = y + 1;
+
+  <bb 10>:
+  D.4275 = *dimY;
+  if (D.4275 > y)
+    goto <bb 4>;
+  else
+    goto <bb 11>;
+
+  <bb 11>:
+  x = x + 1;
+
+  <bb 12>:
+  D.4287 = *dimX;
+  if (D.4287 > x)
+    goto <bb 3>;
+  else
+    goto <bb 13>;
+
+  <bb 13>:
+  return;
+
+}
+
+
+
+;; Function randu (randu, funcdef_no=27, decl_uid=3991, cgraph_uid=27, symbol_order=30)
+
+randu (int * seed, int index)
+{
+  int num;
+  double D.4302;
+  double D.4301;
+  double D.4300;
+  double D.4299;
+  int D.4298;
+  long int D.4297;
+  long int M.3;
+  long int D.4295;
+  int C.2;
+  int D.4293;
+  int A.1;
+  int D.4291;
+  int * D.4290;
+  long unsigned int D.4289;
+  long unsigned int D.4288;
+
+  <bb 2>:
+  D.4288 = (long unsigned int) index;
+  D.4289 = D.4288 * 4;
+  D.4290 = seed + D.4289;
+  D.4291 = *D.4290;
+  A.1 = A;
+  D.4293 = D.4291 * A.1;
+  C.2 = C;
+  num = D.4293 + C.2;
+  D.4288 = (long unsigned int) index;
+  D.4289 = D.4288 * 4;
+  D.4290 = seed + D.4289;
+  D.4295 = (long int) num;
+  M.3 = M;
+  D.4297 = D.4295 % M.3;
+  D.4298 = (int) D.4297;
+  *D.4290 = D.4298;
+  D.4288 = (long unsigned int) index;
+  D.4289 = D.4288 * 4;
+  D.4290 = seed + D.4289;
+  D.4291 = *D.4290;
+  D.4300 = (double) D.4291;
+  M.3 = M;
+  D.4301 = (double) M.3;
+  D.4302 = D.4300 / D.4301;
+  D.4299 = ABS_EXPR <D.4302>;
+  return D.4299;
+
+}
+
+
+
+;; Function randn (randn, funcdef_no=28, decl_uid=3996, cgraph_uid=28, symbol_order=31)
+
+randn (int * seed, int index)
+{
+  double rt;
+  double cosine;
+  double v;
+  double u;
+  double D.4307;
+  double D.4306;
+  double D.4305;
+  double D.4304;
+
+  <bb 2>:
+  u = randu (seed, index);
+  v = randu (seed, index);
+  D.4304 = v * 6.28318530717958623199592693708837032318115234375e+0;
+  cosine = cos (D.4304);
+  D.4305 = log (u);
+  rt = D.4305 * -2.0e+0;
+  D.4307 = sqrt (rt);
+  D.4306 = D.4307 * cosine;
+  return D.4306;
+
+}
+
+
+
+;; Function addNoise (addNoise, funcdef_no=29, decl_uid=4007, cgraph_uid=29, symbol_order=32)
+
+addNoise (int * array3D, int * dimX, int * dimY, int * dimZ, int * seed)
+{
+  int z;
+  int y;
+  int x;
+  int D.4323;
+  int D.4322;
+  int D.4321;
+  double D.4320;
+  double D.4319;
+  int D.4318;
+  int * D.4317;
+  long unsigned int D.4316;
+  long unsigned int D.4315;
+  int D.4314;
+  int D.4313;
+  int D.4312;
+  int D.4311;
+  int D.4310;
+  int D.4309;
+
+  <bb 2>:
+  x = 0;
+  goto <bb 10>;
+
+  <bb 3>:
+  y = 0;
+  goto <bb 8>;
+
+  <bb 4>:
+  z = 0;
+  goto <bb 6>;
+
+  <bb 5>:
+  D.4309 = *dimY;
+  D.4310 = D.4309 * x;
+  D.4311 = D.4310 + y;
+  D.4312 = *dimZ;
+  D.4313 = D.4311 * D.4312;
+  D.4314 = D.4313 + z;
+  D.4315 = (long unsigned int) D.4314;
+  D.4316 = D.4315 * 4;
+  D.4317 = array3D + D.4316;
+  D.4309 = *dimY;
+  D.4310 = D.4309 * x;
+  D.4311 = D.4310 + y;
+  D.4312 = *dimZ;
+  D.4313 = D.4311 * D.4312;
+  D.4314 = D.4313 + z;
+  D.4315 = (long unsigned int) D.4314;
+  D.4316 = D.4315 * 4;
+  D.4317 = array3D + D.4316;
+  D.4318 = *D.4317;
+  D.4319 = randn (seed, 0);
+  D.4320 = D.4319 * 5.0e+0;
+  D.4321 = (int) D.4320;
+  D.4322 = D.4318 + D.4321;
+  *D.4317 = D.4322;
+  z = z + 1;
+
+  <bb 6>:
+  D.4312 = *dimZ;
+  if (D.4312 > z)
+    goto <bb 5>;
+  else
+    goto <bb 7>;
+
+  <bb 7>:
+  y = y + 1;
+
+  <bb 8>:
+  D.4309 = *dimY;
+  if (D.4309 > y)
+    goto <bb 4>;
+  else
+    goto <bb 9>;
+
+  <bb 9>:
+  x = x + 1;
+
+  <bb 10>:
+  D.4323 = *dimX;
+  if (D.4323 > x)
+    goto <bb 3>;
+  else
+    goto <bb 11>;
+
+  <bb 11>:
+  return;
+
+}
+
+
+
+;; Function strelDisk (strelDisk, funcdef_no=30, decl_uid=4023, cgraph_uid=30, symbol_order=33)
+
+strelDisk (int * disk, int radius)
+{
+  double distance;
+  int y;
+  int x;
+  int diameter;
+  int * D.4341;
+  long unsigned int D.4340;
+  long unsigned int D.4339;
+  int D.4338;
+  int D.4337;
+  double D.4334;
+  double D.4333;
+  double D.4332;
+  double D.4331;
+  int D.4330;
+  int D.4329;
+  double D.4328;
+  double D.4327;
+  int D.4326;
+  int D.4325;
+  int D.4324;
+
+  <bb 2>:
+  D.4324 = radius * 2;
+  diameter = D.4324 + -1;
+  x = 0;
+  goto <bb 9>;
+
+  <bb 3>:
+  y = 0;
+  goto <bb 7>;
+
+  <bb 4>:
+  D.4325 = x - radius;
+  D.4326 = D.4325 + 1;
+  D.4327 = (double) D.4326;
+  D.4328 = pow (D.4327, 2.0e+0);
+  D.4329 = y - radius;
+  D.4330 = D.4329 + 1;
+  D.4331 = (double) D.4330;
+  D.4332 = pow (D.4331, 2.0e+0);
+  D.4333 = D.4328 + D.4332;
+  distance = sqrt (D.4333);
+  D.4334 = (double) radius;
+  if (D.4334 > distance)
+    goto <bb 5>;
+  else
+    goto <bb 6>;
+
+  <bb 5>:
+  D.4337 = x * diameter;
+  D.4338 = D.4337 + y;
+  D.4339 = (long unsigned int) D.4338;
+  D.4340 = D.4339 * 4;
+  D.4341 = disk + D.4340;
+  *D.4341 = 1;
+
+  <bb 6>:
+  y = y + 1;
+
+  <bb 7>:
+  if (y < diameter)
+    goto <bb 4>;
+  else
+    goto <bb 8>;
+
+  <bb 8>:
+  x = x + 1;
+
+  <bb 9>:
+  if (x < diameter)
+    goto <bb 3>;
+  else
+    goto <bb 10>;
+
+  <bb 10>:
+  return;
+
+}
+
+
+
+;; Function dilate_matrix (dilate_matrix, funcdef_no=31, decl_uid=4043, cgraph_uid=31, symbol_order=34)
+
+dilate_matrix (int * matrix, int posX, int posY, int posZ, int dimX, int dimY, int dimZ, int error)
+{
+  double distance;
+  int y;
+  int x;
+  int endY;
+  int endX;
+  int startY;
+  int startX;
+  int * D.4358;
+  long unsigned int D.4357;
+  long unsigned int D.4356;
+  int D.4355;
+  int D.4354;
+  int D.4353;
+  int D.4352;
+  double D.4349;
+  double D.4348;
+  double D.4347;
+  double D.4346;
+  int D.4345;
+  double D.4344;
+  double D.4343;
+  int D.4342;
+
+  <bb 2>:
+  startX = posX - error;
+  goto <bb 4>;
+
+  <bb 3>:
+  startX = startX + 1;
+
+  <bb 4>:
+  if (startX < 0)
+    goto <bb 3>;
+  else
+    goto <bb 5>;
+
+  <bb 5>:
+  startY = posY - error;
+  goto <bb 7>;
+
+  <bb 6>:
+  startY = startY + 1;
+
+  <bb 7>:
+  if (startY < 0)
+    goto <bb 6>;
+  else
+    goto <bb 8>;
+
+  <bb 8>:
+  endX = posX + error;
+  goto <bb 10>;
+
+  <bb 9>:
+  endX = endX + -1;
+
+  <bb 10>:
+  if (endX > dimX)
+    goto <bb 9>;
+  else
+    goto <bb 11>;
+
+  <bb 11>:
+  endY = posY + error;
+  goto <bb 13>;
+
+  <bb 12>:
+  endY = endY + -1;
+
+  <bb 13>:
+  if (endY > dimY)
+    goto <bb 12>;
+  else
+    goto <bb 14>;
+
+  <bb 14>:
+  x = startX;
+  goto <bb 21>;
+
+  <bb 15>:
+  y = startY;
+  goto <bb 19>;
+
+  <bb 16>:
+  D.4342 = x - posX;
+  D.4343 = (double) D.4342;
+  D.4344 = pow (D.4343, 2.0e+0);
+  D.4345 = y - posY;
+  D.4346 = (double) D.4345;
+  D.4347 = pow (D.4346, 2.0e+0);
+  D.4348 = D.4344 + D.4347;
+  distance = sqrt (D.4348);
+  D.4349 = (double) error;
+  if (D.4349 > distance)
+    goto <bb 17>;
+  else
+    goto <bb 18>;
+
+  <bb 17>:
+  D.4352 = x * dimY;
+  D.4353 = D.4352 + y;
+  D.4354 = D.4353 * dimZ;
+  D.4355 = D.4354 + posZ;
+  D.4356 = (long unsigned int) D.4355;
+  D.4357 = D.4356 * 4;
+  D.4358 = matrix + D.4357;
+  *D.4358 = 1;
+
+  <bb 18>:
+  y = y + 1;
+
+  <bb 19>:
+  if (y < endY)
+    goto <bb 16>;
+  else
+    goto <bb 20>;
+
+  <bb 20>:
+  x = x + 1;
+
+  <bb 21>:
+  if (x < endX)
+    goto <bb 15>;
+  else
+    goto <bb 22>;
+
+  <bb 22>:
+  return;
+
+}
+
+
+
+;; Function imdilate_disk (imdilate_disk, funcdef_no=32, decl_uid=4076, cgraph_uid=32, symbol_order=35)
+
+imdilate_disk (int * matrix, int dimX, int dimY, int dimZ, int error, int * newMatrix)
+{
+  int z;
+  int y;
+  int x;
+  int D.4366;
+  int * D.4365;
+  long unsigned int D.4364;
+  long unsigned int D.4363;
+  int D.4362;
+  int D.4361;
+  int D.4360;
+  int D.4359;
+
+  <bb 2>:
+  z = 0;
+  goto <bb 12>;
+
+  <bb 3>:
+  x = 0;
+  goto <bb 10>;
+
+  <bb 4>:
+  y = 0;
+  goto <bb 8>;
+
+  <bb 5>:
+  D.4359 = x * dimY;
+  D.4360 = D.4359 + y;
+  D.4361 = D.4360 * dimZ;
+  D.4362 = D.4361 + z;
+  D.4363 = (long unsigned int) D.4362;
+  D.4364 = D.4363 * 4;
+  D.4365 = matrix + D.4364;
+  D.4366 = *D.4365;
+  if (D.4366 == 1)
+    goto <bb 6>;
+  else
+    goto <bb 7>;
+
+  <bb 6>:
+  dilate_matrix (newMatrix, x, y, z, dimX, dimY, dimZ, error);
+
+  <bb 7>:
+  y = y + 1;
+
+  <bb 8>:
+  if (y < dimY)
+    goto <bb 5>;
+  else
+    goto <bb 9>;
+
+  <bb 9>:
+  x = x + 1;
+
+  <bb 10>:
+  if (x < dimX)
+    goto <bb 4>;
+  else
+    goto <bb 11>;
+
+  <bb 11>:
+  z = z + 1;
+
+  <bb 12>:
+  if (z < dimZ)
+    goto <bb 3>;
+  else
+    goto <bb 13>;
+
+  <bb 13>:
+  return;
+
+}
+
+
+
+;; Function getneighbors (getneighbors, funcdef_no=33, decl_uid=4094, cgraph_uid=33, symbol_order=36)
+
+getneighbors (int * se, int numOnes, double * neighbors, int radius)
+{
+  int diameter;
+  int center;
+  int neighY;
+  int y;
+  int x;
+  double D.4389;
+  int D.4388;
+  double * D.4387;
+  sizetype D.4386;
+  sizetype D.4385;
+  sizetype D.4384;
+  double D.4383;
+  int D.4382;
+  double * D.4381;
+  long unsigned int D.4380;
+  long unsigned int D.4379;
+  int D.4378;
+  int D.4375;
+  int * D.4374;
+  long unsigned int D.4373;
+  long unsigned int D.4372;
+  int D.4371;
+  int D.4370;
+  int D.4369;
+
+  <bb 2>:
+  neighY = 0;
+  center = radius + -1;
+  D.4369 = radius * 2;
+  diameter = D.4369 + -1;
+  x = 0;
+  goto <bb 9>;
+
+  <bb 3>:
+  y = 0;
+  goto <bb 7>;
+
+  <bb 4>:
+  D.4370 = x * diameter;
+  D.4371 = D.4370 + y;
+  D.4372 = (long unsigned int) D.4371;
+  D.4373 = D.4372 * 4;
+  D.4374 = se + D.4373;
+  D.4375 = *D.4374;
+  if (D.4375 != 0)
+    goto <bb 5>;
+  else
+    goto <bb 6>;
+
+  <bb 5>:
+  D.4378 = neighY * 2;
+  D.4379 = (long unsigned int) D.4378;
+  D.4380 = D.4379 * 8;
+  D.4381 = neighbors + D.4380;
+  D.4382 = y - center;
+  D.4383 = (double) D.4382;
+  *D.4381 = D.4383;
+  D.4378 = neighY * 2;
+  D.4384 = (sizetype) D.4378;
+  D.4385 = D.4384 + 1;
+  D.4386 = D.4385 * 8;
+  D.4387 = neighbors + D.4386;
+  D.4388 = x - center;
+  D.4389 = (double) D.4388;
+  *D.4387 = D.4389;
+  neighY = neighY + 1;
+
+  <bb 6>:
+  y = y + 1;
+
+  <bb 7>:
+  if (y < diameter)
+    goto <bb 4>;
+  else
+    goto <bb 8>;
+
+  <bb 8>:
+  x = x + 1;
+
+  <bb 9>:
+  if (x < diameter)
+    goto <bb 3>;
+  else
+    goto <bb 10>;
+
+  <bb 10>:
+  return;
+
+}
+
+
+
+;; Function videoSequence (videoSequence, funcdef_no=34, decl_uid=4112, cgraph_uid=34, symbol_order=37)
+
+videoSequence (int * I, int IszX, int IszY, int Nfr, int * seed)
+{
+  int y;
+  int x;
+  int * newMatrix;
+  int pos;
+  int yk;
+  int xk;
+  int y0;
+  int x0;
+  int max_size;
+  int k;
+  int D.4433;
+  int * D.4432;
+  int * D.4431;
+  long unsigned int D.4430;
+  long unsigned int D.4429;
+  int D.4428;
+  int D.4427;
+  int D.4426;
+  int D.4425;
+  long unsigned int D.4424;
+  long unsigned int D.4423;
+  long unsigned int D.4422;
+  long unsigned int D.4421;
+  long unsigned int D.4420;
+  long unsigned int D.4419;
+  int * D.4418;
+  long unsigned int D.4417;
+  long unsigned int D.4416;
+  int D.4413;
+  int D.4412;
+  int D.4411;
+  int D.4410;
+  int D.4409;
+  int D.4408;
+  int D.4407;
+  int D.4406;
+  int * D.4405;
+  long unsigned int D.4404;
+  long unsigned int D.4403;
+  int D.4402;
+  int D.4401;
+  int D.4400;
+  double D.4399;
+  double D.4398;
+  double D.4397;
+  double D.4396;
+  double D.4395;
+  double D.4394;
+  int Nfr.6;
+  int D.4392;
+  int IszY.5;
+  int IszX.4;
+
+  <bb 2>:
+  IszX.4 = IszX;
+  IszY.5 = IszY;
+  D.4392 = IszX.4 * IszY.5;
+  Nfr.6 = Nfr;
+  max_size = D.4392 * Nfr.6;
+  IszY.5 = IszY;
+  D.4394 = (double) IszY.5;
+  D.4395 = D.4394 * 5.0e-1;
+  D.4396 = roundDouble (D.4395);
+  x0 = (int) D.4396;
+  IszX.4 = IszX;
+  D.4397 = (double) IszX.4;
+  D.4398 = D.4397 * 5.0e-1;
+  D.4399 = roundDouble (D.4398);
+  y0 = (int) D.4399;
+  IszY.5 = IszY;
+  D.4400 = x0 * IszY.5;
+  D.4401 = D.4400 + y0;
+  Nfr.6 = Nfr;
+  D.4402 = D.4401 * Nfr.6;
+  D.4403 = (long unsigned int) D.4402;
+  D.4404 = D.4403 * 4;
+  D.4405 = I + D.4404;
+  *D.4405 = 1;
+  k = 1;
+  goto <bb 6>;
+
+  <bb 3>:
+  D.4406 = k + -1;
+  D.4407 = D.4406 + x0;
+  xk = ABS_EXPR <D.4407>;
+  D.4408 = 1 - k;
+  D.4409 = D.4408 * 2;
+  D.4410 = D.4409 + y0;
+  yk = ABS_EXPR <D.4410>;
+  IszY.5 = IszY;
+  D.4411 = yk * IszY.5;
+  D.4412 = D.4411 + xk;
+  Nfr.6 = Nfr;
+  D.4413 = D.4412 * Nfr.6;
+  pos = D.4413 + k;
+  if (pos >= max_size)
+    goto <bb 4>;
+  else
+    goto <bb 5>;
+
+  <bb 4>:
+  pos = 0;
+
+  <bb 5>:
+  D.4416 = (long unsigned int) pos;
+  D.4417 = D.4416 * 4;
+  D.4418 = I + D.4417;
+  *D.4418 = 1;
+  k = k + 1;
+
+  <bb 6>:
+  Nfr.6 = Nfr;
+  if (k < Nfr.6)
+    goto <bb 3>;
+  else
+    goto <bb 7>;
+
+  <bb 7>:
+  IszX.4 = IszX;
+  D.4419 = (long unsigned int) IszX.4;
+  IszY.5 = IszY;
+  D.4420 = (long unsigned int) IszY.5;
+  D.4421 = D.4419 * D.4420;
+  Nfr.6 = Nfr;
+  D.4422 = (long unsigned int) Nfr.6;
+  D.4423 = D.4421 * D.4422;
+  D.4424 = D.4423 * 4;
+  newMatrix = malloc (D.4424);
+  Nfr.6 = Nfr;
+  IszY.5 = IszY;
+  IszX.4 = IszX;
+  imdilate_disk (I, IszX.4, IszY.5, Nfr.6, 5, newMatrix);
+  x = 0;
+  goto <bb 15>;
+
+  <bb 8>:
+  y = 0;
+  goto <bb 13>;
+
+  <bb 9>:
+  k = 0;
+  goto <bb 11>;
+
+  <bb 10>:
+  IszY.5 = IszY;
+  D.4425 = x * IszY.5;
+  D.4426 = D.4425 + y;
+  Nfr.6 = Nfr;
+  D.4427 = D.4426 * Nfr.6;
+  D.4428 = D.4427 + k;
+  D.4429 = (long unsigned int) D.4428;
+  D.4430 = D.4429 * 4;
+  D.4431 = I + D.4430;
+  IszY.5 = IszY;
+  D.4425 = x * IszY.5;
+  D.4426 = D.4425 + y;
+  Nfr.6 = Nfr;
+  D.4427 = D.4426 * Nfr.6;
+  D.4428 = D.4427 + k;
+  D.4429 = (long unsigned int) D.4428;
+  D.4430 = D.4429 * 4;
+  D.4432 = newMatrix + D.4430;
+  D.4433 = *D.4432;
+  *D.4431 = D.4433;
+  k = k + 1;
+
+  <bb 11>:
+  Nfr.6 = Nfr;
+  if (k < Nfr.6)
+    goto <bb 10>;
+  else
+    goto <bb 12>;
+
+  <bb 12>:
+  y = y + 1;
+
+  <bb 13>:
+  IszY.5 = IszY;
+  if (y < IszY.5)
+    goto <bb 9>;
+  else
+    goto <bb 14>;
+
+  <bb 14>:
+  x = x + 1;
+
+  <bb 15>:
+  IszX.4 = IszX;
+  if (x < IszX.4)
+    goto <bb 8>;
+  else
+    goto <bb 16>;
+
+  <bb 16>:
+  free (newMatrix);
+  setIf (0, 100, I, &IszX, &IszY, &Nfr);
+  setIf (1, 228, I, &IszX, &IszY, &Nfr);
+  addNoise (I, &IszX, &IszY, &Nfr, seed);
+  return;
+
+}
+
+
+
+;; Function calcLikelihoodSum (calcLikelihoodSum, funcdef_no=35, decl_uid=4139, cgraph_uid=35, symbol_order=38)
+
+calcLikelihoodSum (int * I, int * ind, int numOnes)
+{
+  int y;
+  double likelihoodSum;
+  double D.4450;
+  double D.4449;
+  double D.4448;
+  double D.4447;
+  double D.4446;
+  int D.4445;
+  double D.4444;
+  double D.4443;
+  int D.4442;
+  int D.4441;
+  int * D.4440;
+  long unsigned int D.4439;
+  long unsigned int D.4438;
+  int D.4437;
+  int * D.4436;
+  long unsigned int D.4435;
+  long unsigned int D.4434;
+
+  <bb 2>:
+  likelihoodSum = 0.0;
+  y = 0;
+  goto <bb 4>;
+
+  <bb 3>:
+  D.4434 = (long unsigned int) y;
+  D.4435 = D.4434 * 4;
+  D.4436 = ind + D.4435;
+  D.4437 = *D.4436;
+  D.4438 = (long unsigned int) D.4437;
+  D.4439 = D.4438 * 4;
+  D.4440 = I + D.4439;
+  D.4441 = *D.4440;
+  D.4442 = D.4441 + -100;
+  D.4443 = (double) D.4442;
+  D.4444 = pow (D.4443, 2.0e+0);
+  D.4434 = (long unsigned int) y;
+  D.4435 = D.4434 * 4;
+  D.4436 = ind + D.4435;
+  D.4437 = *D.4436;
+  D.4438 = (long unsigned int) D.4437;
+  D.4439 = D.4438 * 4;
+  D.4440 = I + D.4439;
+  D.4441 = *D.4440;
+  D.4445 = D.4441 + -228;
+  D.4446 = (double) D.4445;
+  D.4447 = pow (D.4446, 2.0e+0);
+  D.4448 = D.4444 - D.4447;
+  D.4449 = D.4448 / 5.0e+1;
+  likelihoodSum = D.4449 + likelihoodSum;
+  y = y + 1;
+
+  <bb 4>:
+  if (y < numOnes)
+    goto <bb 3>;
+  else
+    goto <bb 5>;
+
+  <bb 5>:
+  D.4450 = likelihoodSum;
+  return D.4450;
+
+}
+
+
+
+;; Function findIndex (findIndex, funcdef_no=36, decl_uid=4149, cgraph_uid=36, symbol_order=39)
+
+findIndex (double * CDF, int lengthCDF, double value)
+{
+  int x;
+  int index;
+  int D.4460;
+  double D.4455;
+  double * D.4454;
+  long unsigned int D.4453;
+  long unsigned int D.4452;
+
+  <bb 2>:
+  index = -1;
+  x = 0;
+  goto <bb 6>;
+
+  <bb 3>:
+  D.4452 = (long unsigned int) x;
+  D.4453 = D.4452 * 8;
+  D.4454 = CDF + D.4453;
+  D.4455 = *D.4454;
+  if (D.4455 >= value)
+    goto <bb 4>;
+  else
+    goto <bb 5>;
+
+  <bb 4>:
+  index = x;
+  goto <bb 7>;
+
+  <bb 5>:
+  x = x + 1;
+
+  <bb 6>:
+  if (x < lengthCDF)
+    goto <bb 3>;
+  else
+    goto <bb 7>;
+
+  <bb 7>:
+  if (index == -1)
+    goto <bb 8>;
+  else
+    goto <bb 9>;
+
+  <bb 8>:
+  D.4460 = lengthCDF + -1;
+  goto <bb 10>;
+
+  <bb 9>:
+  D.4460 = index;
+
+  <bb 10>:
+  return D.4460;
+
+}
+
+
+
+;; Function findIndexBin (findIndexBin, funcdef_no=37, decl_uid=4160, cgraph_uid=37, symbol_order=40)
+
+findIndexBin (double * CDF, int beginIndex, int endIndex, double value)
+{
+  int middleIndex;
+  int D.4486;
+  int D.4485;
+  double D.4477;
+  double * D.4476;
+  sizetype D.4475;
+  double D.4470;
+  double * D.4469;
+  long unsigned int D.4468;
+  long unsigned int D.4467;
+  int D.4466;
+  int D.4465;
+  int D.4464;
+
+  <bb 2>:
+  if (endIndex < beginIndex)
+    goto <bb 3>;
+  else
+    goto <bb 4>;
+
+  <bb 3>:
+  D.4464 = -1;
+  goto <bb 17>;
+
+  <bb 4>:
+  D.4465 = endIndex - beginIndex;
+  D.4466 = D.4465 / 2;
+  middleIndex = D.4466 + beginIndex;
+  D.4467 = (long unsigned int) middleIndex;
+  D.4468 = D.4467 * 8;
+  D.4469 = CDF + D.4468;
+  D.4470 = *D.4469;
+  if (D.4470 >= value)
+    goto <bb 5>;
+  else
+    goto <bb 14>;
+
+  <bb 5>:
+  if (middleIndex == 0)
+    goto <bb 6>;
+  else
+    goto <bb 7>;
+
+  <bb 6>:
+  D.4464 = middleIndex;
+  goto <bb 17>;
+
+  <bb 7>:
+  D.4467 = (long unsigned int) middleIndex;
+  D.4468 = D.4467 * 8;
+  D.4475 = D.4468 + 18446744073709551608;
+  D.4476 = CDF + D.4475;
+  D.4477 = *D.4476;
+  if (D.4477 < value)
+    goto <bb 8>;
+  else
+    goto <bb 9>;
+
+  <bb 8>:
+  D.4464 = middleIndex;
+  goto <bb 17>;
+
+  <bb 9>:
+  D.4467 = (long unsigned int) middleIndex;
+  D.4468 = D.4467 * 8;
+  D.4475 = D.4468 + 18446744073709551608;
+  D.4476 = CDF + D.4475;
+  D.4477 = *D.4476;
+  if (D.4477 == value)
+    goto <bb 11>;
+  else
+    goto <bb 14>;
+
+  <bb 10>:
+  middleIndex = middleIndex + -1;
+
+  <bb 11>:
+  if (middleIndex > 0)
+    goto <bb 12>;
+  else
+    goto <bb 13>;
+
+  <bb 12>:
+  D.4467 = (long unsigned int) middleIndex;
+  D.4468 = D.4467 * 8;
+  D.4475 = D.4468 + 18446744073709551608;
+  D.4476 = CDF + D.4475;
+  D.4477 = *D.4476;
+  if (D.4477 == value)
+    goto <bb 10>;
+  else
+    goto <bb 13>;
+
+  <bb 13>:
+  D.4464 = middleIndex;
+  goto <bb 17>;
+
+  <bb 14>:
+  D.4467 = (long unsigned int) middleIndex;
+  D.4468 = D.4467 * 8;
+  D.4469 = CDF + D.4468;
+  D.4470 = *D.4469;
+  if (D.4470 > value)
+    goto <bb 15>;
+  else
+    goto <bb 16>;
+
+  <bb 15>:
+  D.4485 = middleIndex + 1;
+  D.4464 = findIndexBin (CDF, beginIndex, D.4485, value);
+  goto <bb 17>;
+
+  <bb 16>:
+  D.4486 = middleIndex + -1;
+  D.4464 = findIndexBin (CDF, D.4486, endIndex, value);
+
+  <bb 17>:
+  return D.4464;
+
+}
+
+
+
+;; Function particleFilter (particleFilter, funcdef_no=38, decl_uid=4172, cgraph_uid=38, symbol_order=41)
+
+
+OMP region tree
+
+bb 69: gimple_omp_parallel
+    bb 70: gimple_omp_for
+    bb 73: GIMPLE_OMP_CONTINUE
+    bb 74: GIMPLE_OMP_RETURN
+bb 75: GIMPLE_OMP_RETURN
+bb 64: gimple_omp_parallel
+    bb 65: gimple_omp_for
+    bb 66: GIMPLE_OMP_CONTINUE
+    bb 67: GIMPLE_OMP_RETURN
+bb 68: GIMPLE_OMP_RETURN
+bb 56: gimple_omp_parallel
+    bb 57: gimple_omp_for
+    bb 58: GIMPLE_OMP_CONTINUE
+    bb 59: GIMPLE_OMP_RETURN
+bb 60: GIMPLE_OMP_RETURN
+bb 51: gimple_omp_parallel
+    bb 52: gimple_omp_for
+    bb 53: GIMPLE_OMP_CONTINUE
+    bb 54: GIMPLE_OMP_RETURN
+bb 55: GIMPLE_OMP_RETURN
+bb 44: gimple_omp_parallel
+    bb 48: gimple_omp_atomic_load
+    bb 49: GIMPLE_OMP_RETURN
+    bb 45: gimple_omp_for
+    bb 46: GIMPLE_OMP_CONTINUE
+    bb 47: GIMPLE_OMP_RETURN
+bb 50: GIMPLE_OMP_RETURN
+bb 39: gimple_omp_parallel
+    bb 40: gimple_omp_for
+    bb 41: GIMPLE_OMP_CONTINUE
+    bb 42: GIMPLE_OMP_RETURN
+bb 43: GIMPLE_OMP_RETURN
+bb 26: gimple_omp_parallel
+    bb 27: gimple_omp_for
+    bb 36: GIMPLE_OMP_CONTINUE
+    bb 37: GIMPLE_OMP_RETURN
+bb 38: GIMPLE_OMP_RETURN
+bb 21: gimple_omp_parallel
+    bb 22: gimple_omp_for
+    bb 23: GIMPLE_OMP_CONTINUE
+    bb 24: GIMPLE_OMP_RETURN
+bb 25: GIMPLE_OMP_RETURN
+bb 15: gimple_omp_parallel
+    bb 16: gimple_omp_for
+    bb 17: GIMPLE_OMP_CONTINUE
+    bb 18: GIMPLE_OMP_RETURN
+bb 19: GIMPLE_OMP_RETURN
+bb 10: gimple_omp_parallel
+    bb 11: gimple_omp_for
+    bb 12: GIMPLE_OMP_CONTINUE
+    bb 13: GIMPLE_OMP_RETURN
+bb 14: GIMPLE_OMP_RETURN
+
+ex_particle_OPENMP_seq.c:486:11: note: Parallel construct will be turned into an HSA kernel
+Introduced new external node (particleFilter._omp_fn.9/50).
+Introduced new external node (__builtin_omp_get_thread_num/51).
+ex_particle_OPENMP_seq.c:478:11: note: Parallel construct will be turned into an HSA kernel
+Introduced new external node (particleFilter._omp_fn.8/52).
+ex_particle_OPENMP_seq.c:453:11: note: Parallel construct will be turned into an HSA kernel
+Introduced new external node (particleFilter._omp_fn.7/53).
+Introduced new external node (__builtin_GOMP_atomic_start/54).
+Introduced new external node (__builtin_GOMP_atomic_end/55).
+ex_particle_OPENMP_seq.c:444:11: note: Parallel construct will be turned into an HSA kernel
+Introduced new external node (particleFilter._omp_fn.6/56).
+ex_particle_OPENMP_seq.c:438:11: note: Will not turn parallel construct into kernel because it contains multiple OMP constructs
+Introduced new external node (particleFilter._omp_fn.5/57).
+Introduced new external node (__builtin_omp_get_num_threads/58).
+Introduced new external node (__atomic_load_8/59).
+Introduced new external node (__sync_val_compare_and_swap_8/60).
+ex_particle_OPENMP_seq.c:431:11: note: Parallel construct will be turned into an HSA kernel
+Introduced new external node (particleFilter._omp_fn.4/61).
+Introduced new external node (exp/62).
+ex_particle_OPENMP_seq.c:408:11: note: Parallel construct will be turned into an HSA kernel
+Introduced new external node (particleFilter._omp_fn.3/63).
+ex_particle_OPENMP_seq.c:400:11: note: Parallel construct will be turned into an HSA kernel
+Introduced new external node (particleFilter._omp_fn.2/64).
+ex_particle_OPENMP_seq.c:386:10: note: Parallel construct will be turned into an HSA kernel
+Introduced new external node (particleFilter._omp_fn.1/65).
+ex_particle_OPENMP_seq.c:371:10: note: Parallel construct will be turned into an HSA kernel
+Introduced new external node (particleFilter._omp_fn.0/66).
+Merging blocks 10 and 129
+Merging blocks 15 and 124
+Merging blocks 21 and 119
+Merging blocks 26 and 114
+Merging blocks 39 and 109
+Merging blocks 44 and 106
+Merging blocks 51 and 99
+Merging blocks 56 and 94
+Merging blocks 64 and 89
+Merging blocks 69 and 84
+Removing basic block 85
+basic block 85, loop depth 1
+ pred:      
+ succ:       76
+
+
+Removing basic block 90
+basic block 90, loop depth 1
+ pred:      
+ succ:       69
+
+
+Removing basic block 95
+basic block 95, loop depth 1
+ pred:      
+ succ:       61
+
+
+Removing basic block 100
+basic block 100, loop depth 1
+ pred:      
+ succ:       56
+
+
+Removing basic block 110
+basic block 110, loop depth 1
+ pred:      
+ succ:       44
+
+
+Removing basic block 115
+basic block 115, loop depth 1
+ pred:      
+ succ:       39
+
+
+Removing basic block 120
+basic block 120, loop depth 1
+ pred:      
+ succ:       26
+
+
+Removing basic block 125
+basic block 125, loop depth 0
+ pred:      
+ succ:       20
+
+
+Removing basic block 130
+basic block 130, loop depth 0
+ pred:      
+ succ:       15
+
+
+Merging blocks 44 and 51
+particleFilter (int * I, int IszX, int IszY, int Nfr, int * seed, int Nparticles)
+{
+  unsigned int Nparticles.37;
+  unsigned int D.5263;
+  int D.5249;
+  unsigned int Nparticles.36;
+  unsigned int D.5248;
+  int D.5230;
+  unsigned int Nparticles.35;
+  unsigned int D.5229;
+  int D.5200;
+  unsigned int Nparticles.34;
+  unsigned int D.5199;
+  int D.5101;
+  unsigned int Nparticles.33;
+  unsigned int D.5100;
+  int D.5081;
+  int D.5054;
+  int D.5052;
+  int D.5053;
+  int tt.32;
+  int q.31;
+  int D.5049;
+  int D.5048;
+  long unsigned int D.5047;
+  long unsigned int D.5046;
+  long unsigned int D.5045;
+  long unsigned int D.5044;
+  long unsigned int D.5043;
+  long unsigned int * {ref-all} D.5042;
+  unsigned int Nparticles.30;
+  unsigned int D.5041;
+  int D.5025;
+  unsigned int Nparticles.29;
+  unsigned int D.5024;
+  int D.4995;
+  unsigned int Nparticles.28;
+  unsigned int D.4994;
+  int D.4976;
+  unsigned int Nparticles.27;
+  unsigned int D.4975;
+  int D.4942;
+  int D.4940;
+  int D.4930;
+  int D.4921;
+  int D.4915;
+  int D.4907;
+  int D.4904;
+  int D.4899;
+  int D.4869;
+  long long int reset;
+  long long int xyj_time;
+  int i;
+  int j;
+  long long int u_time;
+  double u1;
+  long long int cum_sum;
+  double distance;
+  long long int move_time;
+  long long int normalize;
+  long long int sum_time;
+  double sumWeights;
+  long long int exponential;
+  long long int likelihood_time;
+  long long int error;
+  long long int set_arrays;
+  int D.4861;
+  int D.4855;
+  int indY;
+  int indX;
+  int k;
+  int * ind;
+  double * u;
+  double * CDF;
+  double * yj;
+  double * xj;
+  double * arrayY;
+  double * arrayX;
+  double * likelihood;
+  long long int get_weights;
+  double * weights;
+  long long int get_neighbors;
+  double * objxy;
+  int y;
+  int x;
+  int countOnes;
+  int * disk;
+  int diameter;
+  int radius;
+  double ye;
+  double xe;
+  long long int start;
+  int max_size;
+  double D.4692;
+  float D.4691;
+  double D.4690;
+  double * D.4689;
+  double * D.4688;
+  double D.4687;
+  double * D.4686;
+  double * D.4685;
+  double D.4684;
+  float D.4683;
+  double D.4668;
+  float D.4667;
+  double D.4659;
+  double D.4658;
+  double D.4657;
+  double D.4656;
+  float D.4655;
+  double D.4654;
+  double D.4653;
+  double * D.4652;
+  sizetype D.4651;
+  double D.4650;
+  double * D.4649;
+  double * D.4648;
+  long unsigned int D.4647;
+  long unsigned int D.4646;
+  double D.4645;
+  double D.4644;
+  double D.4643;
+  double D.4642;
+  double D.4641;
+  int D.4640;
+  double D.4639;
+  double D.4638;
+  double D.4637;
+  double D.4636;
+  int D.4635;
+  double D.4634;
+  double D.4633;
+  float D.4632;
+  double D.4621;
+  float D.4620;
+  double D.4614;
+  float D.4613;
+  double D.4608;
+  float D.4607;
+  double D.4598;
+  float D.4597;
+  double D.4544;
+  float D.4543;
+  double D.4528;
+  float D.4527;
+  long long int D.4526;
+  long unsigned int D.4521;
+  long unsigned int D.4520;
+  long unsigned int D.4519;
+  double D.4518;
+  float D.4517;
+  long unsigned int D.4511;
+  long unsigned int D.4510;
+  double D.4509;
+  float D.4508;
+  long unsigned int D.4507;
+  long unsigned int D.4506;
+  int D.4505;
+  int D.4502;
+  int * D.4501;
+  long unsigned int D.4500;
+  long unsigned int D.4499;
+  int D.4498;
+  int D.4497;
+  long unsigned int D.4496;
+  long unsigned int D.4495;
+  int D.4494;
+  int D.4493;
+  double D.4492;
+  double D.4491;
+  double D.4490;
+  double D.4489;
+  int D.4488;
+  struct .omp_data_s.16 .omp_data_o.26;
+  double * D.4939;
+  double * D.4938;
+  double * D.4937;
+  double * D.4936;
+  int D.4935;
+  int D.4933;
+  double * D.4934;
+  double * D.4932;
+  struct .omp_data_s.15 .omp_data_o.25;
+  double D.4929;
+  int D.4928;
+  double * D.4927;
+  double D.4922;
+  double D.4923;
+  double D.4924;
+  double D.4925;
+  struct .omp_data_s.14 .omp_data_o.24;
+  double * D.4920;
+  double * D.4919;
+  double * D.4918;
+  double * D.4917;
+  struct .omp_data_s.13 .omp_data_o.23;
+  double D.4914;
+  double * D.4913;
+  double * D.4912;
+  double D.4908;
+  double * D.4909;
+  double D.4910;
+  struct .omp_data_s.12 .omp_data_o.22;
+  double * D.4906;
+  struct .omp_data_s.11 .omp_data_o.21;
+  double * D.4903;
+  double * D.4902;
+  double * D.4901;
+  struct .omp_data_s.10 .omp_data_o.20;
+  int D.4898;
+  double * D.4897;
+  double * D.4896;
+  int D.4895;
+  double * D.4894;
+  double * D.4893;
+  int * D.4892;
+  int * D.4891;
+  int D.4890;
+  int * D.4889;
+  int * D.4888;
+  int D.4887;
+  double * D.4886;
+  int D.4885;
+  int * D.4884;
+  int D.4883;
+  int D.4882;
+  int * D.4881;
+  int D.4880;
+  int D.4879;
+  int D.4878;
+  int D.4877;
+  int * D.4876;
+  int D.4875;
+  double * D.4874;
+  double * D.4873;
+  double * D.4872;
+  double * D.4871;
+  struct .omp_data_s.9 .omp_data_o.19;
+  double * D.4868;
+  double * D.4867;
+  int * D.4866;
+  double * D.4865;
+  double * D.4864;
+  int * D.4863;
+  struct .omp_data_s.8 .omp_data_o.18;
+  double D.4860;
+  double * D.4859;
+  double D.4858;
+  double * D.4857;
+  struct .omp_data_s.7 .omp_data_o.17;
+  int D.4854;
+  double * D.4853;
+
+  <bb 2>:
+  D.4488 = IszX * IszY;
+  max_size = D.4488 * Nfr;
+  start = get_time ();
+  D.4489 = (double) IszY;
+  D.4490 = D.4489 * 5.0e-1;
+  xe = roundDouble (D.4490);
+  D.4491 = (double) IszX;
+  D.4492 = D.4491 * 5.0e-1;
+  ye = roundDouble (D.4492);
+  radius = 5;
+  D.4493 = radius * 2;
+  diameter = D.4493 + -1;
+  D.4494 = diameter * diameter;
+  D.4495 = (long unsigned int) D.4494;
+  D.4496 = D.4495 * 4;
+  disk = malloc (D.4496);
+  strelDisk (disk, radius);
+  countOnes = 0;
+  x = 0;
+  goto <bb 9>;
+
+  <bb 3>:
+  y = 0;
+  goto <bb 7>;
+
+  <bb 4>:
+  D.4497 = x * diameter;
+  D.4498 = D.4497 + y;
+  D.4499 = (long unsigned int) D.4498;
+  D.4500 = D.4499 * 4;
+  D.4501 = disk + D.4500;
+  D.4502 = *D.4501;
+  if (D.4502 == 1)
+    goto <bb 5>;
+  else
+    goto <bb 6>;
+
+  <bb 5>:
+  countOnes = countOnes + 1;
+
+  <bb 6>:
+  y = y + 1;
+
+  <bb 7>:
+  if (y < diameter)
+    goto <bb 4>;
+  else
+    goto <bb 8>;
+
+  <bb 8>:
+  x = x + 1;
+
+  <bb 9>:
+  if (x < diameter)
+    goto <bb 3>;
+  else
+    goto <bb 10>;
+
+  <bb 10>:
+  D.4505 = countOnes * 2;
+  D.4506 = (long unsigned int) D.4505;
+  D.4507 = D.4506 * 8;
+  objxy = malloc (D.4507);
+  getneighbors (disk, countOnes, objxy, radius);
+  get_neighbors = get_time ();
+  D.4508 = elapsed_time (start, get_neighbors);
+  D.4509 = (double) D.4508;
+  printf ("TIME TO GET NEIGHBORS TOOK: %f\n", D.4509);
+  D.4510 = (long unsigned int) Nparticles;
+  D.4511 = D.4510 * 8;
+  weights = malloc (D.4511);
+  .omp_data_o.17.weights = weights;
+  .omp_data_o.17.Nparticles = Nparticles;
+  if (0 < Nparticles)
+    goto <bb 11>;
+  else
+    goto <bb 12>;
+
+  <bb 11>:
+  Nparticles.37 = (unsigned int) Nparticles;
+  D.5263 = MIN_EXPR <Nparticles.37, 16>;
+  particleFilter._omp_fn.0 (&.omp_data_o.17, Nparticles, D.5263);
+
+  <bb 12>:
+  weights = .omp_data_o.17.weights;
+  Nparticles = .omp_data_o.17.Nparticles;
+  .omp_data_o.17 = {CLOBBER};
+  get_weights = get_time ();
+  D.4517 = elapsed_time (get_neighbors, get_weights);
+  D.4518 = (double) D.4517;
+  printf ("TIME TO GET WEIGHTSTOOK: %f\n", D.4518);
+  D.4510 = (long unsigned int) Nparticles;
+  D.4511 = D.4510 * 8;
+  likelihood = malloc (D.4511);
+  D.4510 = (long unsigned int) Nparticles;
+  D.4511 = D.4510 * 8;
+  arrayX = malloc (D.4511);
+  D.4510 = (long unsigned int) Nparticles;
+  D.4511 = D.4510 * 8;
+  arrayY = malloc (D.4511);
+  D.4510 = (long unsigned int) Nparticles;
+  D.4511 = D.4510 * 8;
+  xj = malloc (D.4511);
+  D.4510 = (long unsigned int) Nparticles;
+  D.4511 = D.4510 * 8;
+  yj = malloc (D.4511);
+  D.4510 = (long unsigned int) Nparticles;
+  D.4511 = D.4510 * 8;
+  CDF = malloc (D.4511);
+  D.4510 = (long unsigned int) Nparticles;
+  D.4511 = D.4510 * 8;
+  u = malloc (D.4511);
+  D.4519 = (long unsigned int) countOnes;
+  D.4510 = (long unsigned int) Nparticles;
+  D.4520 = D.4519 * D.4510;
+  D.4521 = D.4520 * 4;
+  ind = malloc (D.4521);
+  .omp_data_o.18.ye = ye;
+  .omp_data_o.18.xe = xe;
+  .omp_data_o.18.arrayY = arrayY;
+  .omp_data_o.18.arrayX = arrayX;
+  .omp_data_o.18.Nparticles = Nparticles;
+  if (0 < Nparticles)
+    goto <bb 13>;
+  else
+    goto <bb 14>;
+
+  <bb 13>:
+  Nparticles.36 = (unsigned int) Nparticles;
+  D.5248 = MIN_EXPR <Nparticles.36, 16>;
+  particleFilter._omp_fn.1 (&.omp_data_o.18, Nparticles, D.5248);
+
+  <bb 14>:
+  ye = .omp_data_o.18.ye;
+  xe = .omp_data_o.18.xe;
+  arrayY = .omp_data_o.18.arrayY;
+  arrayX = .omp_data_o.18.arrayX;
+  Nparticles = .omp_data_o.18.Nparticles;
+  .omp_data_o.18 = {CLOBBER};
+  D.4526 = get_time ();
+  D.4527 = elapsed_time (get_weights, D.4526);
+  D.4528 = (double) D.4527;
+  printf ("TIME TO SET ARRAYS TOOK: %f\n", D.4528);
+  k = 1;
+  goto <bb 36>;
+
+  <bb 15>:
+  set_arrays = get_time ();
+  .omp_data_o.19.seed = seed;
+  .omp_data_o.19.arrayY = arrayY;
+  .omp_data_o.19.arrayX = arrayX;
+  .omp_data_o.19.Nparticles = Nparticles;
+  if (0 < Nparticles)
+    goto <bb 16>;
+  else
+    goto <bb 17>;
+
+  <bb 16>:
+  Nparticles.35 = (unsigned int) Nparticles;
+  D.5229 = MIN_EXPR <Nparticles.35, 16>;
+  particleFilter._omp_fn.2 (&.omp_data_o.19, Nparticles, D.5229);
+
+  <bb 17>:
+  seed = .omp_data_o.19.seed;
+  arrayY = .omp_data_o.19.arrayY;
+  arrayX = .omp_data_o.19.arrayX;
+  Nparticles = .omp_data_o.19.Nparticles;
+  .omp_data_o.19 = {CLOBBER};
+  error = get_time ();
+  D.4543 = elapsed_time (set_arrays, error);
+  D.4544 = (double) D.4543;
+  printf ("TIME TO SET ERROR TOOK: %f\n", D.4544);
+  .omp_data_o.20.ind = ind;
+  .omp_data_o.20.objxy = objxy;
+  .omp_data_o.20.arrayY = arrayY;
+  .omp_data_o.20.arrayX = arrayX;
+  .omp_data_o.20.I = I;
+  .omp_data_o.20.likelihood = likelihood;
+  .omp_data_o.20.IszY = IszY;
+  .omp_data_o.20.Nfr = Nfr;
+  .omp_data_o.20.Nparticles = Nparticles;
+  .omp_data_o.20.max_size = max_size;
+  .omp_data_o.20.countOnes = countOnes;
+  .omp_data_o.20.k = k;
+  if (0 < Nparticles)
+    goto <bb 18>;
+  else
+    goto <bb 19>;
+
+  <bb 18>:
+  Nparticles.34 = (unsigned int) Nparticles;
+  D.5199 = MIN_EXPR <Nparticles.34, 16>;
+  particleFilter._omp_fn.3 (&.omp_data_o.20, Nparticles, D.5199);
+
+  <bb 19>:
+  ind = .omp_data_o.20.ind;
+  objxy = .omp_data_o.20.objxy;
+  arrayY = .omp_data_o.20.arrayY;
+  arrayX = .omp_data_o.20.arrayX;
+  I = .omp_data_o.20.I;
+  likelihood = .omp_data_o.20.likelihood;
+  IszY = .omp_data_o.20.IszY;
+  Nfr = .omp_data_o.20.Nfr;
+  Nparticles = .omp_data_o.20.Nparticles;
+  max_size = .omp_data_o.20.max_size;
+  countOnes = .omp_data_o.20.countOnes;
+  k = .omp_data_o.20.k;
+  .omp_data_o.20 = {CLOBBER};
+  likelihood_time = get_time ();
+  D.4597 = elapsed_time (error, likelihood_time);
+  D.4598 = (double) D.4597;
+  printf ("TIME TO GET LIKELIHOODS TOOK: %f\n", D.4598);
+  .omp_data_o.21.likelihood = likelihood;
+  .omp_data_o.21.weights = weights;
+  .omp_data_o.21.Nparticles = Nparticles;
+  if (0 < Nparticles)
+    goto <bb 20>;
+  else
+    goto <bb 21>;
+
+  <bb 20>:
+  Nparticles.33 = (unsigned int) Nparticles;
+  D.5100 = MIN_EXPR <Nparticles.33, 16>;
+  particleFilter._omp_fn.4 (&.omp_data_o.21, Nparticles, D.5100);
+
+  <bb 21>:
+  likelihood = .omp_data_o.21.likelihood;
+  weights = .omp_data_o.21.weights;
+  Nparticles = .omp_data_o.21.Nparticles;
+  .omp_data_o.21 = {CLOBBER};
+  exponential = get_time ();
+  D.4607 = elapsed_time (likelihood_time, exponential);
+  D.4608 = (double) D.4607;
+  printf ("TIME TO GET EXP TOOK: %f\n", D.4608);
+  sumWeights = 0.0;
+  .omp_data_o.22.sumWeights = sumWeights;
+  .omp_data_o.22.weights = weights;
+  .omp_data_o.22.Nparticles = Nparticles;
+  particleFilter._omp_fn.5 (&.omp_data_o.22);
+  sumWeights = .omp_data_o.22.sumWeights;
+  weights = .omp_data_o.22.weights;
+  Nparticles = .omp_data_o.22.Nparticles;
+  .omp_data_o.22 = {CLOBBER};
+  sum_time = get_time ();
+  D.4613 = elapsed_time (exponential, sum_time);
+  D.4614 = (double) D.4613;
+  printf ("TIME TO SUM WEIGHTS TOOK: %f\n", D.4614);
+  .omp_data_o.23.weights = weights;
+  .omp_data_o.23.sumWeights = sumWeights;
+  .omp_data_o.23.Nparticles = Nparticles;
+  if (0 < Nparticles)
+    goto <bb 22>;
+  else
+    goto <bb 23>;
+
+  <bb 22>:
+  Nparticles.30 = (unsigned int) Nparticles;
+  D.5041 = MIN_EXPR <Nparticles.30, 16>;
+  particleFilter._omp_fn.6 (&.omp_data_o.23, Nparticles, D.5041);
+
+  <bb 23>:
+  weights = .omp_data_o.23.weights;
+  sumWeights = .omp_data_o.23.sumWeights;
+  Nparticles = .omp_data_o.23.Nparticles;
+  .omp_data_o.23 = {CLOBBER};
+  normalize = get_time ();
+  D.4620 = elapsed_time (sum_time, normalize);
+  D.4621 = (double) D.4620;
+  printf ("TIME TO NORMALIZE WEIGHTS TOOK: %f\n", D.4621);
+  xe = 0.0;
+  ye = 0.0;
+  .omp_data_o.24.xe = xe;
+  .omp_data_o.24.ye = ye;
+  .omp_data_o.24.weights = weights;
+  .omp_data_o.24.arrayX = arrayX;
+  .omp_data_o.24.arrayY = arrayY;
+  .omp_data_o.24.Nparticles = Nparticles;
+  if (0 < Nparticles)
+    goto <bb 24>;
+  else
+    goto <bb 25>;
+
+  <bb 24>:
+  Nparticles.29 = (unsigned int) Nparticles;
+  D.5024 = MIN_EXPR <Nparticles.29, 16>;
+  particleFilter._omp_fn.7 (&.omp_data_o.24, Nparticles, D.5024);
+
+  <bb 25>:
+  xe = .omp_data_o.24.xe;
+  ye = .omp_data_o.24.ye;
+  weights = .omp_data_o.24.weights;
+  arrayX = .omp_data_o.24.arrayX;
+  arrayY = .omp_data_o.24.arrayY;
+  Nparticles = .omp_data_o.24.Nparticles;
+  .omp_data_o.24 = {CLOBBER};
+  move_time = get_time ();
+  D.4632 = elapsed_time (normalize, move_time);
+  D.4633 = (double) D.4632;
+  printf ("TIME TO MOVE OBJECT TOOK: %f\n", D.4633);
+  printf ("XE: %lf\n", xe);
+  printf ("YE: %lf\n", ye);
+  D.4489 = (double) IszY;
+  D.4490 = D.4489 * 5.0e-1;
+  D.4634 = roundDouble (D.4490);
+  D.4635 = (int) D.4634;
+  D.4636 = (double) D.4635;
+  D.4637 = xe - D.4636;
+  D.4638 = pow (D.4637, 2.0e+0);
+  D.4491 = (double) IszX;
+  D.4492 = D.4491 * 5.0e-1;
+  D.4639 = roundDouble (D.4492);
+  D.4640 = (int) D.4639;
+  D.4641 = (double) D.4640;
+  D.4642 = ye - D.4641;
+  D.4643 = pow (D.4642, 2.0e+0);
+  D.4644 = D.4638 + D.4643;
+  distance = sqrt (D.4644);
+  printf ("%lf\n", distance);
+  D.4645 = *weights;
+  *CDF = D.4645;
+  x = 1;
+  goto <bb 27>;
+
+  <bb 26>:
+  D.4646 = (long unsigned int) x;
+  D.4647 = D.4646 * 8;
+  D.4648 = CDF + D.4647;
+  D.4646 = (long unsigned int) x;
+  D.4647 = D.4646 * 8;
+  D.4649 = weights + D.4647;
+  D.4650 = *D.4649;
+  D.4646 = (long unsigned int) x;
+  D.4647 = D.4646 * 8;
+  D.4651 = D.4647 + 18446744073709551608;
+  D.4652 = CDF + D.4651;
+  D.4653 = *D.4652;
+  D.4654 = D.4650 + D.4653;
+  *D.4648 = D.4654;
+  x = x + 1;
+
+  <bb 27>:
+  if (x < Nparticles)
+    goto <bb 26>;
+  else
+    goto <bb 28>;
+
+  <bb 28>:
+  cum_sum = get_time ();
+  D.4655 = elapsed_time (move_time, cum_sum);
+  D.4656 = (double) D.4655;
+  printf ("TIME TO CALC CUM SUM TOOK: %f\n", D.4656);
+  D.4657 = (double) Nparticles;
+  D.4658 = 1.0e+0 / D.4657;
+  D.4659 = randu (seed, 0);
+  u1 = D.4658 * D.4659;
+  .omp_data_o.25.u1 = u1;
+  .omp_data_o.25.u = u;
+  .omp_data_o.25.Nparticles = Nparticles;
+  if (0 < Nparticles)
+    goto <bb 29>;
+  else
+    goto <bb 30>;
+
+  <bb 29>:
+  Nparticles.28 = (unsigned int) Nparticles;
+  D.4994 = MIN_EXPR <Nparticles.28, 16>;
+  particleFilter._omp_fn.8 (&.omp_data_o.25, Nparticles, D.4994);
+
+  <bb 30>:
+  u1 = .omp_data_o.25.u1;
+  u = .omp_data_o.25.u;
+  Nparticles = .omp_data_o.25.Nparticles;
+  .omp_data_o.25 = {CLOBBER};
+  u_time = get_time ();
+  D.4667 = elapsed_time (cum_sum, u_time);
+  D.4668 = (double) D.4667;
+  printf ("TIME TO CALC U TOOK: %f\n", D.4668);
+  .omp_data_o.26.arrayY = arrayY;
+  .omp_data_o.26.arrayX = arrayX;
+  .omp_data_o.26.u = u;
+  .omp_data_o.26.yj = yj;
+  .omp_data_o.26.xj = xj;
+  .omp_data_o.26.CDF = CDF;
+  .omp_data_o.26.Nparticles = Nparticles;
+  if (0 < Nparticles)
+    goto <bb 31>;
+  else
+    goto <bb 32>;
+
+  <bb 31>:
+  Nparticles.27 = (unsigned int) Nparticles;
+  D.4975 = MIN_EXPR <Nparticles.27, 16>;
+  particleFilter._omp_fn.9 (&.omp_data_o.26, Nparticles, D.4975);
+
+  <bb 32>:
+  arrayY = .omp_data_o.26.arrayY;
+  arrayX = .omp_data_o.26.arrayX;
+  u = .omp_data_o.26.u;
+  yj = .omp_data_o.26.yj;
+  xj = .omp_data_o.26.xj;
+  CDF = .omp_data_o.26.CDF;
+  Nparticles = .omp_data_o.26.Nparticles;
+  .omp_data_o.26 = {CLOBBER};
+  xyj_time = get_time ();
+  D.4683 = elapsed_time (u_time, xyj_time);
+  D.4684 = (double) D.4683;
+  printf ("TIME TO CALC NEW ARRAY X AND Y TOOK: %f\n", D.4684);
+  x = 0;
+  goto <bb 34>;
+
+  <bb 33>:
+  D.4646 = (long unsigned int) x;
+  D.4647 = D.4646 * 8;
+  D.4685 = arrayX + D.4647;
+  D.4646 = (long unsigned int) x;
+  D.4647 = D.4646 * 8;
+  D.4686 = xj + D.4647;
+  D.4687 = *D.4686;
+  *D.4685 = D.4687;
+  D.4646 = (long unsigned int) x;
+  D.4647 = D.4646 * 8;
+  D.4688 = arrayY + D.4647;
+  D.4646 = (long unsigned int) x;
+  D.4647 = D.4646 * 8;
+  D.4689 = yj + D.4647;
+  D.4690 = *D.4689;
+  *D.4688 = D.4690;
+  D.4646 = (long unsigned int) x;
+  D.4647 = D.4646 * 8;
+  D.4649 = weights + D.4647;
+  D.4657 = (double) Nparticles;
+  D.4658 = 1.0e+0 / D.4657;
+  *D.4649 = D.4658;
+  x = x + 1;
+
+  <bb 34>:
+  if (x < Nparticles)
+    goto <bb 33>;
+  else
+    goto <bb 35>;
+
+  <bb 35>:
+  reset = get_time ();
+  D.4691 = elapsed_time (xyj_time, reset);
+  D.4692 = (double) D.4691;
+  printf ("TIME TO RESET WEIGHTS TOOK: %f\n", D.4692);
+  k = k + 1;
+
+  <bb 36>:
+  if (k < Nfr)
+    goto <bb 15>;
+  else
+    goto <bb 37>;
+
+  <bb 37>:
+  free (disk);
+  free (objxy);
+  free (weights);
+  free (likelihood);
+  free (xj);
+  free (yj);
+  free (arrayX);
+  free (arrayY);
+  free (CDF);
+  free (u);
+  free (ind);
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=39, decl_uid=4238, cgraph_uid=39, symbol_order=42)
+
+main (int argc, char * * argv)
+{
+  long long int endParticleFilter;
+  long long int endVideoSequence;
+  long long int start;
+  int * I;
+  int i;
+  int * seed;
+  int Nparticles;
+  int Nfr;
+  int IszY;
+  int IszX;
+  char * usage;
+  double D.5334;
+  float D.5333;
+  double D.5332;
+  float D.5331;
+  double D.5330;
+  float D.5329;
+  long unsigned int D.5328;
+  long unsigned int D.5327;
+  long unsigned int D.5326;
+  long unsigned int D.5325;
+  long unsigned int D.5324;
+  long unsigned int D.5323;
+  int D.5322;
+  int D.5321;
+  int * D.5320;
+  long unsigned int D.5319;
+  long unsigned int D.5318;
+  long unsigned int D.5317;
+  long unsigned int D.5316;
+  int Nparticles.41;
+  int D.5310;
+  char * D.5309;
+  char * * D.5308;
+  int Nfr.40;
+  int D.5302;
+  char * D.5301;
+  char * * D.5300;
+  int IszY.39;
+  int D.5294;
+  char * D.5293;
+  char * * D.5292;
+  int IszX.38;
+  int D.5286;
+  char * D.5285;
+  char * * D.5284;
+  int D.5283;
+  char * D.5282;
+  char * * D.5281;
+  int D.5279;
+  char * D.5278;
+  char * * D.5277;
+  int D.5275;
+  char * D.5274;
+  char * * D.5273;
+  int D.5271;
+  char * D.5270;
+  char * * D.5269;
+  int D.5266;
+
+  <bb 2>:
+  usage = "openmp.out -x <dimX> -y <dimY> -z <Nfr> -np <Nparticles>";
+  if (argc != 9)
+    goto <bb 3>;
+  else
+    goto <bb 4>;
+
+  <bb 3>:
+  __builtin_puts (usage);
+  D.5266 = 0;
+  goto <bb 29>;
+
+  <bb 4>:
+  D.5269 = argv + 8;
+  D.5270 = *D.5269;
+  D.5271 = strcmp (D.5270, "-x");
+  if (D.5271 != 0)
+    goto <bb 8>;
+  else
+    goto <bb 5>;
+
+  <bb 5>:
+  D.5273 = argv + 24;
+  D.5274 = *D.5273;
+  D.5275 = strcmp (D.5274, "-y");
+  if (D.5275 != 0)
+    goto <bb 8>;
+  else
+    goto <bb 6>;
+
+  <bb 6>:
+  D.5277 = argv + 40;
+  D.5278 = *D.5277;
+  D.5279 = strcmp (D.5278, "-z");
+  if (D.5279 != 0)
+    goto <bb 8>;
+  else
+    goto <bb 7>;
+
+  <bb 7>:
+  D.5281 = argv + 56;
+  D.5282 = *D.5281;
+  D.5283 = strcmp (D.5282, "-np");
+  if (D.5283 != 0)
+    goto <bb 8>;
+  else
+    goto <bb 9>;
+
+  <bb 8>:
+  __builtin_puts (usage);
+  D.5266 = 0;
+  goto <bb 29>;
+
+  <bb 9>:
+  D.5284 = argv + 16;
+  D.5285 = *D.5284;
+  D.5286 = sscanf (D.5285, "%d", &IszX);
+  if (D.5286 == -1)
+    goto <bb 10>;
+  else
+    goto <bb 11>;
+
+  <bb 10>:
+  printf ("ERROR: dimX input is incorrect");
+  D.5266 = 0;
+  goto <bb 29>;
+
+  <bb 11>:
+  IszX.38 = IszX;
+  if (IszX.38 <= 0)
+    goto <bb 12>;
+  else
+    goto <bb 13>;
+
+  <bb 12>:
+  __builtin_puts (&"dimX must be > 0"[0]);
+  D.5266 = 0;
+  goto <bb 29>;
+
+  <bb 13>:
+  D.5292 = argv + 32;
+  D.5293 = *D.5292;
+  D.5294 = sscanf (D.5293, "%d", &IszY);
+  if (D.5294 == -1)
+    goto <bb 14>;
+  else
+    goto <bb 15>;
+
+  <bb 14>:
+  printf ("ERROR: dimY input is incorrect");
+  D.5266 = 0;
+  goto <bb 29>;
+
+  <bb 15>:
+  IszY.39 = IszY;
+  if (IszY.39 <= 0)
+    goto <bb 16>;
+  else
+    goto <bb 17>;
+
+  <bb 16>:
+  __builtin_puts (&"dimY must be > 0"[0]);
+  D.5266 = 0;
+  goto <bb 29>;
+
+  <bb 17>:
+  D.5300 = argv + 48;
+  D.5301 = *D.5300;
+  D.5302 = sscanf (D.5301, "%d", &Nfr);
+  if (D.5302 == -1)
+    goto <bb 18>;
+  else
+    goto <bb 19>;
+
+  <bb 18>:
+  printf ("ERROR: Number of frames input is incorrect");
+  D.5266 = 0;
+  goto <bb 29>;
+
+  <bb 19>:
+  Nfr.40 = Nfr;
+  if (Nfr.40 <= 0)
+    goto <bb 20>;
+  else
+    goto <bb 21>;
+
+  <bb 20>:
+  __builtin_puts (&"number of frames must be > 0"[0]);
+  D.5266 = 0;
+  goto <bb 29>;
+
+  <bb 21>:
+  D.5308 = argv + 64;
+  D.5309 = *D.5308;
+  D.5310 = sscanf (D.5309, "%d", &Nparticles);
+  if (D.5310 == -1)
+    goto <bb 22>;
+  else
+    goto <bb 23>;
+
+  <bb 22>:
+  printf ("ERROR: Number of particles input is incorrect");
+  D.5266 = 0;
+  goto <bb 29>;
+
+  <bb 23>:
+  Nparticles.41 = Nparticles;
+  if (Nparticles.41 <= 0)
+    goto <bb 24>;
+  else
+    goto <bb 25>;
+
+  <bb 24>:
+  __builtin_puts (&"Number of particles must be > 0"[0]);
+  D.5266 = 0;
+  goto <bb 29>;
+
+  <bb 25>:
+  Nparticles.41 = Nparticles;
+  D.5316 = (long unsigned int) Nparticles.41;
+  D.5317 = D.5316 * 4;
+  seed = malloc (D.5317);
+  i = 0;
+  goto <bb 27>;
+
+  <bb 26>:
+  D.5318 = (long unsigned int) i;
+  D.5319 = D.5318 * 4;
+  D.5320 = seed + D.5319;
+  D.5321 = time (0);
+  D.5322 = D.5321 * i;
+  *D.5320 = D.5322;
+  i = i + 1;
+
+  <bb 27>:
+  Nparticles.41 = Nparticles;
+  if (i < Nparticles.41)
+    goto <bb 26>;
+  else
+    goto <bb 28>;
+
+  <bb 28>:
+  IszX.38 = IszX;
+  D.5323 = (long unsigned int) IszX.38;
+  IszY.39 = IszY;
+  D.5324 = (long unsigned int) IszY.39;
+  D.5325 = D.5323 * D.5324;
+  Nfr.40 = Nfr;
+  D.5326 = (long unsigned int) Nfr.40;
+  D.5327 = D.5325 * D.5326;
+  D.5328 = D.5327 * 4;
+  I = malloc (D.5328);
+  start = get_time ();
+  Nfr.40 = Nfr;
+  IszY.39 = IszY;
+  IszX.38 = IszX;
+  videoSequence (I, IszX.38, IszY.39, Nfr.40, seed);
+  endVideoSequence = get_time ();
+  D.5329 = elapsed_time (start, endVideoSequence);
+  D.5330 = (double) D.5329;
+  printf ("VIDEO SEQUENCE TOOK %f\n", D.5330);
+  Nparticles.41 = Nparticles;
+  Nfr.40 = Nfr;
+  IszY.39 = IszY;
+  IszX.38 = IszX;
+  particleFilter (I, IszX.38, IszY.39, Nfr.40, seed, Nparticles.41);
+  endParticleFilter = get_time ();
+  D.5331 = elapsed_time (endVideoSequence, endParticleFilter);
+  D.5332 = (double) D.5331;
+  printf ("PARTICLE FILTER TOOK %f\n", D.5332);
+  D.5333 = elapsed_time (start, endParticleFilter);
+  D.5334 = (double) D.5333;
+  printf ("ENTIRE PROGRAM TOOK %f\n", D.5334);
+  free (seed);
+  free (I);
+  D.5266 = 0;
+
+  <bb 29>:
+  IszX = {CLOBBER};
+  IszY = {CLOBBER};
+  Nfr = {CLOBBER};
+  Nparticles = {CLOBBER};
+  return D.5266;
+
+}
+
+

@@ -1,0 +1,11 @@
+ex_particle_OPENMP_seq.c: In function ‘main’:
+ex_particle_OPENMP_seq.c:530:6: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+  if( strcmp( argv[1], "-x" ) ||  strcmp( argv[3], "-y" ) || strcmp( argv[5], "-z" ) || strcmp( argv[7], "-np" ) ) {
+      ^
+ex_particle_OPENMP_seq.c:584:13: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+   seed[i] = time(0)*i;
+             ^
+ex_particle_OPENMP_seq.c: In function ‘particleFilter._omp_fn.7’:
+ex_particle_OPENMP_seq.c:453:11: sorry, unimplemented: Support for HSA does not implement calls to builtin __builtin_GOMP_atomic_start
+   #pragma omp parallel for private(x) reduction(+:xe, ye)
+           ^

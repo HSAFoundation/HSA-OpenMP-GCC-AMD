@@ -1,0 +1,19 @@
+version 0:99:$full:$large;
+
+prog kernel &veccpy__omp_fn_0(kernarg_u64 %_omp_data_i)
+{
+	ld_kernarg_u64	$d0, [%_omp_data_i];
+
+@BB_2717_1:
+	workitemabsid_u32	$s0, 0;
+	mov_b32	$s1, $s0;
+	cvt_u64_s32	$d1, $s1;
+	mul_u64	$d2, $d1, 4;
+	ld_u64	$d3, [$d0+8];
+	add_u64	$d4, $d3, $d2;
+	ld_u64	$d5, [$d0];
+	add_u64	$d6, $d5, $d2;
+	ld_s32	$s2, [$d6];
+	st_s32	$s2, [$d4];
+	ret;
+};

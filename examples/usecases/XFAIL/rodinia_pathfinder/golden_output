@@ -1,0 +1,13 @@
+pathfinder.cpp: In function ‘<built-in>’:
+pathfinder.cpp:17:11: warning: referring to global symbol ‘cols’ by name from HSA code won't work
+ int rows, cols;
+           ^
+pathfinder.cpp:19:7: warning: referring to global symbol ‘wall’ by name from HSA code won't work
+ int** wall;
+       ^
+pathfinder.cpp:17:11: warning: referring to global symbol ‘cols’ by name from HSA code won't work
+ int rows, cols;
+           ^
+pathfinder.cpp:19:7: warning: referring to global symbol ‘wall’ by name from HSA code won't work
+ int** wall;
+       ^

@@ -1,0 +1,51 @@
+backprop.c: In function ‘squash’:
+backprop.c:47:9: warning: unused variable ‘m’ [-Wunused-variable]
+   float m;
+         ^
+backprop.c: At top level:
+backprop.c:94:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ bpnn_randomize_weights(w, m, n)
+ ^
+backprop.c:108:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ bpnn_randomize_row(w, m)
+ ^
+backprop.c:120:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ bpnn_zero_weights(w, m, n)
+ ^
+backprop.c: In function ‘bpnn_initialize’:
+backprop.c:134:6: warning: type of ‘seed’ defaults to ‘int’ [-Wimplicit-int]
+ void bpnn_initialize(seed)
+      ^
+backprop.c: In function ‘bpnn_adjust_weights’:
+backprop.c:306:6: warning: type of ‘ndelta’ defaults to ‘int’ [-Wimplicit-int]
+ void bpnn_adjust_weights(delta, ndelta, ly, nly, w, oldw)
+      ^
+backprop.c:306:6: warning: type of ‘nly’ defaults to ‘int’ [-Wimplicit-int]
+backprop.c: In function ‘bpnn_read’:
+backprop.c:458:13: warning: implicit declaration of function ‘open’ [-Wimplicit-function-declaration]
+   if ((fd = open(filename, 0, 0644)) == -1) {
+             ^
+backprop.c:464:3: warning: implicit declaration of function ‘read’ [-Wimplicit-function-declaration]
+   read(fd, (char *) &n1, sizeof(int));
+   ^
+backprop.c:495:3: warning: implicit declaration of function ‘close’ [-Wimplicit-function-declaration]
+   close(fd);
+   ^
+backprop.c: In function ‘bpnn_randomize_weights’:
+backprop.c:106:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+backprop.c: In function ‘bpnn_randomize_row’:
+backprop.c:117:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+backprop.c: In function ‘bpnn_zero_weights’:
+backprop.c:131:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+backprop.c: In function ‘bpnn_layerforward’:
+backprop.c:248:11: warning: ‘sum’ is used uninitialized in this function [-Wuninitialized]
+   #pragma omp parallel for shared(conn, n1, n2, l1) private(k, j) reduction(+: sum) schedule(static)
+           ^
+backprop.c: In function ‘bpnn_layerforward._omp_fn.0’:
+backprop.c:248:11: sorry, unimplemented: Support for HSA does not implement calls to builtin exp

@@ -1,0 +1,168 @@
+In file included from main.c:84:0:
+ecc.c: In function ‘ecc’:
+ecc.c:923:15: warning: suggest parentheses around comparison in operand of ‘&’ [-Wparentheses]
+    if(timeinst>0.5 & timeinst<200.5){
+               ^
+In file included from main.c:84:0:
+ecc.c:418:5: warning: variable ‘myo_sl’ set but not used [-Wunused-but-set-variable]
+  fp myo_sl;
+     ^
+ecc.c:417:5: warning: variable ‘sl_myo’ set but not used [-Wunused-but-set-variable]
+  fp sl_myo;
+     ^
+ecc.c:416:5: warning: variable ‘sl_junc’ set but not used [-Wunused-but-set-variable]
+  fp sl_junc;
+     ^
+ecc.c:415:5: warning: variable ‘junc_sl’ set but not used [-Wunused-but-set-variable]
+  fp junc_sl;
+     ^
+ecc.c:358:5: warning: variable ‘I_Catot’ set but not used [-Wunused-but-set-variable]
+  fp I_Catot;
+     ^
+ecc.c:278:5: warning: variable ‘I_nabk’ set but not used [-Wunused-but-set-variable]
+  fp I_nabk;
+     ^
+ecc.c:273:5: warning: variable ‘I_Na’ set but not used [-Wunused-but-set-variable]
+  fp I_Na;
+     ^
+ecc.c:243:5: warning: variable ‘kon_cam’ set but not used [-Wunused-but-set-variable]
+  fp kon_cam;                  // [1/mM/ms]
+     ^
+ecc.c:242:5: warning: variable ‘koff_cam’ set but not used [-Wunused-but-set-variable]
+  fp koff_cam;                 // [1/ms] 
+     ^
+ecc.c:241:5: warning: variable ‘Bmax_CaM’ set but not used [-Wunused-but-set-variable]
+  fp Bmax_CaM;                 // [mM], CaM buffering
+     ^
+ecc.c:197:5: warning: variable ‘KmCa’ set but not used [-Wunused-but-set-variable]
+  fp KmCa;                  // [mM]
+     ^
+ecc.c:180:5: warning: variable ‘Q10KmNai’ set but not used [-Wunused-but-set-variable]
+  fp Q10KmNai;
+     ^
+ecc.c:179:5: warning: variable ‘Q10NaK’ set but not used [-Wunused-but-set-variable]
+  fp Q10NaK;  
+     ^
+ecc.c:145:5: warning: variable ‘SAsl’ set but not used [-Wunused-but-set-variable]
+  fp SAsl;                  // [um^2]
+     ^
+ecc.c:144:5: warning: variable ‘SAjunc’ set but not used [-Wunused-but-set-variable]
+  fp SAjunc;                  // [um^2]
+     ^
+ecc.c:138:5: warning: variable ‘DnaSLcyto’ set but not used [-Wunused-but-set-variable]
+  fp DnaSLcyto;                 // Dna SL to cyto [cm^2/sec] 
+     ^
+ecc.c:137:5: warning: variable ‘DnaJuncSL’ set but not used [-Wunused-but-set-variable]
+  fp DnaJuncSL;                 // Dna junc to SL [cm^2/sec]
+     ^
+ecc.c:136:5: warning: variable ‘DcaSLcyto’ set but not used [-Wunused-but-set-variable]
+  fp DcaSLcyto;                 // Dca SL to cyto [cm^2/sec]
+     ^
+ecc.c:135:5: warning: variable ‘DcaJuncSL’ set but not used [-Wunused-but-set-variable]
+  fp DcaJuncSL;                 // Dca junc to SL [cm^2/sec]
+     ^
+ecc.c:134:5: warning: variable ‘distJuncSL’ set but not used [-Wunused-but-set-variable]
+  fp distJuncSL;                 // dist. junc to SL [um]
+     ^
+ecc.c:133:5: warning: variable ‘distSLcyto’ set but not used [-Wunused-but-set-variable]
+  fp distSLcyto;                 // dist. SL to cytosol [um]
+     ^
+ecc.c:112:5: warning: variable ‘initvalu_46’ set but not used [-Wunused-but-set-variable]
+  fp initvalu_46;
+     ^
+ecc.c:111:5: warning: variable ‘initvalu_45’ set but not used [-Wunused-but-set-variable]
+  fp initvalu_45;
+     ^
+ecc.c:110:5: warning: variable ‘initvalu_44’ set but not used [-Wunused-but-set-variable]
+  fp initvalu_44;
+     ^
+ecc.c:109:5: warning: variable ‘initvalu_43’ set but not used [-Wunused-but-set-variable]
+  fp initvalu_43;
+     ^
+ecc.c:108:5: warning: variable ‘initvalu_42’ set but not used [-Wunused-but-set-variable]
+  fp initvalu_42;
+     ^
+ecc.c:107:5: warning: variable ‘initvalu_41’ set but not used [-Wunused-but-set-variable]
+  fp initvalu_41;
+     ^
+ecc.c:88:5: warning: variable ‘initvalu_22’ set but not used [-Wunused-but-set-variable]
+  fp initvalu_22;
+     ^
+In file included from main.c:85:0:
+cam.c: In function ‘cam’:
+cam.c:61:5: warning: variable ‘CaMtot’ set but not used [-Wunused-but-set-variable]
+  fp CaMtot;
+     ^
+In file included from main.c:86:0:
+fin.c: In function ‘fin’:
+fin.c:33:5: warning: variable ‘k4Boff’ set but not used [-Wunused-but-set-variable]
+  fp k4Boff;                   // [s^-1]
+     ^
+fin.c:27:5: warning: variable ‘kDyadSL’ set but not used [-Wunused-but-set-variable]
+  fp kDyadSL;                   // [L/msec]
+     ^
+In file included from main.c:87:0:
+master.c: In function ‘master’:
+master.c:24:6: warning: unused variable ‘initvalu_offset_batch’ [-Wunused-variable]
+  int initvalu_offset_batch;               //
+      ^
+In file included from main.c:88:0:
+embedded_fehlberg_7_8.c: In function ‘embedded_fehlberg_7_8’:
+embedded_fehlberg_7_8.c:480:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+In file included from main.c:89:0:
+solver.c: In function ‘solver’:
+solver.c:85:5: warning: variable ‘last_interval’ set but not used [-Wunused-but-set-variable]
+  fp last_interval;
+     ^
+In file included from main.c:91:0:
+file.c: In function ‘read’:
+file.c:89:7: warning: unused variable ‘c’ [-Wunused-variable]
+  char c;
+       ^
+main.c: In function ‘main’:
+main.c:175:11: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘long int’ [-Wformat=]
+    printf("ERROR: %d is the incorrect end of simulation interval, use numbers > 0\n", xmax);
+           ^
+main.c:185:11: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘long int’ [-Wformat=]
+    printf("ERROR: %d is the incorrect number of instances of simulation, use numbers > 0\n", workload);
+           ^
+main.c:363:9: warning: unknown conversion type character ‘:’ in format [-Wformat=]
+  printf("%.12f s, %.12f % : SETUP VARIABLES, READ COMMAND LINE ARGUMENTS\n",  (float) (time1-time0) / 1000000, (float) (time1-time0) / (float) (time5-time0) * 100);
+         ^
+main.c:364:9: warning: unknown conversion type character ‘:’ in format [-Wformat=]
+  printf("%.12f s, %.12f % : ALLOCATE MEMORY\n",               (float) (time2-time1) / 1000000, (float) (time2-time1) / (float) (time5-time0) * 100);
+         ^
+main.c:365:9: warning: unknown conversion type character ‘:’ in format [-Wformat=]
+  printf("%.12f s, %.12f % : READ DATA FROM FILES\n",             (float) (time3-time2) / 1000000, (float) (time3-time2) / (float) (time5-time0) * 100);
+         ^
+main.c:366:9: warning: unknown conversion type character ‘:’ in format [-Wformat=]
+  printf("%.12f s, %.12f % : RUN COMPUTATION\n",               (float) (time4-time3) / 1000000, (float) (time4-time3) / (float) (time5-time0) * 100);
+         ^
+main.c:367:9: warning: unknown conversion type character ‘:’ in format [-Wformat=]
+  printf("%.12f s, %.12f % : FREE MEMORY\n",                 (float) (time5-time4) / 1000000, (float) (time5-time4) / (float) (time5-time0) * 100);
+         ^
+main.c:134:5: warning: unused variable ‘tolerance’ [-Wunused-variable]
+  fp tolerance;
+     ^
+main.c:133:5: warning: unused variable ‘h’ [-Wunused-variable]
+  fp h;
+     ^
+main.c:131:7: warning: unused variable ‘xmin’ [-Wunused-variable]
+  long xmin;
+       ^
+main.c:123:6: warning: variable ‘status’ set but not used [-Wunused-but-set-variable]
+  int status;
+      ^
+In file included from main.c:87:0:
+main.c: In function ‘master._omp_fn.0’:
+master.c:66:7: warning: ‘th_id’ is used uninitialized in this function [-Wuninitialized]
+    if (th_id == th_count[1]) {
+       ^
+master.c:40:7: note: ‘th_id’ was declared here
+   int th_id, nthreads;
+       ^
+master.c:63:11: sorry, unimplemented: Support for HSA does not implement calls to builtin pow
+   #pragma omp parallel private(th_id)
+           ^

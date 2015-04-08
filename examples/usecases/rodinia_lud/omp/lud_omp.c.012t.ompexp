@@ -1,0 +1,148 @@
+
+;; Function lud_omp (lud_omp, funcdef_no=0, decl_uid=2303, cgraph_uid=0, symbol_order=0)
+
+
+OMP region tree
+
+bb 11: gimple_omp_parallel
+    bb 12: gimple_omp_for
+    bb 16: GIMPLE_OMP_CONTINUE
+    bb 17: GIMPLE_OMP_RETURN
+bb 18: GIMPLE_OMP_RETURN
+bb 3: gimple_omp_parallel
+    bb 4: gimple_omp_for
+    bb 8: GIMPLE_OMP_CONTINUE
+    bb 9: GIMPLE_OMP_RETURN
+bb 10: GIMPLE_OMP_RETURN
+
+lud_omp.c:20:9: note: Parallel construct will be turned into an HSA kernel
+Introduced new external node (lud_omp._omp_fn.1/1).
+Introduced new external node (__builtin_omp_get_thread_num/2).
+lud_omp.c:13:9: note: Parallel construct will be turned into an HSA kernel
+Introduced new external node (lud_omp._omp_fn.0/3).
+Merging blocks 3 and 29
+Merging blocks 11 and 24
+Removing basic block 25
+basic block 25, loop depth 1
+ pred:      
+ succ:       19
+
+
+Removing basic block 30
+basic block 30, loop depth 1
+ pred:      
+ succ:       11
+
+
+lud_omp (float * a, int size)
+{
+  unsigned int D.2547;
+  unsigned int D.2548;
+  int D.2546;
+  int D.2501;
+  unsigned int D.2499;
+  unsigned int D.2500;
+  int D.2498;
+  int D.2441;
+  int D.2439;
+  int D.2438;
+  int D.2420;
+  int D.2419;
+  float sum;
+  int k;
+  int j;
+  int i;
+  int omp_num_threads.1;
+  int omp_num_threads.0;
+  struct .omp_data_s.3 .omp_data_o.5;
+  float * D.2437;
+  int D.2436;
+  int D.2435;
+  float * D.2434;
+  int D.2433;
+  int D.2432;
+  int D.2431;
+  float * D.2430;
+  int D.2429;
+  int D.2428;
+  float * D.2427;
+  int D.2426;
+  float * D.2425;
+  int D.2424;
+  int D.2423;
+  int D.2422;
+  struct .omp_data_s.2 .omp_data_o.4;
+  float * D.2418;
+  int D.2416;
+  int D.2417;
+  int D.2415;
+  float * D.2414;
+  int D.2413;
+  float * D.2412;
+  int D.2410;
+  int D.2411;
+  float * D.2409;
+  int D.2407;
+  int D.2408;
+
+  <bb 2>:
+  omp_num_threads.0 = omp_num_threads;
+  printf ("num of threads = %d\n", omp_num_threads.0);
+  i = 0;
+  goto <bb 8>;
+
+  <bb 3>:
+  omp_num_threads.1 = omp_num_threads;
+  omp_set_num_threads (omp_num_threads.1);
+  .omp_data_o.4.a = a;
+  .omp_data_o.4.i = i;
+  .omp_data_o.4.size = size;
+  if (i < size)
+    goto <bb 4>;
+  else
+    goto <bb 5>;
+
+  <bb 4>:
+  D.2546 = size - i;
+  D.2547 = (unsigned int) D.2546;
+  D.2548 = MIN_EXPR <D.2547, 16>;
+  lud_omp._omp_fn.0 (&.omp_data_o.4, D.2546, D.2548);
+
+  <bb 5>:
+  a = .omp_data_o.4.a;
+  i = .omp_data_o.4.i;
+  size = .omp_data_o.4.size;
+  .omp_data_o.4 = {CLOBBER};
+  .omp_data_o.5.a = a;
+  .omp_data_o.5.i = i;
+  .omp_data_o.5.size = size;
+  if (D.2344 < size)
+    goto <bb 6>;
+  else
+    goto <bb 7>;
+
+  <bb 6>:
+  D.2498 = size - D.2344;
+  D.2499 = (unsigned int) D.2498;
+  D.2500 = MIN_EXPR <D.2499, 16>;
+  lud_omp._omp_fn.1 (&.omp_data_o.5, D.2498, D.2500);
+
+  <bb 7>:
+  a = .omp_data_o.5.a;
+  i = .omp_data_o.5.i;
+  size = .omp_data_o.5.size;
+  .omp_data_o.5 = {CLOBBER};
+  i = i + 1;
+
+  <bb 8>:
+  if (i < size)
+    goto <bb 3>;
+  else
+    goto <bb 9>;
+
+  <bb 9>:
+  return;
+
+}
+
+

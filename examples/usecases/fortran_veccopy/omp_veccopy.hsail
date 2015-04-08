@@ -1,0 +1,27 @@
+version 0:99:$full:$large;
+
+prog kernel &vector_square___omp_fn_0(kernarg_u64 %_omp_data_i)
+{
+	ld_kernarg_u64	$d0, [%_omp_data_i];
+
+@BB_2416_1:
+	workitemabsid_u32	$s0, 0;
+	mov_b32	$s1, $s0;
+	add_s32	$s2, $s1, 1;
+	cvt_s64_s32	$d1, $s2;
+	add_s64	$d2, $d1, -1;
+	ld_u64	$d3, [$d0];
+	lda_u64	$d4, [$d3];
+	mov_b64	$d5, $d2;
+	mul_u64	$d5, $d5, 4;
+	add_u64	$d4, $d4, $d5;
+	ld_s32	$s3, [$d4];
+	mul_s32	$s4, $s3, $s3;
+	ld_u64	$d6, [$d0+8];
+	lda_u64	$d7, [$d6];
+	mov_b64	$d8, $d2;
+	mul_u64	$d8, $d8, 4;
+	add_u64	$d7, $d7, $d8;
+	st_s32	$s4, [$d7];
+	ret;
+};

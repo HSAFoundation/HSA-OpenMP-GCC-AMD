@@ -1,0 +1,475 @@
+
+;; Function main (main, funcdef_no=36, decl_uid=4315, cgraph_uid=36, symbol_order=36)
+
+
+OMP region tree
+
+bb 28: gimple_omp_parallel
+    bb 29: gimple_omp_for
+    bb 30: GIMPLE_OMP_CONTINUE
+    bb 31: GIMPLE_OMP_RETURN
+bb 32: GIMPLE_OMP_RETURN
+
+nn_hsa.c:111:11: note: Parallel construct will be turned into an HSA kernel
+Introduced new external node (main._omp_fn.0/37).
+Introduced new external node (__builtin_omp_get_thread_num/38).
+Introduced new external node (__builtin_sqrtf/39).
+Merging blocks 28 and 52
+Removing basic block 53
+basic block 53, loop depth 1
+ pred:      
+ succ:       33
+
+
+main (int argc, char * * argv)
+{
+  unsigned int rec_count.3;
+  unsigned int D.4500;
+  int D.4470;
+  int max_idx;
+  float max_dist;
+  int D.4466;
+  float * z;
+  float floatbuf[20];
+  float tmp_long;
+  float tmp_lat;
+  float target_long;
+  float target_lat;
+  struct neighbor * neighbors;
+  char dbname[64];
+  char * rec_iter;
+  char sandbox[490];
+  int done;
+  int rec_count;
+  int k;
+  int j;
+  int i;
+  struct FILE * fp;
+  struct FILE * flist;
+  int D.4441;
+  char[49] * D.4440;
+  char[49] * D.4437;
+  char * D.4436;
+  sizetype D.4435;
+  int D.4434;
+  int D.4433;
+  int D.4432;
+  double D.4429;
+  struct neighbor * D.4428;
+  long unsigned int D.4427;
+  long unsigned int D.4426;
+  double D.4425;
+  float D.4424;
+  float * D.4423;
+  long unsigned int D.4422;
+  long unsigned int D.4421;
+  double D.4418;
+  double D.4417;
+  float * D.4405;
+  float * D.4404;
+  int D.4403;
+  int D.4402;
+  sizetype D.4401;
+  sizetype D.4400;
+  int D.4399;
+  int D.4398;
+  int D.4392;
+  int D.4388;
+  int D.4385;
+  long unsigned int D.4382;
+  int D.4377;
+  struct neighbor * D.4376;
+  long unsigned int D.4375;
+  long unsigned int D.4374;
+  long unsigned int D.4371;
+  long unsigned int D.4370;
+  double D.4369;
+  char * D.4368;
+  char * * D.4367;
+  double D.4366;
+  char * D.4365;
+  char * * D.4364;
+  char * D.4363;
+  char * * D.4362;
+  char * D.4359;
+  char * * D.4358;
+  struct _IO_FILE * stderr.0;
+  struct .omp_data_s.1 .omp_data_o.2;
+  float D.4465;
+  float D.4464;
+  float D.4463;
+  float D.4462;
+  float * D.4461;
+  float[20] * D.4460;
+  float[20] * D.4459;
+
+  <bb 2>:
+  i = 0;
+  j = 0;
+  k = 0;
+  rec_count = 0;
+  done = 0;
+  neighbors = 0B;
+  tmp_lat = 0.0;
+  tmp_long = 0.0;
+  if (argc <= 4)
+    goto <bb 3>;
+  else
+    goto <bb 4>;
+
+  <bb 3>:
+  stderr.0 = stderr;
+  __builtin_fwrite ("Invalid set of arguments\n", 1, 25, stderr.0);
+  exit (-1);
+
+  <bb 4>:
+  D.4358 = argv + 8;
+  D.4359 = *D.4358;
+  flist = fopen (D.4359, "r");
+  if (flist == 0B)
+    goto <bb 5>;
+  else
+    goto <bb 6>;
+
+  <bb 5>:
+  __builtin_puts (&"error opening flist"[0]);
+  exit (1);
+
+  <bb 6>:
+  D.4362 = argv + 16;
+  D.4363 = *D.4362;
+  k = atoi (D.4363);
+  D.4364 = argv + 24;
+  D.4365 = *D.4364;
+  D.4366 = atof (D.4365);
+  target_lat = (float) D.4366;
+  D.4367 = argv + 32;
+  D.4368 = *D.4367;
+  D.4369 = atof (D.4368);
+  target_long = (float) D.4369;
+  D.4370 = (long unsigned int) k;
+  D.4371 = D.4370 * 64;
+  neighbors = malloc (D.4371);
+  if (neighbors == 0B)
+    goto <bb 7>;
+  else
+    goto <bb 8>;
+
+  <bb 7>:
+  stderr.0 = stderr;
+  __builtin_fwrite ("no room for neighbors\n", 1, 22, stderr.0);
+  exit (0);
+
+  <bb 8>:
+  j = 0;
+  goto <bb 10>;
+
+  <bb 9>:
+  D.4374 = (long unsigned int) j;
+  D.4375 = D.4374 * 64;
+  D.4376 = neighbors + D.4375;
+  D.4376->dist = 1.0e+4;
+  j = j + 1;
+
+  <bb 10>:
+  if (j < k)
+    goto <bb 9>;
+  else
+    goto <bb 11>;
+
+  <bb 11>:
+  D.4377 = fscanf (flist, "%s\n", &dbname);
+  if (D.4377 != 1)
+    goto <bb 12>;
+  else
+    goto <bb 13>;
+
+  <bb 12>:
+  stderr.0 = stderr;
+  __builtin_fwrite ("error reading filelist\n", 1, 23, stderr.0);
+  exit (0);
+
+  <bb 13>:
+  fp = fopen (&dbname, "r");
+  if (fp == 0B)
+    goto <bb 14>;
+  else
+    goto <bb 15>;
+
+  <bb 14>:
+  __builtin_puts (&"error opening flist"[0]);
+  exit (1);
+
+  <bb 15>:
+  z = malloc (40);
+  goto <bb 40>;
+
+  <bb 16>:
+  D.4382 = fread (&sandbox, 49, 10, fp);
+  rec_count = (int) D.4382;
+  if (rec_count != 10)
+    goto <bb 17>;
+  else
+    goto <bb 25>;
+
+  <bb 17>:
+  D.4385 = ferror (flist);
+  if (D.4385 == 0)
+    goto <bb 18>;
+  else
+    goto <bb 24>;
+
+  <bb 18>:
+  fclose (fp);
+  D.4388 = feof (flist);
+  if (D.4388 != 0)
+    goto <bb 19>;
+  else
+    goto <bb 20>;
+
+  <bb 19>:
+  done = 1;
+  goto <bb 25>;
+
+  <bb 20>:
+  D.4392 = fscanf (flist, "%s\n", &dbname);
+  if (D.4392 != 1)
+    goto <bb 21>;
+  else
+    goto <bb 22>;
+
+  <bb 21>:
+  stderr.0 = stderr;
+  __builtin_fwrite ("error reading filelist\n", 1, 23, stderr.0);
+  exit (0);
+
+  <bb 22>:
+  fp = fopen (&dbname, "r");
+  if (fp == 0B)
+    goto <bb 23>;
+  else
+    goto <bb 25>;
+
+  <bb 23>:
+  __builtin_puts (&"error opening a db"[0]);
+  exit (1);
+
+  <bb 24>:
+  perror ("Error");
+  exit (0);
+
+  <bb 25>:
+  i = 0;
+  goto <bb 27>;
+
+  <bb 26>:
+  D.4398 = i * 49;
+  D.4399 = D.4398 + 28;
+  D.4400 = (sizetype) D.4399;
+  D.4401 = D.4400 + 18446744073709551615;
+  rec_iter = &sandbox + D.4401;
+  D.4402 = i * 2;
+  D.4403 = D.4402 + 1;
+  D.4404 = &floatbuf[D.4403];
+  D.4402 = i * 2;
+  D.4405 = &floatbuf[D.4402];
+  sscanf (rec_iter, "%f %f", D.4405, D.4404);
+  i = i + 1;
+
+  <bb 27>:
+  if (i < rec_count)
+    goto <bb 26>;
+  else
+    goto <bb 28>;
+
+  <bb 28>:
+  .omp_data_o.2.floatbuf = &floatbuf;
+  .omp_data_o.2.z = z;
+  .omp_data_o.2.rec_count = rec_count;
+  .omp_data_o.2.target_long = target_long;
+  .omp_data_o.2.target_lat = target_lat;
+  if (0 < rec_count)
+    goto <bb 29>;
+  else
+    goto <bb 30>;
+
+  <bb 29>:
+  rec_count.3 = (unsigned int) rec_count;
+  D.4500 = MIN_EXPR <rec_count.3, 16>;
+  main._omp_fn.0 (&.omp_data_o.2, rec_count, D.4500);
+
+  <bb 30>:
+  z = .omp_data_o.2.z;
+  rec_count = .omp_data_o.2.rec_count;
+  target_long = .omp_data_o.2.target_long;
+  target_lat = .omp_data_o.2.target_lat;
+  .omp_data_o.2 = {CLOBBER};
+  __builtin_GOMP_barrier ();
+  i = 0;
+  goto <bb 39>;
+
+  <bb 31>:
+  max_dist = -1.0e+0;
+  max_idx = 0;
+  j = 0;
+  goto <bb 35>;
+
+  <bb 32>:
+  D.4374 = (long unsigned int) j;
+  D.4375 = D.4374 * 64;
+  D.4376 = neighbors + D.4375;
+  D.4417 = D.4376->dist;
+  D.4418 = (double) max_dist;
+  if (D.4417 > D.4418)
+    goto <bb 33>;
+  else
+    goto <bb 34>;
+
+  <bb 33>:
+  D.4374 = (long unsigned int) j;
+  D.4375 = D.4374 * 64;
+  D.4376 = neighbors + D.4375;
+  D.4417 = D.4376->dist;
+  max_dist = (float) D.4417;
+  max_idx = j;
+
+  <bb 34>:
+  j = j + 1;
+
+  <bb 35>:
+  if (j < k)
+    goto <bb 32>;
+  else
+    goto <bb 36>;
+
+  <bb 36>:
+  D.4421 = (long unsigned int) i;
+  D.4422 = D.4421 * 4;
+  D.4423 = z + D.4422;
+  D.4424 = *D.4423;
+  D.4425 = (double) D.4424;
+  D.4426 = (long unsigned int) max_idx;
+  D.4427 = D.4426 * 64;
+  D.4428 = neighbors + D.4427;
+  D.4429 = D.4428->dist;
+  if (D.4425 < D.4429)
+    goto <bb 37>;
+  else
+    goto <bb 38>;
+
+  <bb 37>:
+  D.4432 = i + 1;
+  D.4433 = D.4432 * 49;
+  D.4434 = D.4433 + -1;
+  sandbox[D.4434] = 0;
+  D.4398 = i * 49;
+  D.4435 = (sizetype) D.4398;
+  D.4436 = &sandbox + D.4435;
+  D.4426 = (long unsigned int) max_idx;
+  D.4427 = D.4426 * 64;
+  D.4428 = neighbors + D.4427;
+  D.4437 = &D.4428->entry;
+  strcpy (D.4437, D.4436);
+  D.4426 = (long unsigned int) max_idx;
+  D.4427 = D.4426 * 64;
+  D.4428 = neighbors + D.4427;
+  D.4421 = (long unsigned int) i;
+  D.4422 = D.4421 * 4;
+  D.4423 = z + D.4422;
+  D.4424 = *D.4423;
+  D.4425 = (double) D.4424;
+  D.4428->dist = D.4425;
+
+  <bb 38>:
+  i = i + 1;
+
+  <bb 39>:
+  if (i < rec_count)
+    goto <bb 31>;
+  else
+    goto <bb 40>;
+
+  <bb 40>:
+  if (done == 0)
+    goto <bb 16>;
+  else
+    goto <bb 41>;
+
+  <bb 41>:
+  stderr.0 = stderr;
+  fprintf (stderr.0, "The %d nearest neighbors are:\n", k);
+  j = 0;
+  goto <bb 45>;
+
+  <bb 42>:
+  D.4374 = (long unsigned int) j;
+  D.4375 = D.4374 * 64;
+  D.4376 = neighbors + D.4375;
+  D.4417 = D.4376->dist;
+  if (D.4417 != 1.0e+4)
+    goto <bb 43>;
+  else
+    goto <bb 44>;
+
+  <bb 43>:
+  D.4374 = (long unsigned int) j;
+  D.4375 = D.4374 * 64;
+  D.4376 = neighbors + D.4375;
+  D.4417 = D.4376->dist;
+  D.4374 = (long unsigned int) j;
+  D.4375 = D.4374 * 64;
+  D.4376 = neighbors + D.4375;
+  D.4440 = &D.4376->entry;
+  stderr.0 = stderr;
+  fprintf (stderr.0, "%s --> %f\n", D.4440, D.4417);
+
+  <bb 44>:
+  j = j + 1;
+
+  <bb 45>:
+  if (j < k)
+    goto <bb 42>;
+  else
+    goto <bb 46>;
+
+  <bb 46>:
+  fclose (flist);
+  D.4441 = 0;
+  sandbox = {CLOBBER};
+  dbname = {CLOBBER};
+  floatbuf = {CLOBBER};
+  return D.4441;
+
+}
+
+
+
+;; Function atoi (atoi, funcdef_no=2, decl_uid=1852, cgraph_uid=2, symbol_order=2)
+
+atoi (const char * __nptr)
+{
+  long int D.4502;
+  int D.4501;
+
+  <bb 2>:
+  D.4502 = strtol (__nptr, 0B, 10);
+  D.4501 = (int) D.4502;
+  return D.4501;
+
+}
+
+
+
+;; Function atof (atof, funcdef_no=9, decl_uid=1850, cgraph_uid=9, symbol_order=9)
+
+atof (const char * __nptr)
+{
+  double D.4504;
+
+  <bb 2>:
+  D.4504 = strtod (__nptr, 0B);
+  return D.4504;
+
+}
+
+

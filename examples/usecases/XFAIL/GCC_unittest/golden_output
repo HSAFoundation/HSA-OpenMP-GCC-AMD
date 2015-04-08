@@ -1,0 +1,177 @@
+asm.c: In function ‘foo’:
+asm.c:2:1: sorry, unimplemented: Support for HSA does not implement gimple statement gimple_asm
+ foo (int *r)
+ ^
+bad_addrsym.c: In function ‘foo’:
+bad_addrsym.c:7:1: sorry, unimplemented: Support for HSA does not implement memory access to bar
+ foo (int (**a)(int))
+ ^
+bitfldref.c: In function ‘foo’:
+bitfldref.c:8:1: sorry, unimplemented: Support for HSA does not implement references to bit fields such as i2
+ foo (unsigned *a, struct S *b)
+ ^
+call.c: In function ‘foo’:
+call.c:8:1: sorry, unimplemented: HSA does support only call for functions with 'hsafunc' attribute
+ foo (int *r, int a, int b)
+ ^
+call_builtin.c: In function ‘foo’:
+call_builtin.c:4:8: warning: implicit declaration of function ‘fmodf’ [-Wimplicit-function-declaration]
+   *r = fmodf (a, b);
+        ^
+call_builtin.c:4:8: warning: incompatible implicit declaration of built-in function ‘fmodf’
+call_builtin.c:4:8: note: include ‘<math.h>’ or provide a declaration of ‘fmodf’
+call_builtin.c:2:1: sorry, unimplemented: Support for HSA does not implement calls to builtin fmodf
+ foo (double *r, double a, double b)
+ ^
+complex.c: In function ‘foo’:
+complex.c:4:1: sorry, unimplemented: Support for HSA does not implement type C {aka _Complex int}
+ foo (C *a, C b)
+ ^
+complex.c:4:1: sorry, unimplemented: Support for HSA does not implement type C {aka _Complex int}
+complex.c:4:1: sorry, unimplemented: Support for HSA does not implement type C {aka _Complex int}
+complex03.c: In function ‘foo’:
+complex03.c:6:1: sorry, unimplemented: Support for HSA does not implement operation complex_expr
+ foo (C *a, int i)
+ ^
+complex04.c: In function ‘foo’:
+complex04.c:4:1: sorry, unimplemented: Support for HSA does not implement type complex float
+ foo (void)
+ ^
+complex04.c:4:1: sorry, unimplemented: Support for HSA does not implement type complex float
+condcodes.c: In function ‘foo1’:
+condcodes.c:5:10: error: ‘true’ undeclared (first use in this function)
+     *r = true; \
+          ^
+condcodes.c:10:1: note: in expansion of macro ‘TST’
+ TST(foo1,__builtin_isunordered)
+ ^
+condcodes.c:5:10: note: each undeclared identifier is reported only once for each function it appears in
+     *r = true; \
+          ^
+condcodes.c:10:1: note: in expansion of macro ‘TST’
+ TST(foo1,__builtin_isunordered)
+ ^
+condcodes.c:7:10: error: ‘false’ undeclared (first use in this function)
+     *r = false;\
+          ^
+condcodes.c:10:1: note: in expansion of macro ‘TST’
+ TST(foo1,__builtin_isunordered)
+ ^
+condcodes.c: In function ‘foo2’:
+condcodes.c:5:10: error: ‘true’ undeclared (first use in this function)
+     *r = true; \
+          ^
+condcodes.c:11:1: note: in expansion of macro ‘TST’
+ TST(foo2,__builtin_isless)
+ ^
+condcodes.c:7:10: error: ‘false’ undeclared (first use in this function)
+     *r = false;\
+          ^
+condcodes.c:11:1: note: in expansion of macro ‘TST’
+ TST(foo2,__builtin_isless)
+ ^
+condcodes.c: In function ‘foo3’:
+condcodes.c:5:10: error: ‘true’ undeclared (first use in this function)
+     *r = true; \
+          ^
+condcodes.c:12:1: note: in expansion of macro ‘TST’
+ TST(foo3,__builtin_islessequal)
+ ^
+condcodes.c:7:10: error: ‘false’ undeclared (first use in this function)
+     *r = false;\
+          ^
+condcodes.c:12:1: note: in expansion of macro ‘TST’
+ TST(foo3,__builtin_islessequal)
+ ^
+condcodes.c: In function ‘foo4’:
+condcodes.c:5:10: error: ‘true’ undeclared (first use in this function)
+     *r = true; \
+          ^
+condcodes.c:13:1: note: in expansion of macro ‘TST’
+ TST(foo4,__builtin_isgreater)
+ ^
+condcodes.c:7:10: error: ‘false’ undeclared (first use in this function)
+     *r = false;\
+          ^
+condcodes.c:13:1: note: in expansion of macro ‘TST’
+ TST(foo4,__builtin_isgreater)
+ ^
+condcodes.c: In function ‘foo5’:
+condcodes.c:5:10: error: ‘true’ undeclared (first use in this function)
+     *r = true; \
+          ^
+condcodes.c:14:1: note: in expansion of macro ‘TST’
+ TST(foo5,__builtin_isgreaterequal)
+ ^
+condcodes.c:7:10: error: ‘false’ undeclared (first use in this function)
+     *r = false;\
+          ^
+condcodes.c:14:1: note: in expansion of macro ‘TST’
+ TST(foo5,__builtin_isgreaterequal)
+ ^
+condcodes.c: In function ‘foo6’:
+condcodes.c:5:10: error: ‘true’ undeclared (first use in this function)
+     *r = true; \
+          ^
+condcodes.c:15:1: note: in expansion of macro ‘TST’
+ TST(foo6,__builtin_islessgreater)
+ ^
+condcodes.c:7:10: error: ‘false’ undeclared (first use in this function)
+     *r = false;\
+          ^
+condcodes.c:15:1: note: in expansion of macro ‘TST’
+ TST(foo6,__builtin_islessgreater)
+ ^
+conversion.c: In function ‘f’:
+conversion.c:7:1: sorry, unimplemented: Support for HSA does not implement memory access to ""
+ f (void)
+ ^
+conversion.c:4:3: warning: referring to global symbol ‘u’ by name from HSA code won't work
+ } u;
+   ^
+conversion.c:7:1: sorry, unimplemented: Support for HSA does not implement type union <anonymous>
+ f (void)
+ ^
+longdouble.c: In function ‘foo’:
+longdouble.c:2:1: sorry, unimplemented: Support for HSA does not implement type long double
+ foo (long double *x, long double y)
+ ^
+longdouble.c:2:1: sorry, unimplemented: Support for HSA does not implement type long double
+longdouble.c:2:1: sorry, unimplemented: Support for HSA does not implement type long double
+memcopy.c: In function ‘foo’:
+memcopy.c:12:1: sorry, unimplemented: Support for HSA does not implement non-scalar memory moves.
+ foo (struct S *a, struct S *b)
+ ^
+op-rot.c: In function ‘foo’:
+op-rot.c:2:1: sorry, unimplemented: Support for HSA does not implement LROTATE_EXPR or RROTATE_EXPR
+ foo (unsigned int *r, unsigned int x)
+ ^
+op-trunc.c: In function ‘foo’:
+op-trunc.c:2:1: sorry, unimplemented: Support for HSA does not implement operation fix_trunc_expr
+ foo (int *r, double d)
+ ^
+op-unordered.c: In function ‘foo’:
+op-unordered.c:2:1: sorry, unimplemented: Support for HSA does not implement comparison tree code unordered_expr
+
+ foo (int *r, double a, double b)
+ ^
+phiarg.c: In function ‘foo’:
+phiarg.c:4:1: sorry, unimplemented: Support for HSA does not implement memory access to "small stuff"
+ foo (char *r, int a)
+ ^
+philimit.c: In function ‘foo’:
+philimit.c:2:1: sorry, unimplemented: Support for HSA does not handle PHI nodes with more than 5 operands
+ foo (int *r, int a)
+ ^
+switch.c: In function ‘foo’:
+switch.c:2:1: sorry, unimplemented: Support for HSA does not implement gimple statement gimple_switch
+ foo (int *r, int a, int b, int c)
+ ^
+varsized.c:2:17: warning: anonymous struct declared inside parameter list
+ f(int a, struct {int b[a];} c)
+                 ^
+varsized.c:2:17: warning: its scope is only this definition or declaration, which is probably not what you want
+varsized.c: In function ‘f’:
+varsized.c:2:1: sorry, unimplemented: Support for HSA does not implement huge or variable-sized type struct <anonymous>
+ f(int a, struct {int b[a];} c)
+ ^

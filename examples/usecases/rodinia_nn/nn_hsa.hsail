@@ -1,0 +1,31 @@
+version 0:99:$full:$large;
+
+prog kernel &main__omp_fn_0(kernarg_u64 %_omp_data_i)
+{
+	ld_kernarg_u64	$d0, [%_omp_data_i];
+
+@BB_4443_1:
+	workitemabsid_u32	$s0, 0;
+	mov_b32	$s1, $s0;
+	mul_s32	$s2, $s1, 2;
+	ld_u64	$d1, [$d0];
+	cvt_u64_s32	$d2, $s2;
+	mul_u64	$d3, $d2, 4;
+	add_u64	$d4, $d1, $d3;
+	ld_f32	$s3, [$d4];
+	ld_f32	$s4, [$d4+4];
+	cvt_u64_s32	$d5, $s1;
+	mul_u64	$d6, $d5, 4;
+	ld_u64	$d7, [$d0+8];
+	add_u64	$d8, $d7, $d6;
+	ld_f32	$s5, [$d0+24];
+	sub_f32	$s6, $s3, $s5;
+	mul_f32	$s7, $s6, $s6;
+	ld_f32	$s8, [$d0+20];
+	sub_f32	$s9, $s4, $s8;
+	mul_f32	$s10, $s9, $s9;
+	add_f32	$s11, $s7, $s10;
+	sqrt_f32	$s12, $s11;
+	st_f32	$s12, [$d8];
+	ret;
+};

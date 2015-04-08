@@ -1,0 +1,51 @@
+To run pre-compiled binaries
+-----------------------------
+1) Set LD_LIBRARY_PATH=$HSA_KMT_PATH:$HSA_RUNTIME_PATH:$OKRA_BIN
+2) ./run.sh => To run all usecases
+NOTE: Fortran testcase will fail due to missing libgfortran library in LD_LIBRARY_PATH
+      So, unzip and untar gcc_hsail.tar.gz in /opt/gcc_hsail as mentioned below:
+
+To build usecases
+------------------
+1) Untar gcc_hsail.tar in /opt/gcc_hsail
+   The directory structure will look like:
+     /opt/gcc_hsail/
+                   bin/
+                   include/
+                   lib/  
+                   lib32/  
+                   lib64/  
+                   libexec/
+                   share/
+2) Set HSA_KMT, HSA_RUNTIME, OKRA path, Prebuilt GCC path in setenv.gcc
+3) $ source ./setenv.gcc
+4) $ ./build.sh  ==> To build all usecases
+5) $ ./fullrun.sh    ==> To run all usecases
+
+Expected Output:
+----------------
+*****************************************
+OpenMP 3 Compile time + Runtime testcases
+OpenMP 4 testcases coming soon           
+*****************************************
+Rodinia nn               - Passed
+Rodinia nw               - Passed
+Rodinia LUD              - Passed
+Rodinia BFS              - Passed
+Rodinia kmeans           - Passed
+Matrix multiplication    - Passed
+Vector Copy Fortran case - Passed
+Vector Copy C case       - Passed 
+Vector Copy (LinkTimeOptimization)     - Passed 
+Vector Copy (Brig from multiple files) - Passed 
+
+Following tests are expected to fail(Compile time testcases)
+************************************************************
+Rodinia Leukocyte      - Call to built-in malloc()
+Rodinia backprop       - Call to built-in exp()
+Rodinia myocyte        - Call to built-in pow()
+Rodinia pathfinder     - Missing support for globals (read only in Kernel)
+Rodinia hotspot        - Missing support for globals (read only in Kernel)
+Rodinia steamcluster   - Missing support for globals (read and write in Kernel)
+Rodinia particlefilter - Unsupported complex atomic synchronization
+GCC                    - Verified 30 different graceful exits of un-supported features
