@@ -1,11 +1,9 @@
-The wiki page attached to this project contains the documentation for setting up HSA platform, building OpenMP applications using GCC and running on a HSA device.
 
-Please start here: https://github.com/HSAFoundation/HSA-OpenMP-GCC-AMD/wiki
+There are two sets of examples.  The smaller set is in the "samples" directory.   The larger set including some Rodinia benchmarks are located in the "examples" directory .
 
-### Examples: 
-* Couple of OpenMP samples are available for reference. Setup PATH of HSA Runtime, OKRA, libhsakmt(part of KFD) and GCC in 'env.sh'. Refer wiki for detail instructions:
+### Samples: 
 
-#### Example1: vectorCopy
+#### Sample1: vectorCopy
 ```
 * $ cd samples/vectorCopy
 * $ make
@@ -13,7 +11,7 @@ Please start here: https://github.com/HSAFoundation/HSA-OpenMP-GCC-AMD/wiki
    Vector Copy - Passed
 ```
 
-#### Example2: matrixMultiply
+#### Sample2: matrixMultiply
 ```
 * $ cd samples/matrixMultiply/
 * $ make
@@ -21,5 +19,4 @@ Please start here: https://github.com/HSAFoundation/HSA-OpenMP-GCC-AMD/wiki
     Matrix multiplication - Passed
 ```
  
-
-
+See the README in the examples directory for information about testing OpenMP with the test suite. 

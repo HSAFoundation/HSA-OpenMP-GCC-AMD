@@ -1,15 +1,8 @@
-To run pre-compiled binaries
------------------------------
-1) Set LD_LIBRARY_PATH=$HSA_KMT_PATH:$HSA_RUNTIME_PATH:$OKRA_BIN
-2) ./run.sh => To run all usecases
-NOTE: Fortran testcase will fail due to missing libgfortran library in LD_LIBRARY_PATH
-      So, unzip and untar gcc_hsail.tar.gz in /opt/gcc_hsail as mentioned below:
-
-To build usecases
-------------------
-1) Untar gcc_hsail.tar in /opt/gcc_hsail
+To build and run usecases
+-------------------------
+1) Untar hsagcc.tar in /usr/local/hsagcc
    The directory structure will look like:
-     /opt/gcc_hsail/
+     /usr/local/hsagcc/
                    bin/
                    include/
                    lib/  
@@ -17,10 +10,20 @@ To build usecases
                    lib64/  
                    libexec/
                    share/
-2) Set HSA_KMT, HSA_RUNTIME, OKRA path, Prebuilt GCC path in setenv.gcc
-3) $ source ./setenv.gcc
-4) $ ./build.sh  ==> To build all usecases
-5) $ ./fullrun.sh    ==> To run all usecases
+2) Fix/set  HSA_RUNTIME_PATH (usually /opt/hsa) and GCCINSTALLDIR (usr/local/hsagcc) in setenv.gcc
+3) Make sure okra lib found at $HSA_RUNTIME_PATH/lib/libokra_x86_64.so
+4) $ . ./setenv.gcc
+5) $ ./build.sh   ==> To build all usecases
+6) $ ./fullrun.sh ==> To run all usecases
+
+To run individual binaries (after build.sh above)
+-------------------------------------------------
+1) $ . ./setenv.gcc
+2) cd usecases/<usecase dir name>
+3) ./run.sh   ==> To run one usecase and compare against golden_output
+
+NOTE: Fortran testcase may fail due to missing libgfortran library 
+
 
 Expected Output:
 ----------------
