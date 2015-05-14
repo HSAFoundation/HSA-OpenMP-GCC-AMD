@@ -1,5 +1,5 @@
 GCCHSAIL=$(GCCINSTALLDIR)/bin/g++
-LDFLAGS=-L $(GCCINSTALLDIR)/lib64 -Wl,-rpath,$(GCCINSTALLDIR)/lib64  -ldl
+LDFLAGS=-L $(GCCINSTALLDIR)/lib64 -Wl,-rpath,$(GCCINSTALLDIR)/lib64  -ldl -L$(HSA_RUNTIME_PATH) -lhsa-runtime64 -lhsakmt
 CFLAGS=-lm -fopenmp -Wall $(OPTFLAGS)
 #CFLAGS=-lm -fopenmp -Wall -O3
 #CC = g++

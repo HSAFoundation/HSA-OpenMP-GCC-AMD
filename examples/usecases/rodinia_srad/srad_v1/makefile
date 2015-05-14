@@ -1,5 +1,5 @@
 GCCHSAIL=$(GCCINSTALLDIR)/bin/gcc
-LDFLAGS=-L $(GCCINSTALLDIR)/lib64 -Wl,-rpath,$(GCCINSTALLDIR)/lib64 -ldl
+LDFLAGS=-L $(GCCINSTALLDIR)/lib64 -Wl,-rpath,$(GCCINSTALLDIR)/lib64 -ldl -L$(HSA_RUNTIME_PATH) -lhsa-runtime64 -lhsakmt
 
 CFLAGS=-lm -fopenmp -Wall $(OPTFLAGS)
 

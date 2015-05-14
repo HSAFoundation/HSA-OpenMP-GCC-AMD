@@ -1,5 +1,5 @@
 GCCHSAIL=$(GCC_HSA)/bin/gcc
-LDFLAGS=-L $(GCC_HSA)/lib64 -Wl,-rpath,$(GCC_HSA)/lib64  
+LDFLAGS=-L $(GCC_HSA)/lib64 -Wl,-rpath,$(GCC_HSA)/lib64 -L$(HSA_LIBRARY_PATH) -lhsa-runtime64 -lhsakmt
 CFLAGS=-lm -fopenmp -Wall -O3
 all : matmul
 clean :
