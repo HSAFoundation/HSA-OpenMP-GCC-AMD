@@ -1,5 +1,5 @@
 GCCHSAIL=$(GCCINSTALLDIR)/bin/gfortran
-LDFLAGS=-L $(GCCINSTALLDIR)/lib64 -Wl,-rpath,$(GCCINSTALLDIR)/lib64  -lgfortran 
+LDFLAGS=-L $(GCCINSTALLDIR)/lib64 -Wl,-rpath,$(GCCINSTALLDIR)/lib64  -lgfortran  -L$(HSA_RUNTIME_PATH) -lhsa-runtime64 -lhsakmt
 CFLAGS=-lm -fopenmp -Wall -O3
 
 all : omp_veccopy 
