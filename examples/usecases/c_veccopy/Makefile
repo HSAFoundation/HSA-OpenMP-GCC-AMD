@@ -1,5 +1,5 @@
 GCCHSAIL=$(GCCINSTALLDIR)/bin/gcc
-LDFLAGS=-L $(GCCINSTALLDIR)/lib64 -Wl,-rpath,$(GCCINSTALLDIR)/lib64 
+LDFLAGS=-L $(GCCINSTALLDIR)/lib64 -Wl,-rpath,$(GCCINSTALLDIR)/lib64  -L$(HSA_RUNTIME_PATH) -lhsa-runtime64 -lhsakmt
 CFLAGS=-lm -fopenmp -Wall -O3 # Fail
 
 all : omp_veccopy
@@ -9,4 +9,3 @@ omp_veccopy.o :  omp_veccopy.c
 	$(GCCHSAIL) -c $(CFLAGS) $< 
 omp_veccopy : omp_veccopy.o 
 	$(GCCHSAIL) omp_veccopy.o $(CFLAGS) -o $@  $(LDFLAGS) 
-	~/HSAIL-Tools/libHSAIL/build_linux/hsailasm -disassemble omp_veccopy.o
