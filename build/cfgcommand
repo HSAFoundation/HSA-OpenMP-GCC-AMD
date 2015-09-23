@@ -1,0 +1,6 @@
+#!/bin/bash
+mkdir -p $HOME/gcc/build
+cd $HOME/gcc/build
+../src/configure --enable-offload-targets=hsa --with-hsa-runtime=/opt/hsa --disable-bootstrap --enable-languages=c,c++,fortran --prefix=/usr/local/hsagccver/hsagcc.228052C  --disable-multilib  | tee ../config.out
+make
+make install-stripped
