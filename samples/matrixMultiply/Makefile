@@ -1,12 +1,15 @@
-GCCHSAIL=$(GCC_HSA)/bin/gcc
-LDFLAGS=-L $(GCC_HSA)/lib64 -Wl,-rpath,$(GCC_HSA)/lib64 -L$(HSA_LIBRARY_PATH) -lhsa-runtime64 -lhsakmt
+GCCHSA=/usr/local/hsagcc
+HSART=/opt/hsa/lib
+GCCHSABIN=$(GCCHSA)/bin/gcc
+LDFLAGS=-L $(GCCHSA)/lib64 
 CFLAGS=-lm -fopenmp -Wall -O3
 all : matmul
 clean :
 	rm -rf *.o matmul test.output
-# GCC Specifics
 matmul.o :  matmul.c
-	$(GCCHSAIL) -c $(CFLAGS) $< 
+	$(GCCHSABIN) -c $(CFLAGS) $< 
 matmul : matmul.o 
-	$(GCCHSAIL) matmul.o $(CFLAGS) -o $@  $(LDFLAGS)
+	$(GCCHSABIN) matmul.o $(CFLAGS) -o $@  $(LDFLAGS)
 
+run: matmul
+	LD_LIBRARY_PATH=$(HSART):$(GCCHSA)/lib64; export LD_LIBRARY_PATH; ./matmul > test.output ; diff --brief test.output golden_output

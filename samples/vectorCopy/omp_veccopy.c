@@ -10,6 +10,7 @@ void printList(int *src, int *dst, int size) {
 }
 void veccpy(int *a, int *b, int n) {
    int j ;
+   #pragma omp target
    #pragma omp parallel for 
    for( j = 0; j<n;j++) {
       b[j] = a[j];

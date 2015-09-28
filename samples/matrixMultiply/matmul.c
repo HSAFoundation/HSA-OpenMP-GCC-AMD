@@ -18,6 +18,7 @@ int main()
     }
 
     // Do the matrix multiplication C <- C + A x B
+    #pragma omp target
     #pragma omp parallel for default(none) private(i,j,k) shared(a,b,c)
     for (i = 0; i < size; ++i) {
         for (j = 0; j < size; ++j) {

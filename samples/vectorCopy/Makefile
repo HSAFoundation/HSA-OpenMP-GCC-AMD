@@ -1,5 +1,6 @@
+GCC_HSA=/usr/local/hsagcc
 GCCHSAIL=$(GCC_HSA)/bin/gcc
-LDFLAGS=-L $(GCC_HSA)/lib64 -Wl,-rpath,$(GCC_HSA)/lib64 -L$(HSA_LIBRARY_PATH) -lhsa-runtime64 -lhsakmt
+LDFLAGS=-L $(GCC_HSA)/lib64 
 CFLAGS=-lm -fopenmp -Wall -O3 
 
 all : omp_veccopy
