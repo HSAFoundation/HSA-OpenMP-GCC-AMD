@@ -1,6 +1,29 @@
 #!/bin/bash
+#
+#  Commands to build hsagcc branch from scratch. 
+#
+#  Warnings: 
+#  1.  The GCC 6.0 HSA branch is in development, you could get a garbage build.   
+#      The builds we save in usr/local/hsagccver have some level of functionality. 
+#
+#  2.  This is short script but two commands take a very long time.
+#      I recommend you drag and drop these commands to your linux command prompt.
+#
+#  3.  GCC may be transitioning from svn to git.  Adjust accordingly.
+#
+#      Thank you for being patient. 
+#
+CURRENT_VERSION_NAME="228142"
 mkdir -p $HOME/gcc/build
+cd $HOME/gcc
+
+#  WARNING LONG COMMAND NEXT
+svn co svn://gcc.gnu.org/svn/gcc/branches/hsa src
 cd $HOME/gcc/build
-../src/configure --enable-offload-targets=hsa --with-hsa-runtime=/opt/hsa --disable-bootstrap --enable-languages=c,c++,fortran --prefix=/usr/local/hsagccver/hsagcc.228052C  --disable-multilib  | tee ../config.out
+../src/configure --enable-offload-targets=hsa --with-hsa-runtime=/opt/hsa --disable-bootstrap --enable-languages=c,c++,fortran --prefix=/usr/local/hsagccver/hsagcc.$CURRENT_VERSION_NAME --disable-multilib  | tee ../config.out
+
+#  WARNING LONG COMMAND NEXT
 make
-make install-stripped
+sudo mkdir -p /usr/local/hsagccver/hsagcc.$CURRENT_VERSION_NAME
+sudo make install-strip
+sudo ln -sf /usr/local/hsagccver/hsagcc.$CURRENT_VERSION_NAME /usr/local/hsagcc

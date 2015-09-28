@@ -1,29 +1,15 @@
 To build and run usecases
 -------------------------
-1) Untar hsagcc.tar in /usr/local/hsagcc
-   The directory structure will look like:
-     /usr/local/hsagcc/
-                   bin/
-                   include/
-                   lib/  
-                   lib32/  
-                   lib64/  
-                   libexec/
-                   share/
-2) Fix/set  HSA_RUNTIME_PATH (usually /opt/hsa) and GCCINSTALLDIR (usr/local/hsagcc) in setenv.gcc
-3) Make sure okra lib found at $HSA_RUNTIME_PATH/lib/libokra_x86_64.so
-4) $ . ./setenv.gcc
-5) $ ./build.sh   ==> To build all usecases
-6) $ ./fullrun.sh ==> To run all usecases
+1) Install compiler in /usr/local/hsagcc as described in ../build/README
+2) $ . ./setenv.gcc
+3) $ ./build.sh   ==> To build all usecases
+4) $ ./fullrun.sh ==> To run all usecases
 
 To run individual binaries (after build.sh above)
 -------------------------------------------------
 1) $ . ./setenv.gcc
 2) cd usecases/<usecase dir name>
 3) ./run.sh   ==> To run one usecase and compare against golden_output
-
-NOTE: Fortran testcase may fail due to missing libgfortran library 
-
 
 Expected Output:
 ----------------
@@ -44,11 +30,11 @@ Vector Copy (Brig from multiple files) - Passed
 
 Following tests are expected to fail(Compile time testcases)
 ************************************************************
-Rodinia Leukocyte      - Call to built-in malloc()
-Rodinia backprop       - Call to built-in exp()
-Rodinia myocyte        - Call to built-in pow()
-Rodinia pathfinder     - Missing support for globals (read only in Kernel)
-Rodinia hotspot        - Missing support for globals (read only in Kernel)
-Rodinia steamcluster   - Missing support for globals (read and write in Kernel)
-Rodinia particlefilter - Unsupported complex atomic synchronization
-GCC                    - Verified 30 different graceful exits of un-supported features
+Rodinia Leukocyte - Failed
+Rodinia backprop - Failed
+Rodinia myocyte - Failed
+Rodinia pathfinder - Failed
+Rodinia hotspot - Failed
+Rodinia steamcluster- Failed
+Rodinia particlefilter - Failed
+GCC (30)Negative testcases - Failed
