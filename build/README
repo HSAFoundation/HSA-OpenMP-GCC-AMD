@@ -4,11 +4,20 @@ This prebuilt version of the gcc 6.0 compiler for the HSA branch can be installe
    mkdir git
    cd git
    git clone https://github.com/HSAFoundatin/hsa-openmp-gcc-amd
-   sudo rsync -aC hsa-openmp-gcc-amd/usr/local /usr
+   sudo rsync -aHv  hsa-openmp-gcc-amd/usr/local/hsagccver /usr/local
+   sudo ln -sf /usr/local/hsagccver/hsagcc.XXXXX /usr/local/hsagcc
 
-The compiler will be installed at /usr/local/hsagcc
+The compiler will be installed at /usr/local/hsagcc.   
 In anticipation of future versions of this comiler, the directory /usr/local/hsagcc is a symbolic link
 to a build in /usr/local/hsagccver. Future builds will be added to the directory hsagccver and 
 the symbolic link will change so that the most recent version is visible from /usr/local/hsagcc.
 
+Change XXXXXX to the latest directory name in /usr/local/hsagccver.  For example, substitute hsagcc.XXXXX with hsagcc.228142C.
 
+
+After the first time you clone hsa-openmp-gcc-amd, use these commands when a new compiler version is available. 
+
+   cd git/hsa-openmp-gcc-amd
+   git pull
+   sudo rsync -aHv usr/local/hsagccver /usr/local
+   sudo ln -sf /usr/local/hsagccver/hsagcc.XXXXX /usr/local/hsagcc
