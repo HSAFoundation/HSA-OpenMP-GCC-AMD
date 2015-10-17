@@ -13,7 +13,7 @@
 #
 #      Thank you for being patient. 
 #
-CURRENT_VERSION_NAME="228142"
+CURRENT_VERSION_NAME="228920.strip"
 mkdir -p $HOME/gcc/build
 cd $HOME/gcc
 
