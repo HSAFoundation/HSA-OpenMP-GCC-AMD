@@ -1,4 +1,4 @@
-GCC_HSA=/usr/local/hsagcc
+GCC_HSA=/opt/rocm/gcc6
 GCCHSAIL=$(GCC_HSA)/bin/gcc
 LDFLAGS=-L $(GCC_HSA)/lib64 
 CFLAGS=-lm -fopenmp -Wall -O3 

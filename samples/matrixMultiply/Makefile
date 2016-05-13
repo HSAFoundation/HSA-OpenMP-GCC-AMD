@@ -1,5 +1,5 @@
-GCCHSA=/usr/local/hsagcc
-HSART=/opt/hsa/lib
+GCCHSA=/opt/rocm/gcc6
+HSART=/opt/rocm/hsa/lib
 GCCHSABIN=$(GCCHSA)/bin/gcc
 LDFLAGS=-L $(GCCHSA)/lib64 
 CFLAGS=-lm -fopenmp -Wall -O3

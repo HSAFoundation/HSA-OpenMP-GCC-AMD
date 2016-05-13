@@ -90,7 +90,6 @@ runTest( int argc, char** argv)
 {
     int max_rows, max_cols, penalty,idx, index;
     int *input_itemsets, *output_itemsets, *referrence;
-	int size;
 	int omp_num_threads;
 	
     

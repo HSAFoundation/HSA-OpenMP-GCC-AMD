@@ -18,8 +18,7 @@ int main()
     }
 
     // Do the matrix multiplication C <- C + A x B
-    #pragma omp target
-    #pragma omp parallel for default(none) private(i,j,k) shared(a,b,c)
+    #pragma omp target teams distribute parallel for collapse(2)
     for (i = 0; i < size; ++i) {
         for (j = 0; j < size; ++j) {
             for (k = 0; k < size; ++k) {

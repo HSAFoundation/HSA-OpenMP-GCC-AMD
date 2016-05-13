@@ -1,4 +1,4 @@
-export HSA_RUNTIME_PATH=/opt/hsa/lib
-export GCCINSTALLDIR=/usr/local/hsagcc
+export HSA_RUNTIME_PATH=/opt/rocm/hsa/lib
+export GCCINSTALLDIR=/opt/rocm/gcc6
 export OPTFLAGS=-O3
 export LD_LIBRARY_PATH=$HSA_RUNTIME_PATH:$GCCINSTALLDIR/lib64

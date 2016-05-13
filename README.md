@@ -1,12 +1,23 @@
 
-This repository is used to test OpenMP4.5 in the gcc6.0 development compiler for HSA systems.
-Since the development tree is somewhat volitile, we have built some versions of the compiler 
-that have some level of functionality.   These are stored in the directory usr/local/hsagccver.
-There is a symbolic link /usr/local/hsagcc to the most recent version. 
+This repository is used to test the expermental OpenMP4.5 in the gcc6 development compiler for HSA systems. This compiler only works for carrizo and kaveri APUs.   A future version will work with fiji discreet GPU cards. 
+
+## Install ROCM gcc6 compiler
+
+Since this is an experimental gcc compiler, it will not install into system directories, paths,  or libraries.  Your current gcc installation will not be affected.  All installation files will go into /opt/rocm/gcc6.  No links or PATH modification is done by this debian package.  Before installation of rocmgcc6, you must install ROCM.  See
+
+http://gpuopen.com/getting-started-with-boltzmann-components-platforms-installation/
+
+After you install ROCM, install rocmgcc6 as follows. 
+
+```
+cd packages/ubuntu
+dpkg -i *.deb
+```
+When this compiler supports discreet GPU cards, it will be available from the ROCM package manager for automatic installation with apt.  
 
 ## Simple Testing
 
-There are two sets of examples.  The smaller set is in the "samples" directory.   The larger set including some Rodinia benchmarks are located in the "examples" directory.  These examples will use the compiler installed at /usr/local/hsagcc
+There are two sets of examples.  The smaller set is in the "samples" directory.   The larger set including some Rodinia benchmarks are located in the "examples" directory.  These examples Makefiles or run scripts will use the compiler at /opt/rocm/gcc6. This is where the debian package installs the compiler.  
 
 ### Samples: 
 
@@ -38,13 +49,13 @@ svn checkout svn://gcc.gnu.org/svn/gcc/hsa src
 # Or to update the existing src directory use this command:  "cd src; svn update"
 mkdir -p ~/gcc/build
 cd ~/gcc/build
-../src/configure --enable-offload-targets=hsa --with-hsa-runtime=/opt/hsa --disable-bootstrap --enable-languages=c,c++,fortran --prefix=/usr/local/hsagcc  --disable-multilib 
+../src/configure --enable-offload-targets=hsa --with-hsa-runtime=/opt/rocm/hsa --with-hsa-kmt-lib=/opt/rocm/libhsakmt --disable-bootstrap --enable-languages=c,c++,fortran --prefix=/opt/rocm/gcc6  --without-isl --disable-multilib --with-system-zlib .. 
 make -j4 
 ```
 After a successful build, you can run the libgomp testsuite.
 Use these commands to test different directories in the testsuite. 
 ```
-export LD_LIBRARY_PATH=/opt/hsa/lib
+export LD_LIBRARY_PATH=/opt/rocm/hsa/lib
 export HSA_DEBUG=1
 cd ~/gcc/build
 make -k check-target-libgomp RUNTESTFLAGS="--directory=libgomp.c++"
@@ -52,9 +63,8 @@ make -k check-target-libgomp RUNTESTFLAGS="--directory=libgomp.fortran"
 make -k check-target-libgomp RUNTESTFLAGS="--directory='libgomp.c' c.exp=*" 
 ```
 
-To install the compiler in /usr/local/hsagcc, you can run this command:
+To install the compiler, you can run this command:
 ```
 cd ~/gcc/build
-sudo rm /usr/local/hsagcc
 sudo make install-strip
 ```
